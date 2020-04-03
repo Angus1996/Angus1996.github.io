@@ -1,0 +1,679 @@
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="基于深度学习的图像修复
+2006 年是深度学习走进许多人眼中的一年。加拿大多伦多大学Geoffrey Hinton教授在《Science》上发表了一篇文章《Deep belief networks》[1] 。从此一股关于深度学习(Deep ..." />
+    <meta name="keywords" content="深度学习,图像修复" />
+    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+    <title>Angus' s Blog</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+    <meta name="description" content="念念不忘，必有回响" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://angus1996.github.io//images/avatar.png?v=1585917582371" class="avatar">
+        </div>
+        <div class="sitename">Angus&#39; s Blog</div>
+        <span class="describtion" data-text='["念念不忘，必有回响"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>Contact</span>
+        
+        <a href="https://github.com/Angus1996" target="_blank"><i><img class="icon"
+                    src="https://angus1996.github.io//media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://angus1996.github.io//media/images/QQ.png" alt=""></i></a>
+        
+        
+        
+        
+        <a href="angus960222" target="_blank"><i><img class="icon"
+                    src="https://angus1996.github.io//media/images/wechat.png" alt=""></i></a>
+        
+        
+    </div>
+    <div id="qq" style="display:none">884816034</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/post/about" class="menubutton">
+            关于
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://angus1996.github.io//friends" class="menubutton">友链</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: Fog</div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/22/1996</div>
+    </div>
+</body>
+
+</html>
+<script src="https://angus1996.github.io//media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent) +
+                    '<mark>' + arr[i].slice(indexContent, indexContent + l) + '</mark>' +
+                    arr[i].slice(indexContent + l, indexContent + l + step));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2019-04-13</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 10 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://angus1996.github.io/tag/wieuF4Wewbb/" class="postlink">
+                        <i class="fa fa-tag"></i> 深度学习
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/QXdDXUsMD1s/" class="postlink">
+                        <i class="fa fa-tag"></i> 图像修复
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>基于深度学习的图像修复</h2>
+            </div>
+            <div class="text ">
+                <h1 id="基于深度学习的图像修复">基于深度学习的图像修复</h1>
+<p>2006 年是深度学习走进许多人眼中的一年。加拿大多伦多大学Geoffrey Hinton教授在《Science》上发表了一篇文章《Deep belief networks》[1] 。从此一股关于深度学习(Deep Learning, DL ) 在学术界和工业界被掀起。2012 年中旬，谷歌大脑项目引起了科学家们广泛关注。由斯坦福大学的机器学习教授吴恩达与大规模计算机系统领域的专家Jeff Dean 共同担任项目负责人，使用大规模并行计算平台进行算法部署和模型训练，构建了一个名为“深度神经网络”( DNN，Deep Neural Networks) 的模型。该模型在语音识别[2] 和图像识别[3] 等领域获得了巨大的成功。由此可见深度学习将给各个领域带来的新发展，在图像识别和语音识别领域使用深度神经网络架构的算法己经超过了原有业界最好的算法。深度学习在各个领域的突破开始让人考虑是否能给图像修复领域带来新的发展。将深度学习成功应用于图像修复的成功案例不断涌现。</p>
+<h2 id="基于cnn-的图像修复">基于CNN 的图像修复</h2>
+<h3 id="cnn简介">CNN简介</h3>
+<p>Hubel 等人在研究猫脑皮层神经元过程中发现独特的网络结构，并且实验证明该神经网络结构可以有效降低反馈神经网络的复杂度, 继而提出了卷积神经网络（Convolutional Neural Networks，CNN）[4] 。卷积神经网络是一种用于处理具有网络状拓扑结构数据的专用神经网络。从命名上看，该网络采用了卷积数学运算，并至少在其一个层中使用卷积代替一般的矩阵乘法。一种用于图像分类问题的卷积神经网络架构图如下图所示。</p>
+<figure data-type="image" tabindex="1"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/cnn.jpg" alt="" loading="lazy"></figure>
+<p>卷积神经网络主要由输入层、卷积层、池化层、全连接层和softmax 层构成。针对不同的任务网络结构设计也不尽相同。各层的主要功能和详细介绍如下所示：分别是输入层、卷积层、池化全连接层和SoftMax 层。<br>
+卷积神经网络以其局部权值共享的特殊结构在自然语言处理[5] 、医药发现[6] 甚至围棋人工智能程序[7] 中都有应用。卷积神经网络的布局非常接近于实际的生物的神经网络，参数共享减少了网络参数，另外一个优点则是多维输入向量的图像可以直接输入网络这一特点，使得特征提取自动化。</p>
+<h3 id="图像修复的应用">图像修复的应用</h3>
+<p>在CNN 的快速发展下，参考文献[8] 在2016 年就提出了一种基于CNN 的图像修复框架，如下图所示。<br>
+该算法需要使用两个网络，一个是内容生成网络，另一个是纹理生成网络。内容生成网络直接用于生成图像，推断缺失部分可能的内容。纹理生成网络用于增强内容网络的产出的纹理，具体则为将生成的补全图像和原始无缺失图像输入进纹理生成网络，在某一层feature_map 上计算损失，记为Loss NN。内容生成网络需要使用自己的数据进行训练，而纹理生成网络则使用已经训练好的VGG Net。</p>
+<figure data-type="image" tabindex="2"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/cnn_inpainting.png" alt="" loading="lazy"></figure>
+<p>Nvidia 公司在ECCV2018 上发表了一篇名为“Image Inpainting for Irregular Holes Using Partial Convolutions”的论文[9] ，使用“Partial Convolutions”进行图像修复。该模型可以很好地处理任何形状、大小、位置或距离图像边界任何距离的空白。以上的基于深度学习的图像修复方法不够好，因为丢失像素的输出必然取决于输入的值，而这些输入必须提供给神经网络，以找出丢失的像素。这就导致图像中出现诸如颜色差异或模糊之类的失真。</p>
+<p>为了解决这个问题，NVIDIA 团队开发了一种方法，确保丢失像素的输出不依赖于为这些像素提供的输入的值。这种方法使用一个“部分卷积”层，根据其对相应的接受域（receptive field）的有效性，对每个输出进行重新归一化（renormalization）。这种重新归一化可以确保输出值与每个接受域中缺失像素的值无关。该模型也是第一个在不规则形状的孔洞上展示深度学习图像修复模型效果的模型。修复效果如下图所示。</p>
+<figure data-type="image" tabindex="3"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/6.png" alt="" loading="lazy"></figure>
+<p>CNN 除了在普通图像的图像修复上有所应用，在高光谱图像的修复上也有所应用。参考文献[10] 在CNN 的基础上，同时引入残差学习、扩张卷积和多通道滤波，得到HSI-DeNet 网络，实现了去除HSI 中的混合噪声：随机、结构条带、死线等。HSI-DeNet 的网络结构如下图所示。</p>
+<figure data-type="image" tabindex="4"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/2.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/3.png" alt="" loading="lazy"></figure>
+<p>HSI-DeNet 网络的输入是三维的高光谱数据，经过网络训练后得到其噪声，然后使用残差学习策略，得到最终的干净图像。在网络中还使用到了扩张卷积和多通道滤波，使用扩张卷积可以在不增加参数的前提下，扩大感受野，从而能够利用更多的局部和非局部信息，多通道滤波则可以增强对光谱信息的表示能力。</p>
+<h2 id="基于gan-的图像修复">基于GAN 的图像修复</h2>
+<h3 id="gan简介">GAN简介</h3>
+<p>生成式对抗网络（GAN, Generative Adversarial Networks）是一种深度学习模型，很巧妙地将机器学习中的生成模型和对抗模型结合起来，是近年来复杂分布上无监督学习中最具影响力也最有效的方法之一。Goodfellow 等人于2014 年提出并给出了相应训练方法和基本框架[11] 。基本框架中包含至少两个模块：生<br>
+成模型模块（Generator）和判别模型模块（Discriminator）。通过这两个模块之间的互相博弈，从而使得生成模型可以学习到真实数据的某种分布，从而产生非常好的输出结果。GAN 的基本框图如下图所示。</p>
+<figure data-type="image" tabindex="6"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/GAN.jpg" alt="" loading="lazy"></figure>
+<h3 id="图像修复的应用-2">图像修复的应用</h3>
+<p>Yeh R A 等人的“Semantic Image Inpainting with Deep Generative Models”[12]论文，利用图像修复所需的环境信息和知觉信息，基于利用DCGAN 进行图像修复。环境信息即根据缺失区域的周围像素点的信息来推断出缺失区域的像素信息；而知觉信息即修复后的图像看起来是否自然，如人脸图像修复后是否还是一张人脸图像。该论文图像修复的主要步骤如图2-7所示。</p>
+<figure data-type="image" tabindex="7"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/xiufuzhuyaobuzou.png" alt="" loading="lazy"></figure>
+<p>Pathak 等人的“Context Encoders: Feature Learning by Inpainting”[13] ，将GAN和自编码器相结合，Encoder-Decoder 阶段用于学习图像特征和生成图像待修补区域对应的预测图，GAN 部分用于判断预测图来自训练集和预测集的可能性，当生成的预测图与真实图像在图像内容上达到一致，并且GAN 的判别器无法判断预测图是否来自训练集或预测集时，就认为网络模型参数达到了最优状态。其中的Context Encoder 的结构示意图如图2-8所示。</p>
+<figure data-type="image" tabindex="8"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/5.png" alt="" loading="lazy"></figure>
+<p>Ishikawa H 等人的“Globally and locally consistent image completion”[14] 论文中改变了GAN 的结构，将鉴别器（Discriminator）的数量扩展到两个，两个鉴别器分别关注图像的全局以及局部区域。在生成网络中作者还引入了空洞卷积(Dilated Conv) 的方法来提高卷积神经网络的感受野。全局鉴别器和局部鉴别器分别判断全局图像与局部图像是否自然逼真。网络结构如图2-9所示。</p>
+<figure data-type="image" tabindex="9"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/4.png" alt="" loading="lazy"></figure>
+<p>与Ishikawa H 等人引入多个鉴别器的想法一样，Yijun Li 等人在论文“Generative Face Completion”[15] 中同样引入了多个鉴别器，不过除此之外, 还引入了一个Parsing network。Parsing network 主要用于进一步完善缺失区域的生成图像的真实性。具体网络结构如图2-10所示。</p>
+<figure data-type="image" tabindex="10"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/7.png" alt="" loading="lazy"></figure>
+<h2 id="参考文献">参考文献</h2>
+<p>[1] HINTON G E, OSINDERO S, TEH Y-W. A fast learning algorithm for deep belief nets[J]. Neural computation, 2006, 18(7) : 1527 – 1554.<br>
+[2] YU D, SELTZER M L, LI J, et al. Feature learning in deep neural networks-studies on speech recognition tasks[J]. arXiv preprint arXiv:1301.3605, 2013.<br>
+[3] MAIRAL J. Sparse coding for machine learning, image processing and computer vision[D]. [S.l.] : Cachan, Ecole normale supérieure, 2010.<br>
+[4] HUBEL D H, WIESEL T N. Early exploration of the visual cortex.[J]. Neuron, 1998, 20(3) : 401.<br>
+[5] KIM Y. Convolutional neural networks for sentence classification[J]. arXiv preprint arXiv:1408.5882, 2014.<br>
+[6] WALLACH I, DZAMBA M, HEIFETS A. Atomnet: A deep convolutional neural network for bioactivity prediction in structure-based drug discovery[J]. arXiv preprint arXiv:1510.02855, 2015.</p>
+<p>[7] CLARK C, STORKEY A. Training deep convolutional neural networks to play go[C] // International Conference on Machine Learning. 2015 : 1766 – 1774.<br>
+[8] CHAO Y, XIN L, ZHE L, et al. High-Resolution Image Inpainting Using Multiscale Neural Patch Synthesis[J], 2016.<br>
+[9] LIU G, REDA F A, SHIH K, et al. Image Inpainting for Irregular Holes Using Partial Convolutions[J]. arXiv preprint arXiv:1804.07723, 2018.<br>
+[10] LI Y, JING H, XI Z, et al. Hyperspectral image super-resolution using deep convolutional neural network[J]. Neurocomputing, 2017 : S092523121730841X.<br>
+[11] GOODFELLOW I, POUGET-ABADIE J, MIRZA M, et al. Generative adversarial nets[C] // Advances in neural information processing systems. 2014 : 2672 – 2680.<br>
+[12] YEH R A, CHEN C, LIM T Y, et al. Semantic Image Inpainting with Deep Generative Models[J], 2016.<br>
+[13] PATHAK D, KRAHENBUHL P, DONAHUE J, et al. Context Encoders: Feature Learning by Inpainting[C] // Computer Vision and Pattern Recognition. 2016 : 2536 – 2544.<br>
+[14] ISHIKAWA H, ISHIKAWA H, ISHIKAWA H. Globally and locally consistent image completion[M]. [S.l.] : ACM, 2017 : 1 – 14.<br>
+[15] LI Y, LIU S, YANG J, et al. Generative Face Completion[J], 2017.</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://angus1996.github.io/post/RTMP、RTSP推流/">
+                    RTMP、RTSP推流
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://angus1996.github.io/post/Windows-Ubuntu双系统引导修复/">
+                    Windows+Ubuntu双系统引导修复
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li><a href="#%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%9B%BE%E5%83%8F%E4%BF%AE%E5%A4%8D">基于深度学习的图像修复</a>
+<ul>
+<li><a href="#%E5%9F%BA%E4%BA%8Ecnn-%E7%9A%84%E5%9B%BE%E5%83%8F%E4%BF%AE%E5%A4%8D">基于CNN 的图像修复</a>
+<ul>
+<li><a href="#cnn%E7%AE%80%E4%BB%8B">CNN简介</a></li>
+<li><a href="#%E5%9B%BE%E5%83%8F%E4%BF%AE%E5%A4%8D%E7%9A%84%E5%BA%94%E7%94%A8">图像修复的应用</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9F%BA%E4%BA%8Egan-%E7%9A%84%E5%9B%BE%E5%83%8F%E4%BF%AE%E5%A4%8D">基于GAN 的图像修复</a>
+<ul>
+<li><a href="#gan%E7%AE%80%E4%BB%8B">GAN简介</a></li>
+<li><a href="#%E5%9B%BE%E5%83%8F%E4%BF%AE%E5%A4%8D%E7%9A%84%E5%BA%94%E7%94%A8-2">图像修复的应用</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Angus&#39; s Blog&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://angus1996.github.io//friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2019-04-13</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 10 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://angus1996.github.io/tag/wieuF4Wewbb/" class="postlink">
+                        <i class="fa fa-tag"></i> 深度学习
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/QXdDXUsMD1s/" class="postlink">
+                        <i class="fa fa-tag"></i> 图像修复
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>基于深度学习的图像修复</h2>
+            </div>
+            <div class="text ">
+                <h1 id="基于深度学习的图像修复">基于深度学习的图像修复</h1>
+<p>2006 年是深度学习走进许多人眼中的一年。加拿大多伦多大学Geoffrey Hinton教授在《Science》上发表了一篇文章《Deep belief networks》[1] 。从此一股关于深度学习(Deep Learning, DL ) 在学术界和工业界被掀起。2012 年中旬，谷歌大脑项目引起了科学家们广泛关注。由斯坦福大学的机器学习教授吴恩达与大规模计算机系统领域的专家Jeff Dean 共同担任项目负责人，使用大规模并行计算平台进行算法部署和模型训练，构建了一个名为“深度神经网络”( DNN，Deep Neural Networks) 的模型。该模型在语音识别[2] 和图像识别[3] 等领域获得了巨大的成功。由此可见深度学习将给各个领域带来的新发展，在图像识别和语音识别领域使用深度神经网络架构的算法己经超过了原有业界最好的算法。深度学习在各个领域的突破开始让人考虑是否能给图像修复领域带来新的发展。将深度学习成功应用于图像修复的成功案例不断涌现。</p>
+<h2 id="基于cnn-的图像修复">基于CNN 的图像修复</h2>
+<h3 id="cnn简介">CNN简介</h3>
+<p>Hubel 等人在研究猫脑皮层神经元过程中发现独特的网络结构，并且实验证明该神经网络结构可以有效降低反馈神经网络的复杂度, 继而提出了卷积神经网络（Convolutional Neural Networks，CNN）[4] 。卷积神经网络是一种用于处理具有网络状拓扑结构数据的专用神经网络。从命名上看，该网络采用了卷积数学运算，并至少在其一个层中使用卷积代替一般的矩阵乘法。一种用于图像分类问题的卷积神经网络架构图如下图所示。</p>
+<figure data-type="image" tabindex="1"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/cnn.jpg" alt="" loading="lazy"></figure>
+<p>卷积神经网络主要由输入层、卷积层、池化层、全连接层和softmax 层构成。针对不同的任务网络结构设计也不尽相同。各层的主要功能和详细介绍如下所示：分别是输入层、卷积层、池化全连接层和SoftMax 层。<br>
+卷积神经网络以其局部权值共享的特殊结构在自然语言处理[5] 、医药发现[6] 甚至围棋人工智能程序[7] 中都有应用。卷积神经网络的布局非常接近于实际的生物的神经网络，参数共享减少了网络参数，另外一个优点则是多维输入向量的图像可以直接输入网络这一特点，使得特征提取自动化。</p>
+<h3 id="图像修复的应用">图像修复的应用</h3>
+<p>在CNN 的快速发展下，参考文献[8] 在2016 年就提出了一种基于CNN 的图像修复框架，如下图所示。<br>
+该算法需要使用两个网络，一个是内容生成网络，另一个是纹理生成网络。内容生成网络直接用于生成图像，推断缺失部分可能的内容。纹理生成网络用于增强内容网络的产出的纹理，具体则为将生成的补全图像和原始无缺失图像输入进纹理生成网络，在某一层feature_map 上计算损失，记为Loss NN。内容生成网络需要使用自己的数据进行训练，而纹理生成网络则使用已经训练好的VGG Net。</p>
+<figure data-type="image" tabindex="2"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/cnn_inpainting.png" alt="" loading="lazy"></figure>
+<p>Nvidia 公司在ECCV2018 上发表了一篇名为“Image Inpainting for Irregular Holes Using Partial Convolutions”的论文[9] ，使用“Partial Convolutions”进行图像修复。该模型可以很好地处理任何形状、大小、位置或距离图像边界任何距离的空白。以上的基于深度学习的图像修复方法不够好，因为丢失像素的输出必然取决于输入的值，而这些输入必须提供给神经网络，以找出丢失的像素。这就导致图像中出现诸如颜色差异或模糊之类的失真。</p>
+<p>为了解决这个问题，NVIDIA 团队开发了一种方法，确保丢失像素的输出不依赖于为这些像素提供的输入的值。这种方法使用一个“部分卷积”层，根据其对相应的接受域（receptive field）的有效性，对每个输出进行重新归一化（renormalization）。这种重新归一化可以确保输出值与每个接受域中缺失像素的值无关。该模型也是第一个在不规则形状的孔洞上展示深度学习图像修复模型效果的模型。修复效果如下图所示。</p>
+<figure data-type="image" tabindex="3"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/6.png" alt="" loading="lazy"></figure>
+<p>CNN 除了在普通图像的图像修复上有所应用，在高光谱图像的修复上也有所应用。参考文献[10] 在CNN 的基础上，同时引入残差学习、扩张卷积和多通道滤波，得到HSI-DeNet 网络，实现了去除HSI 中的混合噪声：随机、结构条带、死线等。HSI-DeNet 的网络结构如下图所示。</p>
+<figure data-type="image" tabindex="4"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/2.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/3.png" alt="" loading="lazy"></figure>
+<p>HSI-DeNet 网络的输入是三维的高光谱数据，经过网络训练后得到其噪声，然后使用残差学习策略，得到最终的干净图像。在网络中还使用到了扩张卷积和多通道滤波，使用扩张卷积可以在不增加参数的前提下，扩大感受野，从而能够利用更多的局部和非局部信息，多通道滤波则可以增强对光谱信息的表示能力。</p>
+<h2 id="基于gan-的图像修复">基于GAN 的图像修复</h2>
+<h3 id="gan简介">GAN简介</h3>
+<p>生成式对抗网络（GAN, Generative Adversarial Networks）是一种深度学习模型，很巧妙地将机器学习中的生成模型和对抗模型结合起来，是近年来复杂分布上无监督学习中最具影响力也最有效的方法之一。Goodfellow 等人于2014 年提出并给出了相应训练方法和基本框架[11] 。基本框架中包含至少两个模块：生<br>
+成模型模块（Generator）和判别模型模块（Discriminator）。通过这两个模块之间的互相博弈，从而使得生成模型可以学习到真实数据的某种分布，从而产生非常好的输出结果。GAN 的基本框图如下图所示。</p>
+<figure data-type="image" tabindex="6"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/GAN.jpg" alt="" loading="lazy"></figure>
+<h3 id="图像修复的应用-2">图像修复的应用</h3>
+<p>Yeh R A 等人的“Semantic Image Inpainting with Deep Generative Models”[12]论文，利用图像修复所需的环境信息和知觉信息，基于利用DCGAN 进行图像修复。环境信息即根据缺失区域的周围像素点的信息来推断出缺失区域的像素信息；而知觉信息即修复后的图像看起来是否自然，如人脸图像修复后是否还是一张人脸图像。该论文图像修复的主要步骤如图2-7所示。</p>
+<figure data-type="image" tabindex="7"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/xiufuzhuyaobuzou.png" alt="" loading="lazy"></figure>
+<p>Pathak 等人的“Context Encoders: Feature Learning by Inpainting”[13] ，将GAN和自编码器相结合，Encoder-Decoder 阶段用于学习图像特征和生成图像待修补区域对应的预测图，GAN 部分用于判断预测图来自训练集和预测集的可能性，当生成的预测图与真实图像在图像内容上达到一致，并且GAN 的判别器无法判断预测图是否来自训练集或预测集时，就认为网络模型参数达到了最优状态。其中的Context Encoder 的结构示意图如图2-8所示。</p>
+<figure data-type="image" tabindex="8"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/5.png" alt="" loading="lazy"></figure>
+<p>Ishikawa H 等人的“Globally and locally consistent image completion”[14] 论文中改变了GAN 的结构，将鉴别器（Discriminator）的数量扩展到两个，两个鉴别器分别关注图像的全局以及局部区域。在生成网络中作者还引入了空洞卷积(Dilated Conv) 的方法来提高卷积神经网络的感受野。全局鉴别器和局部鉴别器分别判断全局图像与局部图像是否自然逼真。网络结构如图2-9所示。</p>
+<figure data-type="image" tabindex="9"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/4.png" alt="" loading="lazy"></figure>
+<p>与Ishikawa H 等人引入多个鉴别器的想法一样，Yijun Li 等人在论文“Generative Face Completion”[15] 中同样引入了多个鉴别器，不过除此之外, 还引入了一个Parsing network。Parsing network 主要用于进一步完善缺失区域的生成图像的真实性。具体网络结构如图2-10所示。</p>
+<figure data-type="image" tabindex="10"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/7.png" alt="" loading="lazy"></figure>
+<h2 id="参考文献">参考文献</h2>
+<p>[1] HINTON G E, OSINDERO S, TEH Y-W. A fast learning algorithm for deep belief nets[J]. Neural computation, 2006, 18(7) : 1527 – 1554.<br>
+[2] YU D, SELTZER M L, LI J, et al. Feature learning in deep neural networks-studies on speech recognition tasks[J]. arXiv preprint arXiv:1301.3605, 2013.<br>
+[3] MAIRAL J. Sparse coding for machine learning, image processing and computer vision[D]. [S.l.] : Cachan, Ecole normale supérieure, 2010.<br>
+[4] HUBEL D H, WIESEL T N. Early exploration of the visual cortex.[J]. Neuron, 1998, 20(3) : 401.<br>
+[5] KIM Y. Convolutional neural networks for sentence classification[J]. arXiv preprint arXiv:1408.5882, 2014.<br>
+[6] WALLACH I, DZAMBA M, HEIFETS A. Atomnet: A deep convolutional neural network for bioactivity prediction in structure-based drug discovery[J]. arXiv preprint arXiv:1510.02855, 2015.</p>
+<p>[7] CLARK C, STORKEY A. Training deep convolutional neural networks to play go[C] // International Conference on Machine Learning. 2015 : 1766 – 1774.<br>
+[8] CHAO Y, XIN L, ZHE L, et al. High-Resolution Image Inpainting Using Multiscale Neural Patch Synthesis[J], 2016.<br>
+[9] LIU G, REDA F A, SHIH K, et al. Image Inpainting for Irregular Holes Using Partial Convolutions[J]. arXiv preprint arXiv:1804.07723, 2018.<br>
+[10] LI Y, JING H, XI Z, et al. Hyperspectral image super-resolution using deep convolutional neural network[J]. Neurocomputing, 2017 : S092523121730841X.<br>
+[11] GOODFELLOW I, POUGET-ABADIE J, MIRZA M, et al. Generative adversarial nets[C] // Advances in neural information processing systems. 2014 : 2672 – 2680.<br>
+[12] YEH R A, CHEN C, LIM T Y, et al. Semantic Image Inpainting with Deep Generative Models[J], 2016.<br>
+[13] PATHAK D, KRAHENBUHL P, DONAHUE J, et al. Context Encoders: Feature Learning by Inpainting[C] // Computer Vision and Pattern Recognition. 2016 : 2536 – 2544.<br>
+[14] ISHIKAWA H, ISHIKAWA H, ISHIKAWA H. Globally and locally consistent image completion[M]. [S.l.] : ACM, 2017 : 1 – 14.<br>
+[15] LI Y, LIU S, YANG J, et al. Generative Face Completion[J], 2017.</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://angus1996.github.io/post/RTMP、RTSP推流/">
+                    RTMP、RTSP推流
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://angus1996.github.io/post/Windows-Ubuntu双系统引导修复/">
+                    Windows+Ubuntu双系统引导修复
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://angus1996.github.io//media/js/post.js"></script>
+
+<script src="https://l2dwidget.js.org//lib/L2Dwidget.min.js"></script>
+<script src="https://angus1996.github.io//media/js/live2d.js"></script>

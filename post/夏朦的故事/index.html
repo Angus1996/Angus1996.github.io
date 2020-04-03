@@ -1,0 +1,591 @@
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="​        快十年了，我们都改变了很多！
+​        今天在自习室看到一个女生的侧脸，不是惊艳的美好，只是分外的熟悉。我想起了小学六年级的一个同桌。
+​         那时候的老师十分严厉，体罚这一说似乎还没有被社会提出来，老..." />
+    <meta name="keywords" content="回忆,笑容,生活" />
+    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+    <title>Angus' s Blog</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+    <meta name="description" content="念念不忘，必有回响" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://angus1996.github.io//images/avatar.png?v=1585917582371" class="avatar">
+        </div>
+        <div class="sitename">Angus&#39; s Blog</div>
+        <span class="describtion" data-text='["念念不忘，必有回响"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>Contact</span>
+        
+        <a href="https://github.com/Angus1996" target="_blank"><i><img class="icon"
+                    src="https://angus1996.github.io//media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://angus1996.github.io//media/images/QQ.png" alt=""></i></a>
+        
+        
+        
+        
+        <a href="angus960222" target="_blank"><i><img class="icon"
+                    src="https://angus1996.github.io//media/images/wechat.png" alt=""></i></a>
+        
+        
+    </div>
+    <div id="qq" style="display:none">884816034</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/post/about" class="menubutton">
+            关于
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://angus1996.github.io//friends" class="menubutton">友链</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: Fog</div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/22/1996</div>
+    </div>
+</body>
+
+</html>
+<script src="https://angus1996.github.io//media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent) +
+                    '<mark>' + arr[i].slice(indexContent, indexContent + l) + '</mark>' +
+                    arr[i].slice(indexContent + l, indexContent + l + step));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2017-04-24</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 4 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://angus1996.github.io/tag/pV6NGWA8rFJ/" class="postlink">
+                        <i class="fa fa-tag"></i> 回忆
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/89H6h71AWgX/" class="postlink">
+                        <i class="fa fa-tag"></i> 笑容
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/ad1YKEMHqQE/" class="postlink">
+                        <i class="fa fa-tag"></i> 生活
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>夏朦的故事</h2>
+            </div>
+            <div class="text ">
+                <p>​        快十年了，我们都改变了很多！</p>
+<p>​        今天在自习室看到一个女生的侧脸，不是惊艳的美好，只是分外的熟悉。我想起了小学六年级的一个同桌。</p>
+<p>​         那时候的老师十分严厉，体罚这一说似乎还没有被社会提出来，老师打人是十分平常的事。家长呢，本着孩子不打不成才的观点，对于老师对自己孩子的打骂，也并没有一点反抗意识。2007年秋季到2008年夏季，一条教鞭窜起了师生之间的共同记忆。那时候的教鞭是用白色的包装带做的，好多根包装带叠在一起，再用透明胶粘起来。一条不太硬也不太软、打起人来却很疼的教鞭就完成了。不知道是哪路大罗神仙想出来这种主意。从四大发明开始，可能中国人中从来不缺能发明东西的人。</p>
+<p>​        记忆中，她是被班主任——一个矮胖女人用教鞭打过最多的人之一。印象中有一次她的头发都被班主任揪着要把她拖出教室，班主任口中喊着“滚回去，上什么学，什么都不会！”那个时候，不会似乎成了一种罪过，会被判刑。审判的是老师，执行的也是老师，老师似乎变得十分厉害，一人兼职好多角色。即使老师在办公室叫来了她的母亲，也并没有因为母亲在场而减弱了气势，倒像是来了一个一同讨伐她的帮手。</p>
+<p>​        即使在那样的日子里，她依然会笑。笑得很灿烂，很美好。一如那揪不断的头发，坚韧、坚强。我不懂为什么是这样，虽然她是我的同桌，可是我却不敢问！因为那段日子里我俨然是老师的得力助手，白色的教鞭也经常被我握在手里，“煞是威风”。成绩好而成为“上层人”，成绩差而被口诛笔伐，这是老师心里的标准。</p>
+<p>​        虽然并不是每个老师都会像班主任那般肆无忌惮，可是每个老师“恨铁不成钢”的总会多少带点这种习惯。</p>
+<p>​        前年过年去超市买年货，看见了她，依旧是那副脸庞，身材却纤细了，也长高了。她在那里做导购员，我不知道是兼职还是固定职业，我一年也不会逛几次。也没有上前打招呼，横在我们两个中间的是那条白色的教鞭和她那灿烂的笑容。</p>
+<p>​        我也曾看过许多小时候被老师严重体罚过的同学，慢慢的同社会的地痞流氓开始鬼混，烟酒成了生活的必须。初中有一次，一个小学同学在路边朝我吐了一口烟气，似乎在向我耀武扬威。”你这可怜的人还泡在读书的苦海里，看我多潇洒。”面对那口烟我不知如何应对，只好匆匆走开，本来也是好几年没说过话的同学了。堕落成了生活痛苦的唯一出口，那是他们找到的答案。</p>
+<p>​         虽然我也曾堕落过，见过许多“大哥”，小学跟着班里的老大混。可那样的日子却只是一时快乐，却能给自己伤害的人带来阴影，给爱自己的人带来失望。很庆幸我并没有在那条路上走得太远。</p>
+<p>​        生活从来不是胜者为王，败者为寇！堕落也不会是痛苦的真正出口。真正失败的是失去了生活下去的信心与勇气。真正的出口是笑着面对生活给予的一切。即使面对生活中的狂风暴雨，依旧能笑得出来。那是她——夏朦的故事。</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://angus1996.github.io/post/大三暑假实习——ionic应用开发/">
+                    大三暑假实习——ionic应用开发
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://angus1996.github.io/post/屏幕前的孤独玩家/">
+                    屏幕前的孤独玩家
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Angus&#39; s Blog&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://angus1996.github.io//friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2017-04-24</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 4 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://angus1996.github.io/tag/pV6NGWA8rFJ/" class="postlink">
+                        <i class="fa fa-tag"></i> 回忆
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/89H6h71AWgX/" class="postlink">
+                        <i class="fa fa-tag"></i> 笑容
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/ad1YKEMHqQE/" class="postlink">
+                        <i class="fa fa-tag"></i> 生活
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>夏朦的故事</h2>
+            </div>
+            <div class="text ">
+                <p>​        快十年了，我们都改变了很多！</p>
+<p>​        今天在自习室看到一个女生的侧脸，不是惊艳的美好，只是分外的熟悉。我想起了小学六年级的一个同桌。</p>
+<p>​         那时候的老师十分严厉，体罚这一说似乎还没有被社会提出来，老师打人是十分平常的事。家长呢，本着孩子不打不成才的观点，对于老师对自己孩子的打骂，也并没有一点反抗意识。2007年秋季到2008年夏季，一条教鞭窜起了师生之间的共同记忆。那时候的教鞭是用白色的包装带做的，好多根包装带叠在一起，再用透明胶粘起来。一条不太硬也不太软、打起人来却很疼的教鞭就完成了。不知道是哪路大罗神仙想出来这种主意。从四大发明开始，可能中国人中从来不缺能发明东西的人。</p>
+<p>​        记忆中，她是被班主任——一个矮胖女人用教鞭打过最多的人之一。印象中有一次她的头发都被班主任揪着要把她拖出教室，班主任口中喊着“滚回去，上什么学，什么都不会！”那个时候，不会似乎成了一种罪过，会被判刑。审判的是老师，执行的也是老师，老师似乎变得十分厉害，一人兼职好多角色。即使老师在办公室叫来了她的母亲，也并没有因为母亲在场而减弱了气势，倒像是来了一个一同讨伐她的帮手。</p>
+<p>​        即使在那样的日子里，她依然会笑。笑得很灿烂，很美好。一如那揪不断的头发，坚韧、坚强。我不懂为什么是这样，虽然她是我的同桌，可是我却不敢问！因为那段日子里我俨然是老师的得力助手，白色的教鞭也经常被我握在手里，“煞是威风”。成绩好而成为“上层人”，成绩差而被口诛笔伐，这是老师心里的标准。</p>
+<p>​        虽然并不是每个老师都会像班主任那般肆无忌惮，可是每个老师“恨铁不成钢”的总会多少带点这种习惯。</p>
+<p>​        前年过年去超市买年货，看见了她，依旧是那副脸庞，身材却纤细了，也长高了。她在那里做导购员，我不知道是兼职还是固定职业，我一年也不会逛几次。也没有上前打招呼，横在我们两个中间的是那条白色的教鞭和她那灿烂的笑容。</p>
+<p>​        我也曾看过许多小时候被老师严重体罚过的同学，慢慢的同社会的地痞流氓开始鬼混，烟酒成了生活的必须。初中有一次，一个小学同学在路边朝我吐了一口烟气，似乎在向我耀武扬威。”你这可怜的人还泡在读书的苦海里，看我多潇洒。”面对那口烟我不知如何应对，只好匆匆走开，本来也是好几年没说过话的同学了。堕落成了生活痛苦的唯一出口，那是他们找到的答案。</p>
+<p>​         虽然我也曾堕落过，见过许多“大哥”，小学跟着班里的老大混。可那样的日子却只是一时快乐，却能给自己伤害的人带来阴影，给爱自己的人带来失望。很庆幸我并没有在那条路上走得太远。</p>
+<p>​        生活从来不是胜者为王，败者为寇！堕落也不会是痛苦的真正出口。真正失败的是失去了生活下去的信心与勇气。真正的出口是笑着面对生活给予的一切。即使面对生活中的狂风暴雨，依旧能笑得出来。那是她——夏朦的故事。</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://angus1996.github.io/post/大三暑假实习——ionic应用开发/">
+                    大三暑假实习——ionic应用开发
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://angus1996.github.io/post/屏幕前的孤独玩家/">
+                    屏幕前的孤独玩家
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://angus1996.github.io//media/js/post.js"></script>
+
+<script src="https://l2dwidget.js.org//lib/L2Dwidget.min.js"></script>
+<script src="https://angus1996.github.io//media/js/live2d.js"></script>

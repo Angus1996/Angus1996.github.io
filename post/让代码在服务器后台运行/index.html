@@ -1,0 +1,648 @@
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="让代码在服务器后台运行
+之前使用服务器进行深度学习训练的时候，如果中途断网，就与服务器失去了连接，跑了一半的代码也就会停止下来。同时在ssh连接会话中，如果不新建一个连接会话，就无法再做其他事情了。这些问题让人头疼，让人思考将代码放到服务器..." />
+    <meta name="keywords" content="screen,服务器,后台" />
+    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+    <title>Angus' s Blog</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+    <meta name="description" content="念念不忘，必有回响" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://angus1996.github.io//images/avatar.png?v=1585917582371" class="avatar">
+        </div>
+        <div class="sitename">Angus&#39; s Blog</div>
+        <span class="describtion" data-text='["念念不忘，必有回响"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>Contact</span>
+        
+        <a href="https://github.com/Angus1996" target="_blank"><i><img class="icon"
+                    src="https://angus1996.github.io//media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://angus1996.github.io//media/images/QQ.png" alt=""></i></a>
+        
+        
+        
+        
+        <a href="angus960222" target="_blank"><i><img class="icon"
+                    src="https://angus1996.github.io//media/images/wechat.png" alt=""></i></a>
+        
+        
+    </div>
+    <div id="qq" style="display:none">884816034</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/post/about" class="menubutton">
+            关于
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://angus1996.github.io//friends" class="menubutton">友链</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: Fog</div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/22/1996</div>
+    </div>
+</body>
+
+</html>
+<script src="https://angus1996.github.io//media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent) +
+                    '<mark>' + arr[i].slice(indexContent, indexContent + l) + '</mark>' +
+                    arr[i].slice(indexContent + l, indexContent + l + step));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2019-05-27</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 3 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://angus1996.github.io/tag/aBFG10PqmhT/" class="postlink">
+                        <i class="fa fa-tag"></i> screen
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/1z1DrHIU6Hz/" class="postlink">
+                        <i class="fa fa-tag"></i> 服务器
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/w6PFQUOZXRt/" class="postlink">
+                        <i class="fa fa-tag"></i> 后台
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>让代码在服务器后台运行</h2>
+            </div>
+            <div class="text ">
+                <h1 id="让代码在服务器后台运行">让代码在服务器后台运行</h1>
+<p>之前使用服务器进行深度学习训练的时候，如果中途断网，就与服务器失去了连接，跑了一半的代码也就会停止下来。同时在ssh连接会话中，如果不新建一个连接会话，就无法再做其他事情了。这些问题让人头疼，让人思考将代码放到服务器后台运行。</p>
+<h2 id="1-nohup">1. nohup</h2>
+<p>最直接简单的做法是:</p>
+<pre><code>$nohup python test.py
+</code></pre>
+<p>这样，代码就会在服务器后台执行。终端无法看到运行过程以及结果输出。期间运行的结果会生成一个nohup.out的文件中保存。使用文本编辑器打开就能看到。</p>
+<h2 id="2-screen">2. screen</h2>
+<p>安装screen:</p>
+<pre><code>$sudo apt install screen
+</code></pre>
+<p>用这个可以为不同的任务开不同的窗口，窗口之间是可以切换的，同时，窗口和会话连接基本上没有任何区别，这样就可以在开一个连接的时候同时干多件事情，并且在终端看得到运行过程的同时而不会由于断网而导致代码停止运行。</p>
+<p>新建窗口：</p>
+<pre><code>$screen -S name # 创建一个名字为name的窗口
+</code></pre>
+<p>新建完就会自动跳到新建的窗口，可以在这个窗口执行训练命令。</p>
+<p>当你不想呆在这个窗口时，你可以通过快捷键Ctrl+a+D断开这个窗口的连接而回到连接会话界面（如果新建的窗口什么都没做，Ctrl+A+D即为退出结束窗口）。</p>
+<p>查看存在的窗口：</p>
+<pre><code class="language-text">$screen -S ls #可以查看已创建的所有窗口
+</code></pre>
+<p>执行上述指令后可以看到窗口的名字和id，Detached说明窗口是断开的，再次强调这里的断开是指没有让他显示，其对应的任务是在后台执行的。</p>
+<p>如果想看其中一个窗口任务的执行状态，可以通过如下指令：</p>
+<pre><code class="language-text">$screen -r test #重新连接到test窗口，显示其运行过程,如果只有一个窗口，可以screen -r即可
+</code></pre>
+<p>如果想直接停止某个窗口任务的运行，可以直接通过杀死id的方式</p>
+<pre><code class="language-text">$kill 28475 #终止ssd窗口对应任务的运行，同时杀死该窗口
+</code></pre>
+<pre><code> Ctrl + A，D       #暂离当前会话
+ Ctrl + A，C       #在当前screen会话中创建一个子会话
+ Ctrl + A，W       #子会话列表
+ Ctrl + A，P       #上一个子会话
+ Ctrl + A，N       #下一个子会话
+ Ctrl + A，0-9     #在第0窗口至第9子会话间切换
+</code></pre>
+<p>总结一下，screen可以实现代码在后台运行时的可视化，同时，能在开一个会话连接时创建多个窗口处理不同的任务。用起来也很方便。</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://angus1996.github.io/post/微信小程序Button设置成透明情况下，Button显示文字颜色无法改变解决/">
+                    微信小程序Button设置成透明情况下，Button显示文字颜色无法改变解决
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://angus1996.github.io/post/命令行释放GPU显存/">
+                    命令行释放GPU显存
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li><a href="#%E8%AE%A9%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C">让代码在服务器后台运行</a>
+<ul>
+<li><a href="#1-nohup">1. nohup</a></li>
+<li><a href="#2-screen">2. screen</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Angus&#39; s Blog&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://angus1996.github.io//friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2019-05-27</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 3 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://angus1996.github.io/tag/aBFG10PqmhT/" class="postlink">
+                        <i class="fa fa-tag"></i> screen
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/1z1DrHIU6Hz/" class="postlink">
+                        <i class="fa fa-tag"></i> 服务器
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/w6PFQUOZXRt/" class="postlink">
+                        <i class="fa fa-tag"></i> 后台
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>让代码在服务器后台运行</h2>
+            </div>
+            <div class="text ">
+                <h1 id="让代码在服务器后台运行">让代码在服务器后台运行</h1>
+<p>之前使用服务器进行深度学习训练的时候，如果中途断网，就与服务器失去了连接，跑了一半的代码也就会停止下来。同时在ssh连接会话中，如果不新建一个连接会话，就无法再做其他事情了。这些问题让人头疼，让人思考将代码放到服务器后台运行。</p>
+<h2 id="1-nohup">1. nohup</h2>
+<p>最直接简单的做法是:</p>
+<pre><code>$nohup python test.py
+</code></pre>
+<p>这样，代码就会在服务器后台执行。终端无法看到运行过程以及结果输出。期间运行的结果会生成一个nohup.out的文件中保存。使用文本编辑器打开就能看到。</p>
+<h2 id="2-screen">2. screen</h2>
+<p>安装screen:</p>
+<pre><code>$sudo apt install screen
+</code></pre>
+<p>用这个可以为不同的任务开不同的窗口，窗口之间是可以切换的，同时，窗口和会话连接基本上没有任何区别，这样就可以在开一个连接的时候同时干多件事情，并且在终端看得到运行过程的同时而不会由于断网而导致代码停止运行。</p>
+<p>新建窗口：</p>
+<pre><code>$screen -S name # 创建一个名字为name的窗口
+</code></pre>
+<p>新建完就会自动跳到新建的窗口，可以在这个窗口执行训练命令。</p>
+<p>当你不想呆在这个窗口时，你可以通过快捷键Ctrl+a+D断开这个窗口的连接而回到连接会话界面（如果新建的窗口什么都没做，Ctrl+A+D即为退出结束窗口）。</p>
+<p>查看存在的窗口：</p>
+<pre><code class="language-text">$screen -S ls #可以查看已创建的所有窗口
+</code></pre>
+<p>执行上述指令后可以看到窗口的名字和id，Detached说明窗口是断开的，再次强调这里的断开是指没有让他显示，其对应的任务是在后台执行的。</p>
+<p>如果想看其中一个窗口任务的执行状态，可以通过如下指令：</p>
+<pre><code class="language-text">$screen -r test #重新连接到test窗口，显示其运行过程,如果只有一个窗口，可以screen -r即可
+</code></pre>
+<p>如果想直接停止某个窗口任务的运行，可以直接通过杀死id的方式</p>
+<pre><code class="language-text">$kill 28475 #终止ssd窗口对应任务的运行，同时杀死该窗口
+</code></pre>
+<pre><code> Ctrl + A，D       #暂离当前会话
+ Ctrl + A，C       #在当前screen会话中创建一个子会话
+ Ctrl + A，W       #子会话列表
+ Ctrl + A，P       #上一个子会话
+ Ctrl + A，N       #下一个子会话
+ Ctrl + A，0-9     #在第0窗口至第9子会话间切换
+</code></pre>
+<p>总结一下，screen可以实现代码在后台运行时的可视化，同时，能在开一个会话连接时创建多个窗口处理不同的任务。用起来也很方便。</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://angus1996.github.io/post/微信小程序Button设置成透明情况下，Button显示文字颜色无法改变解决/">
+                    微信小程序Button设置成透明情况下，Button显示文字颜色无法改变解决
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://angus1996.github.io/post/命令行释放GPU显存/">
+                    命令行释放GPU显存
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://angus1996.github.io//media/js/post.js"></script>
+
+<script src="https://l2dwidget.js.org//lib/L2Dwidget.min.js"></script>
+<script src="https://angus1996.github.io//media/js/live2d.js"></script>

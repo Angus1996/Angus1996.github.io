@@ -1,0 +1,746 @@
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="chapter3
+函数(function)：一个有名称的语句序列，可以进行某种有用的操作。函数可以接收或者不接收参数，可以返回或不返回结果。
+函数定义(function definition)：一个用来创建新函数的语句，指定函数的名称、参数..." />
+    <meta name="keywords" content="Python,术语,Think Python" />
+    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+    <title>Angus' s Blog</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+    <meta name="description" content="念念不忘，必有回响" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://angus1996.github.io//images/avatar.png?v=1585917582371" class="avatar">
+        </div>
+        <div class="sitename">Angus&#39; s Blog</div>
+        <span class="describtion" data-text='["念念不忘，必有回响"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>Contact</span>
+        
+        <a href="https://github.com/Angus1996" target="_blank"><i><img class="icon"
+                    src="https://angus1996.github.io//media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://angus1996.github.io//media/images/QQ.png" alt=""></i></a>
+        
+        
+        
+        
+        <a href="angus960222" target="_blank"><i><img class="icon"
+                    src="https://angus1996.github.io//media/images/wechat.png" alt=""></i></a>
+        
+        
+    </div>
+    <div id="qq" style="display:none">884816034</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/post/about" class="menubutton">
+            关于
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://angus1996.github.io//friends" class="menubutton">友链</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: Fog</div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/22/1996</div>
+    </div>
+</body>
+
+</html>
+<script src="https://angus1996.github.io//media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent) +
+                    '<mark>' + arr[i].slice(indexContent, indexContent + l) + '</mark>' +
+                    arr[i].slice(indexContent + l, indexContent + l + step));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2018-09-05</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 7 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://angus1996.github.io/tag/nWCm9yF-frw/" class="postlink">
+                        <i class="fa fa-tag"></i> Python
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/c3aYjvsStVA/" class="postlink">
+                        <i class="fa fa-tag"></i> 术语
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/_rhv_R84TYd/" class="postlink">
+                        <i class="fa fa-tag"></i> Think Python
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>Think Python术语表（二）</h2>
+            </div>
+            <div class="text ">
+                <h1 id="chapter3">chapter3</h1>
+<p>函数(function)：一个有名称的语句序列，可以进行某种有用的操作。函数可以接收或者不接收参数，可以返回或不返回结果。</p>
+<p>函数定义(function definition)：一个用来创建新函数的语句，指定函数的名称、参数以及它所包含的语句序列。</p>
+<p>函数对象(function object)：函数定义所创建的值。函数名可以用作变量来引用一个函数对象。</p>
+<p>函数头(header)：函数定义的第一行。</p>
+<p>函数体(body)：函数定义内的语句序列。</p>
+<p>形参(parameter)：函数内使用的用来引用作为实参传入的值的名称。</p>
+<p>函数调用(function call)：运行一个函数的语句。它由函数名称和括号中的参数列表组成。</p>
+<p>实参(argument)：当函数调用时，提供给它的值。这个值会被赋值给对应的形参。</p>
+<p>局部变量(local variable)：函数内定义的变量。局部变量只能在函数体内使用。</p>
+<p>返回值(return value)：函数的结果。如果函数被当作表达式调用，返回值就是表达式的值。</p>
+<p>有返回值函数(fruitful function)：返回一个值的函数。</p>
+<p>无返回值函数(void function)：总是返回None的函数。</p>
+<p>None：由无返回值函数返回的一个特殊值。</p>
+<p>模块(module)：一个包含相关函数以及其他定义的集合的文件。</p>
+<p>import语句(import statement)：读入一个模块文件，并创建一个模块对象的语句。</p>
+<p>模块对象(module object)：使用import 语句时创建的对象，提供对模块定义的值的访问。</p>
+<p>句点表示法(dot notation)：调用另一个模块中的函数的语法，使用模块名加上一个句点符号，再加上函数名。</p>
+<p>组合(composition)：使用一个表达式作为更大的表达式的一部分，或者使用语句作为更大的语句的一部分。</p>
+<p>执行流程(flow of execution)：语句执行的顺序。</p>
+<p>栈图(stack diagram)：函数栈的图形表达形式，也展示它们的变量，以及这些变量引用的值。</p>
+<p>图框(frame)：栈图中的一个图框，表达一个函数调用。它包含了局部变量以及函数的参数。</p>
+<p>回溯(traceback)：当异常发生时，打印出正在执行的函数栈。</p>
+<h1 id="chapter4">chapter4</h1>
+<p>方法(method)：与某个对象相关联的一个函数，使用句点表达式调用。</p>
+<p>循环(loop)：程序中的一个片段，可以重复运行。</p>
+<p>封装(encapsulation)：将一组语句转换成函数定义的过程。</p>
+<p>泛化(generalization)：将一些不必要的具体值(如一个数字)替换为合适的通用参数或变量的过程。</p>
+<p>关键词参数(keyword argument)：调用函数时，附带了参数名称（作为一个&quot;关键词&quot;来使用）的参数。</p>
+<p>接口(interface)：描述函数如何使用的说明。包括函数的名称，以及形参与返回值的说明。</p>
+<p>重构(refactoring)：修改代码并改善函数的接口以及代码质量的过程。</p>
+<p>开发计划(development plan)：写程序的过程。</p>
+<p>文档字符串(docstring)：在函数定义开始处出现的用于说明函数接口的字符串。</p>
+<p>前置条件(precondition)：在函数调用开始前应当满足的条件。</p>
+<p>后置条件(postcondition)：在函数调用结束后应当满足的条件。</p>
+<h1 id="chapter5">chapter5</h1>
+<p>向下取整除法(floor division)：用//表示的操作符，用于将两个数相除，并对结果进行向下取整（靠近0取整），得到整数结果。</p>
+<p>求模操作符(modulus operator)：用%表示的操作符，用于两个整数，返回两个整数相除的余数。</p>
+<p>布尔表达式(boolean expression)：一种表达式，其值是True或False.</p>
+<p>关系操作符(relational operator)：用来表示两个操作对象的比较关系的操作符，如下之一：==、!=、&gt;、&lt;、&gt;=和&lt;=。</p>
+<p>逻辑操作符(logical operator)：用来组合两个布尔表达式的操作符，有三个：and、or 和 not。</p>
+<p>条件语句(conditional statement)：依照某些条件控制程序执行流程的语句。</p>
+<p>条件(condition)：条件语句中的布尔表达式，由他决定执行哪一个分支。</p>
+<p>复合语句(compound statement)：一个包含语句头和语句体的语句。语句头以冒号(:)结尾。语句体相对语句头缩进一层。</p>
+<p>分支(branch)：条件语句中的一个可能性分支语句段。</p>
+<p>条件链语句(chained condition)：一种包含多个分支的条件语句。</p>
+<p>嵌套条件语句(nested condition)：在其他条件语句的分支中出现的条件语句。</p>
+<p>返回语句(return statement)：导致一个函数立即结束并返回到调用者的语句。</p>
+<p>递归(recursion)：在当前函数中调用自己的过程。</p>
+<p>基准情形(base case)：递归函数中的一个条件分支，里面不会再继续递归调用。</p>
+<p>无限递归(infinite recursion)：没有基准情形的递归，或者永远无法达到基准情形的分支的递归调用。最终，这种无限递归会导致运行时错误。</p>
+<h1 id="chapter6">Chapter6</h1>
+<p>临时变量(temporary variable)：在复杂计算中用于保存中间计算值的变量。</p>
+<p>无效代码(dead code)：程序中的一些代码，用于不可能运行。常常是写在return语句之后的代码。</p>
+<p>增量开发(incremental development)：一个程序开发计划，但在最终版本中不需要的代码。</p>
+<p>脚手架代码(scaffolding)：在开发过程中使用的，但在最终版本中不需要的代码。</p>
+<p>守卫(guardian)：一个编程模式。使用条件语句来检查并处理可能产生错误的情形。</p>
+<h1 id="chapter7">chapter7</h1>
+<p>重新赋值(reassignment)：对一个已经存在的变量赋予一个新值。</p>
+<p>更新(update)：一种赋值操作，新值依赖于变量的旧值。</p>
+<p>初始化(initialization)：一种赋值操作，给变量一个初始的值，以后可以进行更新。</p>
+<p>增量(increment)：一种更新操作，增加变量的值（常常是加1）。</p>
+<p>减量(decrement)：一种更新操作，减少变量的值。</p>
+<p>迭代(iteration)：使用递归函数调用或者循环来重复执行一组语句。</p>
+<p>无限循环(infinite loop)：一个终止条件永远无法满足的循环。</p>
+<p>算法(algorithm)：解决一类问题的通用过程。</p>
+<h1 id="chapter8">chapter8</h1>
+<p>对象(object)：变量可以引用的一种事物。</p>
+<p>序列(sequence)：一个有序的值的集合，其中每个使用一个下标来定位。</p>
+<p>项(item)：序列中的一个值，</p>
+<p>下标(index)：用于在序列中选择元素的整数值。例如，可以用于在字符串中选取字符。在Python中下标从0开始。</p>
+<p>切片(slice)：字符串的一部分，通过一个下标范围来定位。</p>
+<p>空字符串(empty string)：没有字符，长度为0的字符串，使用一对引号来表示。</p>
+<p>不可变(immutable)：序列的一种属性，表示它的元素是不可改变的。</p>
+<p>遍历(traverse)：迭代访问序列中的每一个元素，并对每个元素进行相似的操作。</p>
+<p>搜索(search)：一种遍历的模式，当找到它想要的元素时停止。</p>
+<p>计数器(counter)：一种用来计数的变量，通常初始化为0，后来会递增。</p>
+<p>方法调用(invocation)：调用一个方法的语句。</p>
+<p>可选参数(optional argument)：函数或方法中，并不必须有的参数。</p>
+<h1 id="chapter9">chapter9</h1>
+<p>文件对象(file object)：用来表示一个打开的文件的值。</p>
+<p>将问题回归到已解决问题(reduction to a previously solved problem)：通过把问题表述为已经解决的某个问题的特例解决问题的一种方式。</p>
+<p>特殊情形(special case)：一种不典型或者不明显（因此更可能没有正确处理）的测试用例。</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://angus1996.github.io/post/Think-Python术语表（三）/">
+                    Think Python术语表（三)
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://angus1996.github.io/post/Think-Python-术语表/">
+                    Think Python 术语表（一）
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li><a href="#chapter3">chapter3</a></li>
+<li><a href="#chapter4">chapter4</a></li>
+<li><a href="#chapter5">chapter5</a></li>
+<li><a href="#chapter6">Chapter6</a></li>
+<li><a href="#chapter7">chapter7</a></li>
+<li><a href="#chapter8">chapter8</a></li>
+<li><a href="#chapter9">chapter9</a></li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Angus&#39; s Blog&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://angus1996.github.io//friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2018-09-05</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 7 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://angus1996.github.io/tag/nWCm9yF-frw/" class="postlink">
+                        <i class="fa fa-tag"></i> Python
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/c3aYjvsStVA/" class="postlink">
+                        <i class="fa fa-tag"></i> 术语
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/_rhv_R84TYd/" class="postlink">
+                        <i class="fa fa-tag"></i> Think Python
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>Think Python术语表（二）</h2>
+            </div>
+            <div class="text ">
+                <h1 id="chapter3">chapter3</h1>
+<p>函数(function)：一个有名称的语句序列，可以进行某种有用的操作。函数可以接收或者不接收参数，可以返回或不返回结果。</p>
+<p>函数定义(function definition)：一个用来创建新函数的语句，指定函数的名称、参数以及它所包含的语句序列。</p>
+<p>函数对象(function object)：函数定义所创建的值。函数名可以用作变量来引用一个函数对象。</p>
+<p>函数头(header)：函数定义的第一行。</p>
+<p>函数体(body)：函数定义内的语句序列。</p>
+<p>形参(parameter)：函数内使用的用来引用作为实参传入的值的名称。</p>
+<p>函数调用(function call)：运行一个函数的语句。它由函数名称和括号中的参数列表组成。</p>
+<p>实参(argument)：当函数调用时，提供给它的值。这个值会被赋值给对应的形参。</p>
+<p>局部变量(local variable)：函数内定义的变量。局部变量只能在函数体内使用。</p>
+<p>返回值(return value)：函数的结果。如果函数被当作表达式调用，返回值就是表达式的值。</p>
+<p>有返回值函数(fruitful function)：返回一个值的函数。</p>
+<p>无返回值函数(void function)：总是返回None的函数。</p>
+<p>None：由无返回值函数返回的一个特殊值。</p>
+<p>模块(module)：一个包含相关函数以及其他定义的集合的文件。</p>
+<p>import语句(import statement)：读入一个模块文件，并创建一个模块对象的语句。</p>
+<p>模块对象(module object)：使用import 语句时创建的对象，提供对模块定义的值的访问。</p>
+<p>句点表示法(dot notation)：调用另一个模块中的函数的语法，使用模块名加上一个句点符号，再加上函数名。</p>
+<p>组合(composition)：使用一个表达式作为更大的表达式的一部分，或者使用语句作为更大的语句的一部分。</p>
+<p>执行流程(flow of execution)：语句执行的顺序。</p>
+<p>栈图(stack diagram)：函数栈的图形表达形式，也展示它们的变量，以及这些变量引用的值。</p>
+<p>图框(frame)：栈图中的一个图框，表达一个函数调用。它包含了局部变量以及函数的参数。</p>
+<p>回溯(traceback)：当异常发生时，打印出正在执行的函数栈。</p>
+<h1 id="chapter4">chapter4</h1>
+<p>方法(method)：与某个对象相关联的一个函数，使用句点表达式调用。</p>
+<p>循环(loop)：程序中的一个片段，可以重复运行。</p>
+<p>封装(encapsulation)：将一组语句转换成函数定义的过程。</p>
+<p>泛化(generalization)：将一些不必要的具体值(如一个数字)替换为合适的通用参数或变量的过程。</p>
+<p>关键词参数(keyword argument)：调用函数时，附带了参数名称（作为一个&quot;关键词&quot;来使用）的参数。</p>
+<p>接口(interface)：描述函数如何使用的说明。包括函数的名称，以及形参与返回值的说明。</p>
+<p>重构(refactoring)：修改代码并改善函数的接口以及代码质量的过程。</p>
+<p>开发计划(development plan)：写程序的过程。</p>
+<p>文档字符串(docstring)：在函数定义开始处出现的用于说明函数接口的字符串。</p>
+<p>前置条件(precondition)：在函数调用开始前应当满足的条件。</p>
+<p>后置条件(postcondition)：在函数调用结束后应当满足的条件。</p>
+<h1 id="chapter5">chapter5</h1>
+<p>向下取整除法(floor division)：用//表示的操作符，用于将两个数相除，并对结果进行向下取整（靠近0取整），得到整数结果。</p>
+<p>求模操作符(modulus operator)：用%表示的操作符，用于两个整数，返回两个整数相除的余数。</p>
+<p>布尔表达式(boolean expression)：一种表达式，其值是True或False.</p>
+<p>关系操作符(relational operator)：用来表示两个操作对象的比较关系的操作符，如下之一：==、!=、&gt;、&lt;、&gt;=和&lt;=。</p>
+<p>逻辑操作符(logical operator)：用来组合两个布尔表达式的操作符，有三个：and、or 和 not。</p>
+<p>条件语句(conditional statement)：依照某些条件控制程序执行流程的语句。</p>
+<p>条件(condition)：条件语句中的布尔表达式，由他决定执行哪一个分支。</p>
+<p>复合语句(compound statement)：一个包含语句头和语句体的语句。语句头以冒号(:)结尾。语句体相对语句头缩进一层。</p>
+<p>分支(branch)：条件语句中的一个可能性分支语句段。</p>
+<p>条件链语句(chained condition)：一种包含多个分支的条件语句。</p>
+<p>嵌套条件语句(nested condition)：在其他条件语句的分支中出现的条件语句。</p>
+<p>返回语句(return statement)：导致一个函数立即结束并返回到调用者的语句。</p>
+<p>递归(recursion)：在当前函数中调用自己的过程。</p>
+<p>基准情形(base case)：递归函数中的一个条件分支，里面不会再继续递归调用。</p>
+<p>无限递归(infinite recursion)：没有基准情形的递归，或者永远无法达到基准情形的分支的递归调用。最终，这种无限递归会导致运行时错误。</p>
+<h1 id="chapter6">Chapter6</h1>
+<p>临时变量(temporary variable)：在复杂计算中用于保存中间计算值的变量。</p>
+<p>无效代码(dead code)：程序中的一些代码，用于不可能运行。常常是写在return语句之后的代码。</p>
+<p>增量开发(incremental development)：一个程序开发计划，但在最终版本中不需要的代码。</p>
+<p>脚手架代码(scaffolding)：在开发过程中使用的，但在最终版本中不需要的代码。</p>
+<p>守卫(guardian)：一个编程模式。使用条件语句来检查并处理可能产生错误的情形。</p>
+<h1 id="chapter7">chapter7</h1>
+<p>重新赋值(reassignment)：对一个已经存在的变量赋予一个新值。</p>
+<p>更新(update)：一种赋值操作，新值依赖于变量的旧值。</p>
+<p>初始化(initialization)：一种赋值操作，给变量一个初始的值，以后可以进行更新。</p>
+<p>增量(increment)：一种更新操作，增加变量的值（常常是加1）。</p>
+<p>减量(decrement)：一种更新操作，减少变量的值。</p>
+<p>迭代(iteration)：使用递归函数调用或者循环来重复执行一组语句。</p>
+<p>无限循环(infinite loop)：一个终止条件永远无法满足的循环。</p>
+<p>算法(algorithm)：解决一类问题的通用过程。</p>
+<h1 id="chapter8">chapter8</h1>
+<p>对象(object)：变量可以引用的一种事物。</p>
+<p>序列(sequence)：一个有序的值的集合，其中每个使用一个下标来定位。</p>
+<p>项(item)：序列中的一个值，</p>
+<p>下标(index)：用于在序列中选择元素的整数值。例如，可以用于在字符串中选取字符。在Python中下标从0开始。</p>
+<p>切片(slice)：字符串的一部分，通过一个下标范围来定位。</p>
+<p>空字符串(empty string)：没有字符，长度为0的字符串，使用一对引号来表示。</p>
+<p>不可变(immutable)：序列的一种属性，表示它的元素是不可改变的。</p>
+<p>遍历(traverse)：迭代访问序列中的每一个元素，并对每个元素进行相似的操作。</p>
+<p>搜索(search)：一种遍历的模式，当找到它想要的元素时停止。</p>
+<p>计数器(counter)：一种用来计数的变量，通常初始化为0，后来会递增。</p>
+<p>方法调用(invocation)：调用一个方法的语句。</p>
+<p>可选参数(optional argument)：函数或方法中，并不必须有的参数。</p>
+<h1 id="chapter9">chapter9</h1>
+<p>文件对象(file object)：用来表示一个打开的文件的值。</p>
+<p>将问题回归到已解决问题(reduction to a previously solved problem)：通过把问题表述为已经解决的某个问题的特例解决问题的一种方式。</p>
+<p>特殊情形(special case)：一种不典型或者不明显（因此更可能没有正确处理）的测试用例。</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://angus1996.github.io/post/Think-Python术语表（三）/">
+                    Think Python术语表（三)
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://angus1996.github.io/post/Think-Python-术语表/">
+                    Think Python 术语表（一）
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://angus1996.github.io//media/js/post.js"></script>
+
+<script src="https://l2dwidget.js.org//lib/L2Dwidget.min.js"></script>
+<script src="https://angus1996.github.io//media/js/live2d.js"></script>

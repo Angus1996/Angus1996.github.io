@@ -1,0 +1,907 @@
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="✨ 背景介绍
+CCF大数据与计算智能大赛（CCF Big Data &amp; Computing Intelligence Contest，简称CCF BDCI）是由中国计算机学会大数据专家委员会于2013年创办的国际化智能算法、创新应用..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+    <title>Angus' s Blog</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+    <meta name="description" content="念念不忘，必有回响" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://angus1996.github.io//images/avatar.png?v=1585917582371" class="avatar">
+        </div>
+        <div class="sitename">Angus&#39; s Blog</div>
+        <span class="describtion" data-text='["念念不忘，必有回响"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>Contact</span>
+        
+        <a href="https://github.com/Angus1996" target="_blank"><i><img class="icon"
+                    src="https://angus1996.github.io//media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://angus1996.github.io//media/images/QQ.png" alt=""></i></a>
+        
+        
+        
+        
+        <a href="angus960222" target="_blank"><i><img class="icon"
+                    src="https://angus1996.github.io//media/images/wechat.png" alt=""></i></a>
+        
+        
+    </div>
+    <div id="qq" style="display:none">884816034</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/post/about" class="menubutton">
+            关于
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://angus1996.github.io//friends" class="menubutton">友链</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: Fog</div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/22/1996</div>
+    </div>
+</body>
+
+</html>
+<script src="https://angus1996.github.io//media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent) +
+                    '<mark>' + arr[i].slice(indexContent, indexContent + l) + '</mark>' +
+                    arr[i].slice(indexContent + l, indexContent + l + step));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-04-03</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 9 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>CCF BDCI 2019 多人种人脸识别比赛总结</h2>
+            </div>
+            <div class="text ">
+                <h2 id="背景介绍">✨ 背景介绍</h2>
+<p>CCF大数据与计算智能大赛（CCF Big Data &amp; Computing Intelligence Contest，简称<strong>CCF BDCI</strong>）是由中国计算机学会大数据专家委员会于2013年创办的国际化智能算法、创新应用和大数据系统大型挑战赛事，是全球大数据与人工智能领域最具影响力的活动之一。2019 CCF大数据与计算智能大赛由教育部高等学校计算机类专业教学指导委员会、国家自然科学基金委员会信息科学部及郑州市人民政府指导，中国计算机学会主办，郑州市郑东新区管理委员会、教育部易班发展中心、CCF大数据专家委员会、大洋洲计算机研究与教育协会、数联众创承办。</p>
+<p><strong>人脸识别</strong>已经在生活中快速的普及开来， 但是人脸识别技术在实际应用中遇到的一个广为人知的问题是它在不同人种的性能有差异。 如何快速的提升<strong>人脸识别系统在不同人种的性能</strong>， 是一个实用的人脸识别算法应该考虑的问题。</p>
+<p>😄<strong>赛题任务</strong>：本次比赛目标是提高人脸识别模型在不同人种上面的性能。以人脸1：1 比对为场景， 参赛队需要同时优化人脸识别模型在不同人种上的性能，提高在低误识率情况下不同人种的通过率。</p>
+<h2 id="️-our-method">⭐️ Our method</h2>
+<p>虽然比赛提供了训练数据，但是也是允许参赛队伍使用额外公开数据集和预训练模型的。只是使用的时候要在讨论群里艾特所有管理员告知所使用的数据集和预训练模型，并附上链接。</p>
+<p>在此次比赛中，尝试过训练模型，奈何显卡不行，而实验室的服务器也是满负荷在跑实验，所以自然是很难重新训练模型了。</p>
+<p>所以我们的主要工作就是使用预训练模型并且对图像进行预处理来提高识别准确率🙈。</p>
+<p><strong>预训练模型</strong> 我们在比赛中用的预训练模型和大多数队伍使用的预训练模型一样，是<strong>insightface</strong>，模型的Github仓库 http://insightface.ai/ ，主页 http://insightface.ai/ 。这应该目前人脸识别准确率最高的开源模型了。在主页中也提供了一些简单的Demo。</p>
+<p><strong>预处理方法</strong> 此次比赛有四种人种，而人种的差别主要在肤色在一块。我首先使用了自动gamma校正，然后使用了图像锐化，最后将图像送了预训练的 Insightface 模型获取特征向量。</p>
+<p>🐶 <strong>值得注意和参考的小trick：</strong></p>
+<p>1️⃣ 优先使用 <strong>insightface.app.FaceAnalysis()</strong> 的分析人脸方法，这个会将人脸关键点提取校正，还会有一些预处理。而 <strong>insightface.model_zoo.get_model('arcface_r100_v1')</strong> 则是直接对图像获取特征向量了。比如我就是优先使用前者，而对于测试集中无法识别人脸的图像才使用后者。</p>
+<p>2️⃣ 一个在讨论区公开分享的trick。先是获取两张图像比较a-b的相似度sim1，然后或者水平翻转后的图像flipa-flipb的相似度sim2，最后计算sim1和sim2的平均值也可以提高得分。</p>
+<h2 id="️具体的代码">⚡️具体的代码：</h2>
+<p><strong>generate_mat.py</strong></p>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+# @Time     :2019/10/31 9:30
+# @Author   :AngusCai
+import os
+import cv2
+import numpy as np
+import time
+import scipy.io as sio
+from tqdm import tqdm
+import math
+import insightface
+from PIL import Image, ImageEnhance
+
+model1 = insightface.app.FaceAnalysis()
+model1.prepare(ctx_id=0, nms=0.4)
+
+model2 = insightface.model_zoo.get_model('arcface_r100_v1')
+model2.prepare(ctx_id=0)
+
+
+def gamma_trans(img, gamma):  # gamma函数处理
+    &quot;&quot;&quot;
+    :param img:  待处理图像
+    :param gamma:  伽马变换的幂
+    :return:   经过伽马变换的图像
+    &quot;&quot;&quot;
+    gamma_table = [np.power(x / 255.0, gamma) * 255.0 for x in range(256)]  # 建立映射表
+    gamma_table = np.round(np.array(gamma_table)).astype(np.uint8)  # 颜色值为整数
+    return cv2.LUT(img, gamma_table)  # 图片颜色查表。另外可以根据光强（颜色）均匀化原则设计自适应算法。
+
+
+def get_features(test_list, flip=False):
+    &quot;&quot;&quot;
+    :param test_list:  测试图像路径列表
+    :param flip:  是否水平翻转图像的flag
+    :return:   测试图像的特征矩阵
+    &quot;&quot;&quot;
+    progress_bar = tqdm(total=len(test_list))
+    for idx, img_path in enumerate(test_list):
+        progress_bar.update(1)
+        # 自动gamma校正
+        img_gray = cv2.imread(img_path, 0)  # 灰度图读取，用于计算gamma值
+        img = cv2.imread(img_path)  # 原图读取
+        mean = np.mean(img_gray)
+        gamma_val = math.log10(0.5) / math.log10(mean / 255)  # 公式计算gamma
+        image_gamma_correct = gamma_trans(img, gamma_val)  # gamma变换
+        if flip:
+            tmp_result = cv2.flip(image_gamma_correct, 1, dst=None)
+        else:
+            tmp_result = image_gamma_correct
+        # 图像锐化
+        image = Image.fromarray(cv2.cvtColor(tmp_result, cv2.COLOR_BGR2RGB))
+        im_30 = ImageEnhance.Sharpness(image).enhance(3.0)
+        result = cv2.cvtColor(np.asarray(im_30), cv2.COLOR_RGB2BGR)
+
+        # 尝试获取预处理图像中的人脸，检测到人脸，用model1获取特征编码向量；没有检测到人脸就用model2 获取特征编码向量
+        try:
+            face = model1.get(result)  # insightface.app.FaceAnalysis有比较好的人脸对齐实现
+            if idx == 0:
+                feature = face[0].embedding.reshape(1, 512)
+                features = feature
+            else:
+                feature = face[0].embedding.reshape(1, 512)
+                features = np.concatenate((features, feature), axis=0)
+        except:
+            print(img_path)
+            image = cv2.resize(result, (112, 112))
+            feature = model2.get_embedding(image)
+            features = np.concatenate((features, feature), axis=0)
+
+    return features
+
+
+def get_feature_dict(test_list, features):
+    &quot;&quot;&quot;
+    :param test_list:  测试图像路径列表
+    :param features:   测试图像的特征矩阵
+    :return:  测试图像路径与特征的字典， key=path, value=feature
+    &quot;&quot;&quot;
+    fe_dict = {}
+    for i, each in enumerate(test_list):
+        fe_dict[each] = features[i]
+    return fe_dict
+
+
+data_dir = '../Baseline/test/'  # test_set dir
+name_list = [name for name in os.listdir(data_dir)]
+img_paths = [data_dir + name for name in os.listdir(data_dir)]
+print('Images number:', len(img_paths))
+
+# 生成没有水平翻转的图像向量mat
+s = time.time()
+features = get_features(img_paths, flip=False)
+t = time.time() - s
+print(features.shape)
+print('total time is {}, average time is {}'.format(t, t / len(img_paths)))
+
+fe_dict = get_feature_dict(name_list, features)
+print('Output number:', len(fe_dict))
+sio.savemat('gamma_sharp3_arcface_app_embedding_test.mat', fe_dict)
+
+# 生成水平翻转后图像的向量mat
+s = time.time()
+features2 = get_features(img_paths, flip=True)
+t = time.time() - s
+print(features2.shape)
+print('total time is {}, average time is {}'.format(t, t / len(img_paths)))
+
+fe_dict2 = get_feature_dict(name_list, features2)
+print('Output number:', len(fe_dict2))
+sio.savemat('gamma_flip_sharp3_arcface_app_embedding_test.mat', fe_dict2)
+
+</code></pre>
+<p><strong>generate_csv.py</strong></p>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+# @Time     :2019/10/31 9:30
+# @Author   :AngusCai
+import numpy as np
+import scipy.io as sio
+from tqdm import tqdm
+
+
+def cosine_metric(x1, x2):
+    return np.dot(x1, x2) / (np.linalg.norm(x1) * np.linalg.norm(x2))
+
+
+def get_sim(x1, x2):
+    return np.dot(x1, x2.T)
+
+
+gamma_sharp3_features = sio.loadmat('gamma_sharp3_arcface_app_embedding_test.mat')
+print('Loaded gamma_sharp3_features mat')
+gamma_flip_sharp3_features = sio.loadmat('gamma_flip_sharp3_arcface_app_embedding_test.mat')
+print('Loaded gamma_flip_sharp3_features mat')
+sample_sub = open('./submission_template.csv', 'r')  # sample submission file dir
+sub = open('[angusaha]_results.csv', 'w', encoding='utf-8')
+print('Loaded CSV')
+
+lines = sample_sub.readlines()  # 获取提交示例中的所有行
+
+progress_bar = tqdm(total=len(lines))
+for line in lines:
+    pair = line.split(',')[0]  # 获取逗号分隔的要比较的图像对
+
+    sub.write(pair + ',')  # 将要比较的图像对写入结果文件
+    a, b = pair.split(':')  # 图像对用冒号分隔，获取单独两个的img_name
+
+    sim1 = cosine_metric(gamma_sharp3_features[a][0], gamma_sharp3_features[b][0])  # a和b的特征向量的余弦相似度
+    sim2 = cosine_metric(gamma_flip_sharp3_features[a][0], gamma_flip_sharp3_features[b][0])  # flip-a和flip-b的特征向量的余弦相似度
+    sim = (sim1 + sim2) / 2.  # 计算两个相似度之间的平均值
+    score = '%.5f' % sim    # 结果保留5位小数
+    sub.write(score + '\n')
+    progress_bar.update(1)
+sample_sub.close()
+sub.close()
+
+</code></pre>
+<h2 id="名次">🏆 名次</h2>
+<p>这是第一次自己完全参与、正规参加算法比赛。能进入复赛拿到现在的名次还是很开心的。初赛A榜24/897，初赛B榜26/897，复赛A榜23/39，复赛B榜26/39。</p>
+<figure data-type="image" tabindex="1"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-11/2019111801.PNG" alt="初赛A榜" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-11/2019111802.PNG" alt="初赛B榜" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-11/2019111803.PNG" alt="复赛A榜" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-11/2019111804.PNG" alt="复赛B榜" loading="lazy"></figure>
+<h2 id="可能有用的思路">🎆 可能有用的思路</h2>
+<p>在复赛开始后的几天，无意间搜索多人种人脸识别的时候，发现了一篇发表在ICCV 2019的多人种人脸识别方法。作者是北邮的一位老师，他们研究团队还构建了一份用于公平比较各种算法在多人种人脸识别领域的准确度的多人种数据集RFW👍 。 数据集主页 http://www.whdeng.cn/RFW/index.html 。论文 [1] Mei Wang, Weihong Deng, Jiani Hu, Xunqiang Tao, Yaohai Huang. <strong>Racial Faces in-the-Wild: Reducing Racial Bias by Information Maximization Adaptation Network.</strong> ICCV 2019 。</p>
+<p>论文中所使用的迁移学习，在多人种人脸识别这一块确实是表现出色，论文中比较对象也包括了此次比赛被广泛使用的Insightface模型。</p>
+<p>或许迁移学习可能就是解决这个赛题的最佳方法，这篇论文的方法值得参考，只是还貌似没有开源代码和训练好的模型。</p>
+
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://angus1996.github.io/post/LabelSmoothing介绍/">
+                    LabelSmoothing介绍
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E8%83%8C%E6%99%AF%E4%BB%8B%E7%BB%8D">✨ 背景介绍</a></li>
+<li><a href="#%EF%B8%8F-our-method">⭐️ Our method</a></li>
+<li><a href="#%EF%B8%8F%E5%85%B7%E4%BD%93%E7%9A%84%E4%BB%A3%E7%A0%81">⚡️具体的代码：</a></li>
+<li><a href="#%E5%90%8D%E6%AC%A1">🏆 名次</a></li>
+<li><a href="#%E5%8F%AF%E8%83%BD%E6%9C%89%E7%94%A8%E7%9A%84%E6%80%9D%E8%B7%AF">🎆 可能有用的思路</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Angus&#39; s Blog&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://angus1996.github.io//friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2020-04-03</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 9 min read</div>
+                <div class="posttag">
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>CCF BDCI 2019 多人种人脸识别比赛总结</h2>
+            </div>
+            <div class="text ">
+                <h2 id="背景介绍">✨ 背景介绍</h2>
+<p>CCF大数据与计算智能大赛（CCF Big Data &amp; Computing Intelligence Contest，简称<strong>CCF BDCI</strong>）是由中国计算机学会大数据专家委员会于2013年创办的国际化智能算法、创新应用和大数据系统大型挑战赛事，是全球大数据与人工智能领域最具影响力的活动之一。2019 CCF大数据与计算智能大赛由教育部高等学校计算机类专业教学指导委员会、国家自然科学基金委员会信息科学部及郑州市人民政府指导，中国计算机学会主办，郑州市郑东新区管理委员会、教育部易班发展中心、CCF大数据专家委员会、大洋洲计算机研究与教育协会、数联众创承办。</p>
+<p><strong>人脸识别</strong>已经在生活中快速的普及开来， 但是人脸识别技术在实际应用中遇到的一个广为人知的问题是它在不同人种的性能有差异。 如何快速的提升<strong>人脸识别系统在不同人种的性能</strong>， 是一个实用的人脸识别算法应该考虑的问题。</p>
+<p>😄<strong>赛题任务</strong>：本次比赛目标是提高人脸识别模型在不同人种上面的性能。以人脸1：1 比对为场景， 参赛队需要同时优化人脸识别模型在不同人种上的性能，提高在低误识率情况下不同人种的通过率。</p>
+<h2 id="️-our-method">⭐️ Our method</h2>
+<p>虽然比赛提供了训练数据，但是也是允许参赛队伍使用额外公开数据集和预训练模型的。只是使用的时候要在讨论群里艾特所有管理员告知所使用的数据集和预训练模型，并附上链接。</p>
+<p>在此次比赛中，尝试过训练模型，奈何显卡不行，而实验室的服务器也是满负荷在跑实验，所以自然是很难重新训练模型了。</p>
+<p>所以我们的主要工作就是使用预训练模型并且对图像进行预处理来提高识别准确率🙈。</p>
+<p><strong>预训练模型</strong> 我们在比赛中用的预训练模型和大多数队伍使用的预训练模型一样，是<strong>insightface</strong>，模型的Github仓库 http://insightface.ai/ ，主页 http://insightface.ai/ 。这应该目前人脸识别准确率最高的开源模型了。在主页中也提供了一些简单的Demo。</p>
+<p><strong>预处理方法</strong> 此次比赛有四种人种，而人种的差别主要在肤色在一块。我首先使用了自动gamma校正，然后使用了图像锐化，最后将图像送了预训练的 Insightface 模型获取特征向量。</p>
+<p>🐶 <strong>值得注意和参考的小trick：</strong></p>
+<p>1️⃣ 优先使用 <strong>insightface.app.FaceAnalysis()</strong> 的分析人脸方法，这个会将人脸关键点提取校正，还会有一些预处理。而 <strong>insightface.model_zoo.get_model('arcface_r100_v1')</strong> 则是直接对图像获取特征向量了。比如我就是优先使用前者，而对于测试集中无法识别人脸的图像才使用后者。</p>
+<p>2️⃣ 一个在讨论区公开分享的trick。先是获取两张图像比较a-b的相似度sim1，然后或者水平翻转后的图像flipa-flipb的相似度sim2，最后计算sim1和sim2的平均值也可以提高得分。</p>
+<h2 id="️具体的代码">⚡️具体的代码：</h2>
+<p><strong>generate_mat.py</strong></p>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+# @Time     :2019/10/31 9:30
+# @Author   :AngusCai
+import os
+import cv2
+import numpy as np
+import time
+import scipy.io as sio
+from tqdm import tqdm
+import math
+import insightface
+from PIL import Image, ImageEnhance
+
+model1 = insightface.app.FaceAnalysis()
+model1.prepare(ctx_id=0, nms=0.4)
+
+model2 = insightface.model_zoo.get_model('arcface_r100_v1')
+model2.prepare(ctx_id=0)
+
+
+def gamma_trans(img, gamma):  # gamma函数处理
+    &quot;&quot;&quot;
+    :param img:  待处理图像
+    :param gamma:  伽马变换的幂
+    :return:   经过伽马变换的图像
+    &quot;&quot;&quot;
+    gamma_table = [np.power(x / 255.0, gamma) * 255.0 for x in range(256)]  # 建立映射表
+    gamma_table = np.round(np.array(gamma_table)).astype(np.uint8)  # 颜色值为整数
+    return cv2.LUT(img, gamma_table)  # 图片颜色查表。另外可以根据光强（颜色）均匀化原则设计自适应算法。
+
+
+def get_features(test_list, flip=False):
+    &quot;&quot;&quot;
+    :param test_list:  测试图像路径列表
+    :param flip:  是否水平翻转图像的flag
+    :return:   测试图像的特征矩阵
+    &quot;&quot;&quot;
+    progress_bar = tqdm(total=len(test_list))
+    for idx, img_path in enumerate(test_list):
+        progress_bar.update(1)
+        # 自动gamma校正
+        img_gray = cv2.imread(img_path, 0)  # 灰度图读取，用于计算gamma值
+        img = cv2.imread(img_path)  # 原图读取
+        mean = np.mean(img_gray)
+        gamma_val = math.log10(0.5) / math.log10(mean / 255)  # 公式计算gamma
+        image_gamma_correct = gamma_trans(img, gamma_val)  # gamma变换
+        if flip:
+            tmp_result = cv2.flip(image_gamma_correct, 1, dst=None)
+        else:
+            tmp_result = image_gamma_correct
+        # 图像锐化
+        image = Image.fromarray(cv2.cvtColor(tmp_result, cv2.COLOR_BGR2RGB))
+        im_30 = ImageEnhance.Sharpness(image).enhance(3.0)
+        result = cv2.cvtColor(np.asarray(im_30), cv2.COLOR_RGB2BGR)
+
+        # 尝试获取预处理图像中的人脸，检测到人脸，用model1获取特征编码向量；没有检测到人脸就用model2 获取特征编码向量
+        try:
+            face = model1.get(result)  # insightface.app.FaceAnalysis有比较好的人脸对齐实现
+            if idx == 0:
+                feature = face[0].embedding.reshape(1, 512)
+                features = feature
+            else:
+                feature = face[0].embedding.reshape(1, 512)
+                features = np.concatenate((features, feature), axis=0)
+        except:
+            print(img_path)
+            image = cv2.resize(result, (112, 112))
+            feature = model2.get_embedding(image)
+            features = np.concatenate((features, feature), axis=0)
+
+    return features
+
+
+def get_feature_dict(test_list, features):
+    &quot;&quot;&quot;
+    :param test_list:  测试图像路径列表
+    :param features:   测试图像的特征矩阵
+    :return:  测试图像路径与特征的字典， key=path, value=feature
+    &quot;&quot;&quot;
+    fe_dict = {}
+    for i, each in enumerate(test_list):
+        fe_dict[each] = features[i]
+    return fe_dict
+
+
+data_dir = '../Baseline/test/'  # test_set dir
+name_list = [name for name in os.listdir(data_dir)]
+img_paths = [data_dir + name for name in os.listdir(data_dir)]
+print('Images number:', len(img_paths))
+
+# 生成没有水平翻转的图像向量mat
+s = time.time()
+features = get_features(img_paths, flip=False)
+t = time.time() - s
+print(features.shape)
+print('total time is {}, average time is {}'.format(t, t / len(img_paths)))
+
+fe_dict = get_feature_dict(name_list, features)
+print('Output number:', len(fe_dict))
+sio.savemat('gamma_sharp3_arcface_app_embedding_test.mat', fe_dict)
+
+# 生成水平翻转后图像的向量mat
+s = time.time()
+features2 = get_features(img_paths, flip=True)
+t = time.time() - s
+print(features2.shape)
+print('total time is {}, average time is {}'.format(t, t / len(img_paths)))
+
+fe_dict2 = get_feature_dict(name_list, features2)
+print('Output number:', len(fe_dict2))
+sio.savemat('gamma_flip_sharp3_arcface_app_embedding_test.mat', fe_dict2)
+
+</code></pre>
+<p><strong>generate_csv.py</strong></p>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+# @Time     :2019/10/31 9:30
+# @Author   :AngusCai
+import numpy as np
+import scipy.io as sio
+from tqdm import tqdm
+
+
+def cosine_metric(x1, x2):
+    return np.dot(x1, x2) / (np.linalg.norm(x1) * np.linalg.norm(x2))
+
+
+def get_sim(x1, x2):
+    return np.dot(x1, x2.T)
+
+
+gamma_sharp3_features = sio.loadmat('gamma_sharp3_arcface_app_embedding_test.mat')
+print('Loaded gamma_sharp3_features mat')
+gamma_flip_sharp3_features = sio.loadmat('gamma_flip_sharp3_arcface_app_embedding_test.mat')
+print('Loaded gamma_flip_sharp3_features mat')
+sample_sub = open('./submission_template.csv', 'r')  # sample submission file dir
+sub = open('[angusaha]_results.csv', 'w', encoding='utf-8')
+print('Loaded CSV')
+
+lines = sample_sub.readlines()  # 获取提交示例中的所有行
+
+progress_bar = tqdm(total=len(lines))
+for line in lines:
+    pair = line.split(',')[0]  # 获取逗号分隔的要比较的图像对
+
+    sub.write(pair + ',')  # 将要比较的图像对写入结果文件
+    a, b = pair.split(':')  # 图像对用冒号分隔，获取单独两个的img_name
+
+    sim1 = cosine_metric(gamma_sharp3_features[a][0], gamma_sharp3_features[b][0])  # a和b的特征向量的余弦相似度
+    sim2 = cosine_metric(gamma_flip_sharp3_features[a][0], gamma_flip_sharp3_features[b][0])  # flip-a和flip-b的特征向量的余弦相似度
+    sim = (sim1 + sim2) / 2.  # 计算两个相似度之间的平均值
+    score = '%.5f' % sim    # 结果保留5位小数
+    sub.write(score + '\n')
+    progress_bar.update(1)
+sample_sub.close()
+sub.close()
+
+</code></pre>
+<h2 id="名次">🏆 名次</h2>
+<p>这是第一次自己完全参与、正规参加算法比赛。能进入复赛拿到现在的名次还是很开心的。初赛A榜24/897，初赛B榜26/897，复赛A榜23/39，复赛B榜26/39。</p>
+<figure data-type="image" tabindex="1"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-11/2019111801.PNG" alt="初赛A榜" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-11/2019111802.PNG" alt="初赛B榜" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-11/2019111803.PNG" alt="复赛A榜" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-11/2019111804.PNG" alt="复赛B榜" loading="lazy"></figure>
+<h2 id="可能有用的思路">🎆 可能有用的思路</h2>
+<p>在复赛开始后的几天，无意间搜索多人种人脸识别的时候，发现了一篇发表在ICCV 2019的多人种人脸识别方法。作者是北邮的一位老师，他们研究团队还构建了一份用于公平比较各种算法在多人种人脸识别领域的准确度的多人种数据集RFW👍 。 数据集主页 http://www.whdeng.cn/RFW/index.html 。论文 [1] Mei Wang, Weihong Deng, Jiani Hu, Xunqiang Tao, Yaohai Huang. <strong>Racial Faces in-the-Wild: Reducing Racial Bias by Information Maximization Adaptation Network.</strong> ICCV 2019 。</p>
+<p>论文中所使用的迁移学习，在多人种人脸识别这一块确实是表现出色，论文中比较对象也包括了此次比赛被广泛使用的Insightface模型。</p>
+<p>或许迁移学习可能就是解决这个赛题的最佳方法，这篇论文的方法值得参考，只是还貌似没有开源代码和训练好的模型。</p>
+
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://angus1996.github.io/post/LabelSmoothing介绍/">
+                    LabelSmoothing介绍
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://angus1996.github.io//media/js/post.js"></script>
+
+<script src="https://l2dwidget.js.org//lib/L2Dwidget.min.js"></script>
+<script src="https://angus1996.github.io//media/js/live2d.js"></script>

@@ -1,0 +1,667 @@
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="交叉熵介绍
+交叉熵（Cross Entropy）是Loss函数的一种（也称为损失函数或代价函数），用于描述模型预测值与真实值的差距大小，常见的Loss函数就是均方平方差（Mean Squared Error），定义如下：
+C=(y−a)22..." />
+    <meta name="keywords" content="machine learning,交叉熵,Tensorflow" />
+    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/default.min.css">
+              
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+    <title>Angus' s Blog</title>
+</head>
+
+<body>
+    <!-- 响应式布局，针对PC端内容显示 -->
+    <div id="content">
+        <div class="nav-large">
+            <div class="row">
+                <div class="side"><html>
+
+<head>
+    <link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+    <meta name="description" content="念念不忘，必有回响" />
+    <title>Document</title>
+</head>
+<style>
+</style>
+
+<body>
+    <div id=side>
+        <div class="avatar-border">
+            <img src="https://angus1996.github.io//images/avatar.png?v=1585917582371" class="avatar">
+        </div>
+        <div class="sitename">Angus&#39; s Blog</div>
+        <span class="describtion" data-text='["念念不忘，必有回响"]'>&nbsp;</span>
+        
+        <div class="search">
+            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
+            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
+            <div class="search-results"></div>
+        </div>
+        
+    <div class="share-button">
+        <span>Contact</span>
+        
+        <a href="https://github.com/Angus1996" target="_blank"><i><img class="icon"
+                    src="https://angus1996.github.io//media/images/github.png" alt=""></i></a>
+        
+        
+        <a onclick="showqq()"><i><img class="icon" src="https://angus1996.github.io//media/images/QQ.png" alt=""></i></a>
+        
+        
+        
+        
+        <a href="angus960222" target="_blank"><i><img class="icon"
+                    src="https://angus1996.github.io//media/images/wechat.png" alt=""></i></a>
+        
+        
+    </div>
+    <div id="qq" style="display:none">884816034</div>
+    
+    
+    <div class="mchocie describtion">
+        <a href="/" class="menubutton">
+            首页
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/archives" class="menubutton">
+            归档
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/tags" class="menubutton">
+            标签
+        </a>
+    </div>
+    
+    
+    
+    <div class="mchocie describtion">
+        <a href="/post/about" class="menubutton">
+            关于
+        </a>
+    </div>
+    
+    
+    
+        <div class="mchocie describtion">
+            <a href="https://angus1996.github.io//friends" class="menubutton">友链</a>
+        </div>
+    
+    <hr>
+    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: Fog</div>
+    <div id="sitegotimeDate">载入天数...</div>
+    <div id="sitegotimes">载入时分秒...</div>
+    <div id="cussitetime" style="display:none">02/22/1996</div>
+    </div>
+</body>
+
+</html>
+<script src="https://angus1996.github.io//media/js/wordshow.js"></script>
+<script>
+    //----------------------站点运行时间
+    var now = new Date();
+
+    function createtime() {
+        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
+        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24;
+        dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+        hnum = Math.floor(hours);
+        if (String(hnum).length == 1) {
+            hnum = "0" + hnum;
+        }
+        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes);
+        if (String(mnum).length == 1) {
+            mnum = "0" + mnum;
+        }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds);
+        if (String(snum).length == 1) {
+            snum = "0" + snum;
+        }
+        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()", 250);
+
+    //-------------------------------------------------搜索
+    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
+    var searchInput = document.querySelector('.search-input');
+    var searchResults = document.querySelector('.search-results');
+
+    // 申明保存文章的标题、链接、内容的数组变量
+    var searchValue = '',
+        arrItems = [],
+        arrLinks = [],
+        arrTitles = [],
+        arrResults = [],
+        indexItem = [],
+        itemLength = 0;
+    var tmpDiv = document.createElement('div');
+    tmpDiv.className = 'result-item';
+
+    // ajax 的兼容写法
+    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            xml = xhr.responseXML;
+            arrItems = xml.getElementsByTagName('entry');
+            itemLength = arrItems.length;
+            console.log(arrItems);
+            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
+            // 同时过滤掉 HTML 标签
+            for (i = 0; i < itemLength; i++) {
+                var link = arrItems[i].getElementsByTagName('link')[0];
+                arrLinks[i] = link.getAttribute("href");
+                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
+                childNodes[0].nodeValue.replace(/<.*?>/g, '');
+            }
+        }
+    }
+
+    // 开始获取根目录下 feed.xml 文件内的数据
+    xhr.open('get', '/atom.xml', true);
+    xhr.send();
+
+
+
+    // 输入框内容变化后就开始匹配，可以不用点按钮
+    // 经测试，onkeydown, onchange 等方法效果不太理想，
+    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
+    // 并且可以处理中文输入法拼写的变化
+    searchInput.oninput = function () {
+        setTimeout(searchConfirm, 0);
+    }
+    searchInput.onfocus = function () {
+        searchResults.style.display = 'block';
+    }
+
+    function searchConfirm() {
+        if (searchInput.value == '') {
+            searchResults.style.display = 'none';
+        } else if (searchInput.value.search(/^\s+$/) >= 0) {
+            // 检测输入值全是空白的情况
+            searchInit();
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '请输入有效内容...';
+            searchResults.appendChild(itemDiv);
+        } else {
+            // 合法输入值的情况
+            searchInit();
+            searchValue = searchInput.value;
+            // 在标题、内容中查找
+            searchMatching(arrTitles, searchValue);
+        }
+    }
+
+    // 每次搜索完成后的初始化
+    function searchInit() {
+        arrResults = [];
+        indexItem = [];
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'block';
+    }
+
+    function searchMatching(arr1, input) {
+        // 忽略输入大小写
+        input = new RegExp(input, 'i');
+        // 在所有文章标题、内容中匹配查询值
+        for (i = 0; i < itemLength; i++) {
+            if (arr1[i].search(input) !== -1) {
+                var arr = arr1;
+                indexItem.push(i); // 保存匹配值的索引
+                var indexContent = arr[i].search(input);
+                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
+                var l = input.toString().length - 3;
+                var step = 10;
+
+                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
+                arrResults.push(arr[i].slice(indexContent - step, indexContent) +
+                    '<mark>' + arr[i].slice(indexContent, indexContent + l) + '</mark>' +
+                    arr[i].slice(indexContent + l, indexContent + l + step));
+            }
+        }
+
+        // 输出总共匹配到的数目
+        var totalDiv = tmpDiv.cloneNode(true);
+        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
+        searchResults.appendChild(totalDiv);
+
+        // 未匹配到内容的情况
+        if (indexItem.length == 0) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerText = '未匹配到内容...';
+            searchResults.appendChild(itemDiv);
+        }
+
+        // 将所有匹配内容进行组合
+        for (i = 0; i < arrResults.length; i++) {
+            var itemDiv = tmpDiv.cloneNode(true);
+            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
+                ']</b><p>' + arrResults[i] + "</p><hr />";
+            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
+            searchResults.appendChild(itemDiv);
+        }
+    }
+
+    function changeHref(href) {
+        location.href = href;
+    }
+
+    function showqq() {
+        var qq = document.getElementById("qq").innerHTML;
+        if (qq != '')
+            alert("博主的QQ联系方式为：" + qq);
+        else
+            alert("博主暂未设置QQ联系方式");
+    }
+</script></div>
+                <div id="tab1" class="tab">
+                    <div class="bars">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="close"></div>
+                </div>
+                <div id="main" class="col-xs-12 col-sm-7">
+                    <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2018-03-02</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 8 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://angus1996.github.io/tag/r9wto5nv5ji/" class="postlink">
+                        <i class="fa fa-tag"></i> machine learning
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/Tc9Vk4Bcp5t/" class="postlink">
+                        <i class="fa fa-tag"></i> 交叉熵
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/PZKcgrXVASp/" class="postlink">
+                        <i class="fa fa-tag"></i> Tensorflow
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>交叉熵介绍</h2>
+            </div>
+            <div class="text ">
+                <h2 id="交叉熵介绍">交叉熵介绍</h2>
+<p>交叉熵（Cross Entropy）是Loss函数的一种（也称为损失函数或代价函数），用于描述模型预测值与真实值的差距大小，常见的Loss函数就是均方平方差（Mean Squared Error），定义如下：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>=</mo><mfrac><mrow><mo>(</mo><mi>y</mi><mo>−</mo><mi>a</mi><msup><mo>)</mo><mn>2</mn></msup></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">C=\frac{(y-a)^2}{2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.177108em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.491108em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>平方差很好理解，预测值与真实值直接相减，为了避免得到负数取绝对值或者平方，再做平均就是均方平方差。注意这里预测值需要经过sigmoid激活函数，得到取值范围在0到1之间的预测值。</p>
+<p>平方差可以表达预测值与真实值的差异，但在分类问题种效果并不如交叉熵好，原因可以参考</p>
+<p>交叉熵的定义如下：</p>
+<p>​	神经元的输出为：$ a=sigmoid(z), where z=\sum_jw_jx_j+b $, 那么我们定义这个神经元的交叉熵代价函数为：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munder><mo>∑</mo><mi>x</mi></munder><mo>[</mo><mi>y</mi><mi>l</mi><mi>n</mi><mi>a</mi><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>y</mi><mo>)</mo><mi>l</mi><mi>n</mi><mo>(</mo><mn>1</mn><mo>−</mo><mi>a</mi><mo>)</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">C=-\frac{1}{n}\sum_x[ylna+(1-y)ln(1-a)]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.5714449999999998em;vertical-align:-1.250005em;"></span><span class="mord">−</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8999949999999999em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.250005em;"><span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">n</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mclose">)</span><span class="mclose">]</span></span></span></span></span></p>
+<p>这里的n是训练数据的个数，这个加和覆盖了所有的训练输入x，y是期望输出。</p>
+<p>上面的文章也介绍了交叉熵可以作为Loss函数的原因，首先是交叉熵得到的值一定是正数，其次是预测结果越准确值越小，注意这里用于计算的“a”也是经过sigmoid激活的，取值范围在0到1。如果label是1，预测值也是1的话，前面一项y * ln(a)就是1 * ln(1)等于0，后一项(1 – y) * ln(1 – a)也就是0 * ln(0)等于0，Loss函数为0，反之Loss函数为无限大非常符合我们对Loss函数的定义。</p>
+<h2 id="tensorflow的交叉熵函数">Tensorflow的交叉熵函数</h2>
+<ul>
+<li><a href="https://www.tensorflow.org/versions/master/api_docs/python/nn.html#sigmoid_cross_entropy_with_logits">tf.nn.sigmoid_cross_entropy_with_logits</a></li>
+<li><a href="https://www.tensorflow.org/versions/master/api_docs/python/nn.html#softmax_cross_entropy_with_logits">tf.nn.softmax_cross_entropy_with_logits</a></li>
+<li><a href="https://www.tensorflow.org/versions/master/api_docs/python/nn.html#sparse_softmax_cross_entropy_with_logits">tf.nn.sparse_softmax_cross_entropy_with_logits</a></li>
+<li><a href="https://www.tensorflow.org/versions/master/api_docs/python/nn.html#weighted_cross_entropy_with_logits">tf.nn.weighted_cross_entropy_with_logits</a></li>
+</ul>
+<h3 id="sigmoid_cross_entropy_with_logits">sigmoid_cross_entropy_with_logits</h3>
+<p>​	我们先看sigmoid_cross_entropy_with_logits，为什么呢，因为它的实现和前面的交叉熵算法定义是一样的，也是TensorFlow最早实现的交叉熵算法。这个函数的输入是logits和targets，logits就是神经网络模型中的 W * X矩阵，注意不需要经过sigmoid，而targets的shape和logits相同，就是正确的label值，例如这个模型一次要判断100张图是否包含10种动物，这两个输入的shape都是[100, 10]。注释中还提到这10个分类之间是独立的、不要求是互斥，这种问题我们成为多目标，例如判断图片中是否包含10种动物，label值可以包含多个1或0个1，还有一种问题是多分类问题，例如我们对年龄特征分为5段，只允许5个值有且只有1个值为1，这种问题可以直接用这个函数吗？答案是不可以</p>
+<p>​	对W * X得到的值进行sigmoid激活，保证取值在0到1之间，然后放在交叉熵的函数中计算Loss。对于二分类问题这样做没问题，但对于前面提到的多分类，例如年轻取值范围在0<sub>4，目标值也在0</sub>4，这里如果经过sigmoid后预测值就限制在0到1之间，而且公式中的1 – z就会出现负数，仔细想一下0到4之间还不存在线性关系，如果直接把label值带入计算肯定会有非常大的误差。因此对于多分类问题是不能直接代入的，那其实我们可以灵活变通，把5个年龄段的预测用onehot encoding变成5维的label，训练时当做5个不同的目标来训练即可，但不保证只有一个为1，对于这类问题TensorFlow又提供了基于Softmax的交叉熵函数</p>
+<h3 id="softmax_cross_entropy_with_logits">softmax_cross_entropy_with_logits</h3>
+<p>Softmax本身的算法很简单，就是把所有值用e的n次方计算出来，求和后算每个值占的比率，保证总和为1，一般我们可以认为Softmax出来的就是confidence也就是概率，算法实现如下：</p>
+<pre><code>for each batch i and class j we have
+	softmax = exp(logits)/reduce_sum(exp(logits), dim)
+</code></pre>
+<p>softmax_cross_entropy_with_logits和sigmoid_cross_entropy_with_logits很不一样，输入是类似的logits和lables的shape一样，但这里要求分类的结果是互斥的，保证只有一个字段有值，例如CIFAR-10中图片只能分一类而不像前面判断是否包含多类动物。想一下问什么会有这样的限制？在函数头的注释中我们看到，这个函数传入的logits是unscaled的，既不做sigmoid也不做softmax，因为函数实现会在内部更高效得使用softmax，对于任意的输入经过softmax都会变成和为1的概率预测值，这个值就可以代入变形的Cross Entroy算法- y * ln(a) – (1 – y) * ln(1 – a)算法中，得到有意义的Loss值了。如果是多目标问题，经过softmax就不会得到多个和为1的概率，而且label有多个1也无法计算交叉熵，因此这个函数只适合单目标的二分类或者多分类问题，TensorFlow函数定义如下:</p>
+<pre><code class="language-python">tf.nn.softmax_cross_entropy_with_logits(logits, labels, dim=-1, name=None)
+# Compute softmax cross entropy between logits and labels
+# Measures the probability error in discrete classification tasks in which the classes are mutually exclusive (each entry is in exactly one class).For example,each CIFAR-10 image is labeled with one and only one label:an image can be a dog or a cat, but not both.
+</code></pre>
+<p>再补充一点，对于多分类问题，例如我们的年龄分为5类，并且人工编码为0、1、2、3、4，因为输出值是5维的特征，因此我们需要人工做onehot encoding分别编码为00001、00010、00100、01000、10000，才可以作为这个函数的输入。理论上我们不做onehot encoding也可以，做成和为1的概率分布也可以，但需要保证是和为1，和不为1的实际含义不明确，TensorFlow的C++代码实现计划检查这些参数，可以提前提醒用户避免误用。</p>
+<h3 id="sparse_softmax_cross_entropy_with_logits">sparse_softmax_cross_entropy_with_logits</h3>
+<p>sparse_softmax_cross_entropy_with_logits是softmax_cross_entropy_with_logits的易用版本，除了输入参数不同，作用和算法实现都是一样的。前面提到softmax_cross_entropy_with_logits的输入必须是类似onehot encoding的多维特征，但CIFAR-10、ImageNet和大部分分类场景都只有一个分类目标，label值都是从0编码的整数，每次转成onehot encoding比较麻烦，有没有更好的方法呢？答案就是用sparse_softmax_cross_entropy_with_logits，它的第一个参数logits和前面一样，shape是[batch_size, num_classes]，而第二个参数labels以前也必须是[batch_size, num_classes]否则无法做Cross Entropy，这个函数改为限制更强的[batch_size]，而值必须是从0开始编码的int32或int64，而且值范围是[0, num_class)，如果我们从1开始编码或者步长大于1，会导致某些label值超过这个范围，代码会直接报错退出。这也很好理解，TensorFlow通过这样的限制才能知道用户传入的3、6或者9对应是哪个class，最后可以在内部高效实现类似的onehot encoding，这只是简化用户的输入而已，如果用户已经做了onehot encoding那可以直接使用不带“sparse”的softmax_cross_entropy_with_logits函数。</p>
+<h3 id="weighted_sigmoid_cross_entropy_with_logits">weighted_sigmoid_cross_entropy_with_logits</h3>
+<p>weighted_sigmoid_cross_entropy_with_logits是sigmoid_cross_entropy_with_logits的拓展版，输入参数和实现和后者差不多，可以多支持一个pos_weight参数，目的是可以增加或者减小正样本在算Cross Entropy时的Loss。实现原理很简单，在传统基于sigmoid的交叉熵算法上，正样本算出的值乘以某个系数接口</p>
+<h2 id="总结">总结</h2>
+<p>这就是TensorFlow目前提供的有关Cross Entropy的函数实现，用户需要理解多目标和多分类的场景，根据业务需求（分类目标是否独立和互斥）来选择基于sigmoid或者softmax的实现，如果使用sigmoid目前还支持加权的实现，如果使用softmax我们可以自己做onehot coding或者使用更易用的sparse_softmax_cross_entropy_with_logits函数。</p>
+<p>TensorFlow提供的Cross Entropy函数基本cover了多目标和多分类的问题，但如果同时是多目标多分类的场景，肯定是无法使用softmax_cross_entropy_with_logits，如果使用sigmoid_cross_entropy_with_logits我们就把多分类的特征都认为是独立的特征，而实际上他们有且只有一个为1的非独立特征，计算Loss时不如Softmax有效。这里可以预测下，未来TensorFlow社区将会实现更多的op解决类似的问题，我们也期待更多人参与TensorFlow贡献算法和代码 😃</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://angus1996.github.io/post/过拟合-欠拟合/">
+                    过拟合&amp;欠拟合
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://angus1996.github.io/post/Ubuntu安装opncv/">
+                    Ubuntu安装opncv
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+                    <div name="comment" style="background: white">
+                        <div class="commentcontainer">
+                            
+                            <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="toc-container">
+                    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%BA%A4%E5%8F%89%E7%86%B5%E4%BB%8B%E7%BB%8D">交叉熵介绍</a></li>
+<li><a href="#tensorflow%E7%9A%84%E4%BA%A4%E5%8F%89%E7%86%B5%E5%87%BD%E6%95%B0">Tensorflow的交叉熵函数</a>
+<ul>
+<li><a href="#sigmoid_cross_entropy_with_logits">sigmoid_cross_entropy_with_logits</a></li>
+<li><a href="#softmax_cross_entropy_with_logits">softmax_cross_entropy_with_logits</a></li>
+<li><a href="#sparse_softmax_cross_entropy_with_logits">sparse_softmax_cross_entropy_with_logits</a></li>
+<li><a href="#weighted_sigmoid_cross_entropy_with_logits">weighted_sigmoid_cross_entropy_with_logits</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="bg">
+        </div>
+        <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
+    </div>
+    <!-- 响应式布局，针对手机端内容显示 -->
+    <div class="nav-small">
+        <head>
+
+  <!-- 引入Bootstrap核心样式文件 -->
+  <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Angus&#39; s Blog&nbsp;&nbsp;|</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          
+          <li>
+            <a href="/">
+              首页
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archives">
+              归档
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags">
+              标签
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/post/about">
+              关于
+            </a>
+          </li>
+          
+          
+          
+          <li><a href="https://angus1996.github.io//friends">友链</a></li>
+
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- 引入jQuery核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- 引入BootStrap核心js文件 -->
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+        <div style="margin-top:30px"></div>
+        <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
+<style>
+
+</style>
+
+<body>
+    <div class="allcontent">
+        <div class="postshow">
+            
+            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
+                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
+            </div>
+            <div class="postinfo">
+                <div class="postdate"><i class="fa fa-calendar"></i>2018-03-02</div>
+                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 8 min read</div>
+                <div class="posttag">
+                    
+                    <a href="https://angus1996.github.io/tag/r9wto5nv5ji/" class="postlink">
+                        <i class="fa fa-tag"></i> machine learning
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/Tc9Vk4Bcp5t/" class="postlink">
+                        <i class="fa fa-tag"></i> 交叉熵
+                    </a>
+                    
+                    <a href="https://angus1996.github.io/tag/PZKcgrXVASp/" class="postlink">
+                        <i class="fa fa-tag"></i> Tensorflow
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div id="texttitle" style="text-align: center">
+                <h2>交叉熵介绍</h2>
+            </div>
+            <div class="text ">
+                <h2 id="交叉熵介绍">交叉熵介绍</h2>
+<p>交叉熵（Cross Entropy）是Loss函数的一种（也称为损失函数或代价函数），用于描述模型预测值与真实值的差距大小，常见的Loss函数就是均方平方差（Mean Squared Error），定义如下：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>=</mo><mfrac><mrow><mo>(</mo><mi>y</mi><mo>−</mo><mi>a</mi><msup><mo>)</mo><mn>2</mn></msup></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">C=\frac{(y-a)^2}{2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.177108em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.491108em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>平方差很好理解，预测值与真实值直接相减，为了避免得到负数取绝对值或者平方，再做平均就是均方平方差。注意这里预测值需要经过sigmoid激活函数，得到取值范围在0到1之间的预测值。</p>
+<p>平方差可以表达预测值与真实值的差异，但在分类问题种效果并不如交叉熵好，原因可以参考</p>
+<p>交叉熵的定义如下：</p>
+<p>​	神经元的输出为：$ a=sigmoid(z), where z=\sum_jw_jx_j+b $, 那么我们定义这个神经元的交叉熵代价函数为：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munder><mo>∑</mo><mi>x</mi></munder><mo>[</mo><mi>y</mi><mi>l</mi><mi>n</mi><mi>a</mi><mo>+</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>y</mi><mo>)</mo><mi>l</mi><mi>n</mi><mo>(</mo><mn>1</mn><mo>−</mo><mi>a</mi><mo>)</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">C=-\frac{1}{n}\sum_x[ylna+(1-y)ln(1-a)]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.5714449999999998em;vertical-align:-1.250005em;"></span><span class="mord">−</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8999949999999999em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.250005em;"><span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">n</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mclose">)</span><span class="mclose">]</span></span></span></span></span></p>
+<p>这里的n是训练数据的个数，这个加和覆盖了所有的训练输入x，y是期望输出。</p>
+<p>上面的文章也介绍了交叉熵可以作为Loss函数的原因，首先是交叉熵得到的值一定是正数，其次是预测结果越准确值越小，注意这里用于计算的“a”也是经过sigmoid激活的，取值范围在0到1。如果label是1，预测值也是1的话，前面一项y * ln(a)就是1 * ln(1)等于0，后一项(1 – y) * ln(1 – a)也就是0 * ln(0)等于0，Loss函数为0，反之Loss函数为无限大非常符合我们对Loss函数的定义。</p>
+<h2 id="tensorflow的交叉熵函数">Tensorflow的交叉熵函数</h2>
+<ul>
+<li><a href="https://www.tensorflow.org/versions/master/api_docs/python/nn.html#sigmoid_cross_entropy_with_logits">tf.nn.sigmoid_cross_entropy_with_logits</a></li>
+<li><a href="https://www.tensorflow.org/versions/master/api_docs/python/nn.html#softmax_cross_entropy_with_logits">tf.nn.softmax_cross_entropy_with_logits</a></li>
+<li><a href="https://www.tensorflow.org/versions/master/api_docs/python/nn.html#sparse_softmax_cross_entropy_with_logits">tf.nn.sparse_softmax_cross_entropy_with_logits</a></li>
+<li><a href="https://www.tensorflow.org/versions/master/api_docs/python/nn.html#weighted_cross_entropy_with_logits">tf.nn.weighted_cross_entropy_with_logits</a></li>
+</ul>
+<h3 id="sigmoid_cross_entropy_with_logits">sigmoid_cross_entropy_with_logits</h3>
+<p>​	我们先看sigmoid_cross_entropy_with_logits，为什么呢，因为它的实现和前面的交叉熵算法定义是一样的，也是TensorFlow最早实现的交叉熵算法。这个函数的输入是logits和targets，logits就是神经网络模型中的 W * X矩阵，注意不需要经过sigmoid，而targets的shape和logits相同，就是正确的label值，例如这个模型一次要判断100张图是否包含10种动物，这两个输入的shape都是[100, 10]。注释中还提到这10个分类之间是独立的、不要求是互斥，这种问题我们成为多目标，例如判断图片中是否包含10种动物，label值可以包含多个1或0个1，还有一种问题是多分类问题，例如我们对年龄特征分为5段，只允许5个值有且只有1个值为1，这种问题可以直接用这个函数吗？答案是不可以</p>
+<p>​	对W * X得到的值进行sigmoid激活，保证取值在0到1之间，然后放在交叉熵的函数中计算Loss。对于二分类问题这样做没问题，但对于前面提到的多分类，例如年轻取值范围在0<sub>4，目标值也在0</sub>4，这里如果经过sigmoid后预测值就限制在0到1之间，而且公式中的1 – z就会出现负数，仔细想一下0到4之间还不存在线性关系，如果直接把label值带入计算肯定会有非常大的误差。因此对于多分类问题是不能直接代入的，那其实我们可以灵活变通，把5个年龄段的预测用onehot encoding变成5维的label，训练时当做5个不同的目标来训练即可，但不保证只有一个为1，对于这类问题TensorFlow又提供了基于Softmax的交叉熵函数</p>
+<h3 id="softmax_cross_entropy_with_logits">softmax_cross_entropy_with_logits</h3>
+<p>Softmax本身的算法很简单，就是把所有值用e的n次方计算出来，求和后算每个值占的比率，保证总和为1，一般我们可以认为Softmax出来的就是confidence也就是概率，算法实现如下：</p>
+<pre><code>for each batch i and class j we have
+	softmax = exp(logits)/reduce_sum(exp(logits), dim)
+</code></pre>
+<p>softmax_cross_entropy_with_logits和sigmoid_cross_entropy_with_logits很不一样，输入是类似的logits和lables的shape一样，但这里要求分类的结果是互斥的，保证只有一个字段有值，例如CIFAR-10中图片只能分一类而不像前面判断是否包含多类动物。想一下问什么会有这样的限制？在函数头的注释中我们看到，这个函数传入的logits是unscaled的，既不做sigmoid也不做softmax，因为函数实现会在内部更高效得使用softmax，对于任意的输入经过softmax都会变成和为1的概率预测值，这个值就可以代入变形的Cross Entroy算法- y * ln(a) – (1 – y) * ln(1 – a)算法中，得到有意义的Loss值了。如果是多目标问题，经过softmax就不会得到多个和为1的概率，而且label有多个1也无法计算交叉熵，因此这个函数只适合单目标的二分类或者多分类问题，TensorFlow函数定义如下:</p>
+<pre><code class="language-python">tf.nn.softmax_cross_entropy_with_logits(logits, labels, dim=-1, name=None)
+# Compute softmax cross entropy between logits and labels
+# Measures the probability error in discrete classification tasks in which the classes are mutually exclusive (each entry is in exactly one class).For example,each CIFAR-10 image is labeled with one and only one label:an image can be a dog or a cat, but not both.
+</code></pre>
+<p>再补充一点，对于多分类问题，例如我们的年龄分为5类，并且人工编码为0、1、2、3、4，因为输出值是5维的特征，因此我们需要人工做onehot encoding分别编码为00001、00010、00100、01000、10000，才可以作为这个函数的输入。理论上我们不做onehot encoding也可以，做成和为1的概率分布也可以，但需要保证是和为1，和不为1的实际含义不明确，TensorFlow的C++代码实现计划检查这些参数，可以提前提醒用户避免误用。</p>
+<h3 id="sparse_softmax_cross_entropy_with_logits">sparse_softmax_cross_entropy_with_logits</h3>
+<p>sparse_softmax_cross_entropy_with_logits是softmax_cross_entropy_with_logits的易用版本，除了输入参数不同，作用和算法实现都是一样的。前面提到softmax_cross_entropy_with_logits的输入必须是类似onehot encoding的多维特征，但CIFAR-10、ImageNet和大部分分类场景都只有一个分类目标，label值都是从0编码的整数，每次转成onehot encoding比较麻烦，有没有更好的方法呢？答案就是用sparse_softmax_cross_entropy_with_logits，它的第一个参数logits和前面一样，shape是[batch_size, num_classes]，而第二个参数labels以前也必须是[batch_size, num_classes]否则无法做Cross Entropy，这个函数改为限制更强的[batch_size]，而值必须是从0开始编码的int32或int64，而且值范围是[0, num_class)，如果我们从1开始编码或者步长大于1，会导致某些label值超过这个范围，代码会直接报错退出。这也很好理解，TensorFlow通过这样的限制才能知道用户传入的3、6或者9对应是哪个class，最后可以在内部高效实现类似的onehot encoding，这只是简化用户的输入而已，如果用户已经做了onehot encoding那可以直接使用不带“sparse”的softmax_cross_entropy_with_logits函数。</p>
+<h3 id="weighted_sigmoid_cross_entropy_with_logits">weighted_sigmoid_cross_entropy_with_logits</h3>
+<p>weighted_sigmoid_cross_entropy_with_logits是sigmoid_cross_entropy_with_logits的拓展版，输入参数和实现和后者差不多，可以多支持一个pos_weight参数，目的是可以增加或者减小正样本在算Cross Entropy时的Loss。实现原理很简单，在传统基于sigmoid的交叉熵算法上，正样本算出的值乘以某个系数接口</p>
+<h2 id="总结">总结</h2>
+<p>这就是TensorFlow目前提供的有关Cross Entropy的函数实现，用户需要理解多目标和多分类的场景，根据业务需求（分类目标是否独立和互斥）来选择基于sigmoid或者softmax的实现，如果使用sigmoid目前还支持加权的实现，如果使用softmax我们可以自己做onehot coding或者使用更易用的sparse_softmax_cross_entropy_with_logits函数。</p>
+<p>TensorFlow提供的Cross Entropy函数基本cover了多目标和多分类的问题，但如果同时是多目标多分类的场景，肯定是无法使用softmax_cross_entropy_with_logits，如果使用sigmoid_cross_entropy_with_logits我们就把多分类的特征都认为是独立的特征，而实际上他们有且只有一个为1的非独立特征，计算Loss时不如Softmax有效。这里可以预测下，未来TensorFlow社区将会实现更多的op解决类似的问题，我们也期待更多人参与TensorFlow贡献算法和代码 😃</p>
+
+            </div>
+            
+            <div class="prev-post">
+                上一篇
+                <a href="https://angus1996.github.io/post/过拟合-欠拟合/">
+                    过拟合&amp;欠拟合
+                </a>
+            </div>
+            
+            
+            <div class="next-post">
+                下一篇
+                <a href="https://angus1996.github.io/post/Ubuntu安装opncv/">
+                    Ubuntu安装opncv
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    var t_img; // 定时器
+    var isLoad = true; // 控制变量
+    isImgLoad(function () {
+        // 加载完成
+        $('.postdetailimg').css("display", "block");
+    });
+    // 判断图片加载的函数
+    function isImgLoad(callback) {
+        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
+        // 查找所有封面图，迭代处理
+        $('.postdetailimg').each(function () {
+            // 找到为0就将isLoad设为false，并退出each
+            if (this.height === 0) {
+                isLoad = false;
+                return false;
+            }
+        });
+        // 为true，没有发现为0的。加载完毕
+        if (isLoad) {
+            clearTimeout(t_img); // 清除定时器
+            // 回调函数
+            callback();
+            // 为false，因为找到了没有加载完成的图，将调用定时器递归
+        } else {
+            isLoad = true;
+            t_img = setTimeout(function () {
+                isImgLoad(callback); // 递归扫描
+            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
+        }
+    }
+</script>
+        <div name="comment" style="background: white">
+            <div class="commentcontainer">
+                
+                <p>请到客户端“主题--自定义配置--valine”中填入ID和KEY</p>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://angus1996.github.io//media/js/post.js"></script>
+
+<script src="https://l2dwidget.js.org//lib/L2Dwidget.min.js"></script>
+<script src="https://angus1996.github.io//media/js/live2d.js"></script>
