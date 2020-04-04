@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://angus1996.github.io/</id>
     <title>Angus&apos; s Blog</title>
-    <updated>2020-04-04T04:07:50.605Z</updated>
+    <updated>2020-04-04T04:14:01.993Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://angus1996.github.io/"/>
     <link rel="self" href="https://angus1996.github.io/atom.xml"/>
-    <subtitle>我遇见你，是最美丽的意外</subtitle>
+    <subtitle>我遇见你，是最美丽的意外&lt;br /&gt;总有一天，我的谜底会揭开</subtitle>
     <logo>https://angus1996.github.io/images/avatar.png</logo>
     <icon>https://angus1996.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Angus&apos; s Blog</rights>
