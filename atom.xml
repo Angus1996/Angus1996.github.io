@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://angus1996.github.io/</id>
     <title>Angus&apos; s Blog</title>
-    <updated>2020-04-04T04:27:38.649Z</updated>
+    <updated>2020-04-04T08:26:05.081Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://angus1996.github.io/"/>
     <link rel="self" href="https://angus1996.github.io/atom.xml"/>
@@ -17,11 +17,18 @@
     <icon>https://angus1996.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Angus&apos; s Blog</rights>
     <entry>
+        <title type="html"><![CDATA[《算法 4th edition》学习笔记]]></title>
+        <id>https://angus1996.github.io/post/lesslesssuan-fa-4th-editiongreatergreater-xue-xi-bi-ji/</id>
+        <link href="https://angus1996.github.io/post/lesslesssuan-fa-4th-editiongreatergreater-xue-xi-bi-ji/">
+        </link>
+        <updated>2020-02-15T08:21:18.000Z</updated>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[CCF BDCI 2019 多人种人脸识别比赛总结]]></title>
         <id>https://angus1996.github.io/post/ccf-bdci-2019-duo-ren-chong-ren-lian-shi-bie-bi-sai-zong-jie/</id>
         <link href="https://angus1996.github.io/post/ccf-bdci-2019-duo-ren-chong-ren-lian-shi-bie-bi-sai-zong-jie/">
         </link>
-        <updated>2020-04-03T11:25:23.000Z</updated>
+        <updated>2019-12-31T11:25:23.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[LabelSmoothing介绍]]></title>
@@ -78,12 +85,5 @@
         <link href="https://angus1996.github.io/post/aria2-介绍与使用/">
         </link>
         <updated>2019-08-09T11:38:32.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[基于pygame的打字速度练习游戏]]></title>
-        <id>https://angus1996.github.io/post/基于pygame的打字速度练习游戏/</id>
-        <link href="https://angus1996.github.io/post/基于pygame的打字速度练习游戏/">
-        </link>
-        <updated>2019-07-17T14:37:46.000Z</updated>
     </entry>
 </feed>
