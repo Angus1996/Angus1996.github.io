@@ -1,689 +1,123 @@
-<head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>轻量级学习论文梳理 | Angus&#39; s Blog</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1585969127213">
+<link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
     <meta name="description" content="轻量级学习方法梳理
 深度学习参数多，模型大，有许多研究来解决深度学习中的高效训练和推断。以下是文章的梳理：
 浅层网络
 1）Cybenko, G.: Approximation by superpositions of a sigmoidal..." />
     <meta name="keywords" content="论文梳理,轻量" />
-    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/rainbow.min.css">
-              
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
-    <title>Angus' s Blog</title>
-</head>
+  </head>
+  <body>
+    <div id="app" class="main">
 
-<body>
-    <!-- 响应式布局，针对PC端内容显示 -->
-    <div id="content">
-        <div class="nav-large">
-            <div class="row">
-                <div class="side"><html>
-
-<head>
-    <link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
-    <meta name="description" content="念念不忘，必有回响" />
-    <title>Document</title>
-</head>
-<style>
-</style>
-
-<body>
-    <div id=side>
-        <div class="avatar-border">
-            <img src="https://angus1996.github.io//images/avatar.png?v=1585920579486" class="avatar">
-        </div>
-        <div class="sitename">Angus&#39; s Blog</div>
-        <span class="describtion" data-text='["念念不忘，必有回响"]'>&nbsp;</span>
-        
-        <div class="search">
-            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
-            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
-            <div class="search-results"></div>
-        </div>
-        
-    <div class="share-button">
-        <span>Contact</span>
-        
-        <a href="https://github.com/Angus1996" target="_blank"><i><img class="icon"
-                    src="https://angus1996.github.io//media/images/github.png" alt=""></i></a>
-        
-        
-        <a onclick="showqq()"><i><img class="icon" src="https://angus1996.github.io//media/images/QQ.png" alt=""></i></a>
-        
-        
-        
-        
-        <a href="angus960222" target="_blank"><i><img class="icon"
-                    src="https://angus1996.github.io//media/images/wechat.png" alt=""></i></a>
-        
-        
-    </div>
-    <div id="qq" style="display:none">884816034</div>
-    
-    
-    <div class="mchocie describtion">
-        <a href="/" class="menubutton">
-            首页
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/archives" class="menubutton">
-            归档
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/tags" class="menubutton">
-            标签
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/post/about" class="menubutton">
-            关于
-        </a>
-    </div>
-    
-    
-    
-        <div class="mchocie describtion">
-            <a href="https://angus1996.github.io//friends" class="menubutton">友链</a>
-        </div>
-    
-    <hr>
-    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: Fog</div>
-    <div id="sitegotimeDate">载入天数...</div>
-    <div id="sitegotimes">载入时分秒...</div>
-    <div id="cussitetime" style="display:none">02/22/1996</div>
-    </div>
-</body>
-
-</html>
-<script src="https://angus1996.github.io//media/js/wordshow.js"></script>
-<script>
-    //----------------------站点运行时间
-    var now = new Date();
-
-    function createtime() {
-        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
-        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
-        now.setTime(now.getTime() + 250);
-        days = (now - grt) / 1000 / 60 / 60 / 24;
-        dnum = Math.floor(days);
-        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
-        hnum = Math.floor(hours);
-        if (String(hnum).length == 1) {
-            hnum = "0" + hnum;
-        }
-        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes);
-        if (String(mnum).length == 1) {
-            mnum = "0" + mnum;
-        }
-        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds);
-        if (String(snum).length == 1) {
-            snum = "0" + snum;
-        }
-        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
-        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
-    }
-    setInterval("createtime()", 250);
-
-    //-------------------------------------------------搜索
-    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
-    var searchInput = document.querySelector('.search-input');
-    var searchResults = document.querySelector('.search-results');
-
-    // 申明保存文章的标题、链接、内容的数组变量
-    var searchValue = '',
-        arrItems = [],
-        arrLinks = [],
-        arrTitles = [],
-        arrResults = [],
-        indexItem = [],
-        itemLength = 0;
-    var tmpDiv = document.createElement('div');
-    tmpDiv.className = 'result-item';
-
-    // ajax 的兼容写法
-    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            xml = xhr.responseXML;
-            arrItems = xml.getElementsByTagName('entry');
-            itemLength = arrItems.length;
-            console.log(arrItems);
-            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
-            // 同时过滤掉 HTML 标签
-            for (i = 0; i < itemLength; i++) {
-                var link = arrItems[i].getElementsByTagName('link')[0];
-                arrLinks[i] = link.getAttribute("href");
-                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
-                childNodes[0].nodeValue.replace(/<.*?>/g, '');
-            }
-        }
-    }
-
-    // 开始获取根目录下 feed.xml 文件内的数据
-    xhr.open('get', '/atom.xml', true);
-    xhr.send();
-
-
-
-    // 输入框内容变化后就开始匹配，可以不用点按钮
-    // 经测试，onkeydown, onchange 等方法效果不太理想，
-    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
-    // 并且可以处理中文输入法拼写的变化
-    searchInput.oninput = function () {
-        setTimeout(searchConfirm, 0);
-    }
-    searchInput.onfocus = function () {
-        searchResults.style.display = 'block';
-    }
-
-    function searchConfirm() {
-        if (searchInput.value == '') {
-            searchResults.style.display = 'none';
-        } else if (searchInput.value.search(/^\s+$/) >= 0) {
-            // 检测输入值全是空白的情况
-            searchInit();
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '请输入有效内容...';
-            searchResults.appendChild(itemDiv);
-        } else {
-            // 合法输入值的情况
-            searchInit();
-            searchValue = searchInput.value;
-            // 在标题、内容中查找
-            searchMatching(arrTitles, searchValue);
-        }
-    }
-
-    // 每次搜索完成后的初始化
-    function searchInit() {
-        arrResults = [];
-        indexItem = [];
-        searchResults.innerHTML = '';
-        searchResults.style.display = 'block';
-    }
-
-    function searchMatching(arr1, input) {
-        // 忽略输入大小写
-        input = new RegExp(input, 'i');
-        // 在所有文章标题、内容中匹配查询值
-        for (i = 0; i < itemLength; i++) {
-            if (arr1[i].search(input) !== -1) {
-                var arr = arr1;
-                indexItem.push(i); // 保存匹配值的索引
-                var indexContent = arr[i].search(input);
-                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
-                var l = input.toString().length - 3;
-                var step = 10;
-
-                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
-                arrResults.push(arr[i].slice(indexContent - step, indexContent) +
-                    '<mark>' + arr[i].slice(indexContent, indexContent + l) + '</mark>' +
-                    arr[i].slice(indexContent + l, indexContent + l + step));
-            }
-        }
-
-        // 输出总共匹配到的数目
-        var totalDiv = tmpDiv.cloneNode(true);
-        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
-        searchResults.appendChild(totalDiv);
-
-        // 未匹配到内容的情况
-        if (indexItem.length == 0) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '未匹配到内容...';
-            searchResults.appendChild(itemDiv);
-        }
-
-        // 将所有匹配内容进行组合
-        for (i = 0; i < arrResults.length; i++) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
-                ']</b><p>' + arrResults[i] + "</p><hr />";
-            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
-            searchResults.appendChild(itemDiv);
-        }
-    }
-
-    function changeHref(href) {
-        location.href = href;
-    }
-
-    function showqq() {
-        var qq = document.getElementById("qq").innerHTML;
-        if (qq != '')
-            alert("博主的QQ联系方式为：" + qq);
-        else
-            alert("博主暂未设置QQ联系方式");
-    }
-</script></div>
-                <div id="tab1" class="tab">
-                    <div class="bars">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="close"></div>
-                </div>
-                <div id="main" class="col-xs-12 col-sm-7">
-                    <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
-            
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2018-10-14</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 6 min read</div>
-                <div class="posttag">
-                    
-                    <a href="https://angus1996.github.io/tag/0FSONUuW9JW/" class="postlink">
-                        <i class="fa fa-tag"></i> 论文梳理
-                    </a>
-                    
-                    <a href="https://angus1996.github.io/tag/In2hWyXXkeE/" class="postlink">
-                        <i class="fa fa-tag"></i> 轻量
-                    </a>
-                    
-                </div>
-            </div>
-            
-            <div id="texttitle" style="text-align: center">
-                <h2>轻量级学习论文梳理</h2>
-            </div>
-            <div class="text ">
-                <h1 id="轻量级学习方法梳理">轻量级学习方法梳理</h1>
-<p>深度学习参数多，模型大，有许多研究来解决深度学习中的高效训练和推断。以下是文章的梳理：</p>
-<h2 id="浅层网络">浅层网络</h2>
-<p>1）Cybenko, G.: Approximation by superpositions of a sigmoidal function. Mathematics of</p>
-<p>control, signals and systems 2(4) (1989) 303–314 <a href="https://pdfs.semanticscholar.org/05ce/b32839c26c8d2cb38d5529cf7720a68c3fab.pdf">【paper】</a></p>
-<p>2）Seide, F., Li, G., Yu, D.: Conversational speech transcription using context-dependent deep</p>
-<p>neural networks. In: Interspeech. (2011) 437–440 <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.368.3047&amp;rep=rep1&amp;type=pdf">paper</a></p>
-<p>3）Dauphin, Y.N., Bengio, Y.: Big neural networks waste capacity. arXiv preprint arXiv:1301.3583 (2013) <a href="https://arxiv.org/pdf/1301.3583.pdf">paper</a></p>
-<p>4）Ba, J., Caruana, R.: Do deep nets really need to be deep? In: Advances in neural information processing systems. (2014) 2654–2662 <a href="https://papers.nips.cc/paper/5484-do-deep-nets-really-need-to-be-deep.pdf">paper</a></p>
-<h2 id="压缩预训练的深度网络">压缩预训练的深度网络</h2>
-<p>1）Hanson, S.J., Pratt, L.Y.: Comparing biases for minimal network construction with backpropagation. In: Advances in neural information processing systems. (1989) 177–185 <a href="https://papers.nips.cc/paper/156-comparing-biases-for-minimal-network-construction-with-back-propagation.pdf">paper</a></p>
-<p>2）LeCun, Y., Denker, J.S., Solla, S.A., Howard, R.E., Jackel, L.D.: Optimal brain damage. In: NIPs. Volume 89. (1989) <a href="http://yann.lecun.com/exdb/publis/pdf/lecun-90b.pdf">paper</a></p>
-<p>3）Hassibi, B., Stork, D.G.: Second order derivatives for network pruning: Optimal brain surgeon. Morgan Kaufmann (1993) <a href="https://papers.nips.cc/paper/647-second-order-derivatives-for-network-pruning-optimal-brain-surgeon.pdf">paper</a></p>
-<p>4）Han, S., Pool, J., Tran, J., Dally, W.: Learning both weights and connections for efficient neural network. In: Advances in Neural Information Processing Systems. (2015) 1135–1143 <a href="https://arxiv.org/pdf/1506.02626.pdf">paper</a></p>
-<p>5）Van Nguyen, H., Zhou, K., Vemulapalli, R.: Cross-domain synthesis of medical images using efficient location-sensitive deep network. In: Medical Image Computing and ComputerAssisted Intervention–MICCAI 2015. Springer (2015) 677–684 <a href="https://link.springer.com/content/pdf/10.1007/978-3-319-24553-9_83.pdf">paper</a></p>
-<p><strong>6）Han, S., Mao, H., Dally, W.J.: Deep compression: Compressing deep neural networks with pruning, trained quantization and huffman coding. arXiv preprint arXiv:1510.00149 (2015)</strong> <a href="https://arxiv.org/pdf/1510.00149.pdf">paper</a></p>
-<p>7）Chen, W., Wilson, J.T., Tyree, S., Weinberger, K.Q., Chen, Y.: Compressing neural networks with the hashing trick. arXiv preprint arXiv:1504.04788 (2015) <a href="https://arxiv.org/pdf/1504.04788.pdf">paper</a></p>
-<p>8）Denton, E.L., Zaremba, W., Bruna, J., LeCun, Y., Fergus, R.: Exploiting linear structure within convolutional networks for efficient evaluation. In: Advances in Neural Information Processing Systems. (2014) 1269–1277 <a href="https://arxiv.org/pdf/1404.0736.pdf">paper</a></p>
-<p>9）Jaderberg, M., Vedaldi, A., Zisserman, A.: Speeding up convolutional neural networks with low rank expansions. arXiv preprint arXiv:1405.3866 (2014) <a href="https://arxiv.org/pdf/1405.3866.pdf">paper</a></p>
-<h2 id="设计紧凑的网络层">设计紧凑的网络层</h2>
-<p>1）Lin, M., Chen, Q., Yan, S.: Network in network. arXiv preprint arXiv:1312.4400 (2013) <a href="https://arxiv.org/pdf/1312.4400.pdf">paper</a></p>
-<p>2）Szegedy, C., Ioffe, S., Vanhoucke, V.: Inception-v4, inception-resnet and the impact of residual connections on learning. CoRR (2016) <a href="https://arxiv.org/pdf/1602.07261.pdf">paper</a></p>
-<p>3）Iandola, F.N., Moskewicz, M.W., Ashraf, K., Han, S., Dally, W.J., Keutzer, K.: Squeezenet: Alexnet-level accuracy with 50x fewer parameters and¡ 1mb model size. arXiv preprint arXiv:1602.07360 (2016) <a href="https://arxiv.org/pdf/1602.07360.pdf">paper</a></p>
-<p><strong>5）Howard A G, Zhu M, Chen B, et al. MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications[J]. 2017.</strong> <a href="https://arxiv.org/pdf/1704.04861.pdf">paper</a></p>
-<h2 id="量化参数">量化参数</h2>
-<p>1）Gong, Y., Liu, L., Yang, M., Bourdev, L.: Compressing deep convolutional networks using vector quantization. arXiv preprint arXiv:1412.6115 (2014) <a href="https://arxiv.org/pdf/1412.6115.pdf">paper</a></p>
-<p>2）Arora, S., Bhaskara, A., Ge, R., Ma, T.: Provable bounds for learning some deep representations. arXiv preprint arXiv:1310.6343 (2013) <a href="https://arxiv.org/pdf/1310.6343.pdf">paper</a></p>
-<p>3）Vanhoucke, V., Senior, A., Mao, M.Z.: Improving the speed of neural networks on cpus. In: Proc. Deep Learning and Unsupervised Feature Learning NIPS Workshop. Volume 1. (2011) <a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/37631.pdf">paper</a></p>
-<p>4）Hwang, K., Sung, W.: Fixed-point feedforward deep neural network design using weights+ 1, 0, and- 1. In: Signal Processing Systems (SiPS), 2014 IEEE Workshop on, IEEE (2014) 1–6 <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=6986082">paper</a></p>
-<p>5）Anwar, S., Hwang, K., Sung, W.: Fixed point optimization of deep convolutional neural networks for object recognition. In: Acoustics, Speech and Signal Processing (ICASSP), 2015 IEEE International Conference on, IEEE (2015) 1131–1135 <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=7178146">paper</a></p>
-<p>6）Lin, Z., Courbariaux, M., Memisevic, R., Bengio, Y.: Neural networks with few multiplications. arXiv preprint arXiv:1510.03009 (2015) <a href="https://arxiv.org/pdf/1510.03009.pdf">paper</a></p>
-<h2 id="网络二值化">网络二值化</h2>
-<p>1）Courbariaux, M., Bengio, Y., David, J.P.: Training deep neural networks with low precision multiplications. arXiv preprint arXiv:1412.7024 (2014) <a href="https://arxiv.org/pdf/1412.7024.pdf">paper</a></p>
-<p>2）Soudry, D., Hubara, I., Meir, R.: Expectation backpropagation: parameter-free training of multilayer neural networks with continuous or discrete weights. In: Advances in Neural Information Processing Systems. (2014) 963–971 <a href="https://papers.nips.cc/paper/5269-expectation-backpropagation-parameter-free-training-of-multilayer-neural-networks-with-continuous-or-discrete-weights.pdf">paper</a></p>
-<p>3）Esser, S.K., Appuswamy, R., Merolla, P., Arthur, J.V., Modha, D.S.: Backpropagation for energy-efficient neuromorphic computing. In: Advances in Neural Information Processing Systems. (2015) 1117–1125 <a href="https://papers.nips.cc/paper/5862-backpropagation-for-energy-efficient-neuromorphic-computing.pdf">paper</a></p>
-<p>4）Courbariaux, M., Bengio, Y., David, J.P.: Binaryconnect: Training deep neural networks with binary weights during propagations. In: Advances in Neural Information Processing Systems. (2015) 3105–3113 4, 6, 10, 11 <a href="https://arxiv.org/pdf/1511.00363.pdf">paper</a></p>
-<p>5）Courbariaux, M., Bengio, Y.: Binarynet: Training deep neural networks with weights and activations constrained to +1 or -1. CoRR (2016) 2, 3, 4, 6, 7, 10, 11, 12 <a href="https://arxiv.org/pdf/1602.02830.pdf">paper</a></p>
-<p>6）Wan, L., Zeiler, M., Zhang, S., Cun, Y.L., Fergus, R.: Regularization of neural networks using dropconnect. In: Proceedings of the 30th International Conference on Machine Learning (ICML-13). (2013) 1058–1066 <a href="https://cs.nyu.edu/~wanli/dropc/dropc.pdf">paper</a></p>
-<p>7）Baldassi, C., Ingrosso, A., Lucibello, C., Saglietti, L., Zecchina, R.: Subdominant dense clusters allow for simple learning and high computational performance in neural networks with discrete synapses. Physical review letters 115(12) (2015) 128101 <a href="https://arxiv.org/pdf/1509.05753.pdf">paper</a></p>
-<p>8）Kim, M., Smaragdis, P.: Bitwise neural networks. arXiv preprint arXiv:1601.06071 (2016) <a href="https://arxiv.org/pdf/1601.06071.pdf">paper</a></p>
-<p><strong>9）Rastegari M, Ordonez V, Redmon J, et al. XNOR-Net: ImageNet Classification Using Binary Convolutional Neural Networks[C]// European Conference on Computer Vision. Springer International Publishing, 2016:525-542.</strong>  <a href="https://arxiv.org/pdf/1603.05279.pdf">paper</a></p>
-
-            </div>
-            
-            <div class="prev-post">
-                上一篇
-                <a href="https://angus1996.github.io/post/TFLite-使用mobilenet训练自己的数据集并部署到手机上/">
-                    TFLite 使用mobilenet训练自己的数据集并部署到手机上
-                </a>
-            </div>
-            
-            
-            <div class="next-post">
-                下一篇
-                <a href="https://angus1996.github.io/post/opencv二值图像膨胀、腐蚀、开与闭运算python实现/">
-                    opencv二值图像膨胀、腐蚀、开与闭运算python实现
-                </a>
-            </div>
-            
-        </div>
-    </div>
-</body>
-<script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
-            }
-        });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
-</script>
-                    <div name="comment" style="background: white">
-                        <div class="commentcontainer">
-                            
-                            <head>
-    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-    <script src="https://angus1996.github.io//media/js/jquery.min.js"></script>
-</head>
-<style>
-    @media screen and (min-width: 1300px) {
-        .v {
-            margin-top: 10%;
-        }
-
-        .v .vwrap {
-            overflow: hidden;
-        }
-
-        .v .vwrap {
-            padding: 0 0 44px;
-        }
-
-        .v .veditor {
-            min-height: 7rem;
-            resize: none;
-        }
-
-        .v .vwrap .vedit {
-            padding-top: 0
-        }
-
-        .v .vwrap .vheader {
-            width: 80%;
-            bottom: 0;
-            position: absolute;
-            background: #f7f7f7;
-        }
-
-        .v .vinput {
-            padding: 10px 15px;
-        }
-
-        .v .vwrap .vheader .vinput {
-            border-bottom: 0px
-        }
-
-        .v .vwrap .vedit .vctrl {
-            margin-top: -44px;
-            right: 0;
-            position: absolute;
-            margin-right: -3px;
-        }
-
-        .v .vwrap .vcontrol {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            width: 20%;
-            padding-top: 0px;
-        }
-    }
-
-    .v .vwrap .vcontrol .col.col-80 {
-        width: 100%;
-    }
-
-    .v .vbtn.vsubmit {
-        border-radius: 0;
-        padding: 0;
-        color: #fff;
-        line-height: 44px;
-        width: 100%;
-        border: none;
-        background: #1abc9c;
-    }
-
-    .v .vwrap .vedit .vctrl span.vpreview-btn,
-    .v .vwrap .vcontrol .col.col-20,
-    .v .vlist .vcard .vhead .vsys {
-        display: none;
-    }
-
-    .v .vwrap .vmark .valert {
-        padding-top: 0px;
-    }
-
-    .vtext{
-        padding: 0;
-    }
-
-    @media screen and (max-width: 1300px) {
-        .v .vwrap .vmark .valert{
-            margin-top:60%;
-        }
-        .vwrap{
-            margin: 15px;
-            width: 90%;
-        }
-        .v .vwrap .vheader .vinput {
-            padding: 10px 5px;
-        }
-        .v .vwrap{
-            overflow: auto;
-        }
-        .v .veditor {
-            min-height: 30rem;
-            resize: none;
-        }
-
-        .v .vinput {
-            padding: 10px 15px;
-            font-size: 20px;
-        }
-
-        .v .vwrap .vedit .vctrl {
-            right: 0;
-        }
-
-        .v .vempty {
-            padding: 1.25em;
-            text-align: center;
-            color: #999;
-            font-size: 25px;
-        }
-
-    }
-</style>
-
-<body>
-    <div id="vcomments"></div>
-    <script>
-        new Valine({
-            el: '#vcomments',
-            appId: '25nYhDRvpGfuHk2dCcNjr45O-gzGzoHsz',
-            appKey: 'lyj9VVm9HR9qcy2QqLCQ1HoH',
-            notify: true,
-            verify: false,
-            avatar: 'retro',
-            pageSize: 30,
-            placeholder: '既然来了，那就留个痕迹吧~',
-        })
-    </script>
-</body>
-                            <div class="clear"></div>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="toc-container">
-                    <ul class="markdownIt-TOC">
-<li><a href="#%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E6%A2%B3%E7%90%86">轻量级学习方法梳理</a>
-<ul>
-<li><a href="#%E6%B5%85%E5%B1%82%E7%BD%91%E7%BB%9C">浅层网络</a></li>
-<li><a href="#%E5%8E%8B%E7%BC%A9%E9%A2%84%E8%AE%AD%E7%BB%83%E7%9A%84%E6%B7%B1%E5%BA%A6%E7%BD%91%E7%BB%9C">压缩预训练的深度网络</a></li>
-<li><a href="#%E8%AE%BE%E8%AE%A1%E7%B4%A7%E5%87%91%E7%9A%84%E7%BD%91%E7%BB%9C%E5%B1%82">设计紧凑的网络层</a></li>
-<li><a href="#%E9%87%8F%E5%8C%96%E5%8F%82%E6%95%B0">量化参数</a></li>
-<li><a href="#%E7%BD%91%E7%BB%9C%E4%BA%8C%E5%80%BC%E5%8C%96">网络二值化</a></li>
-</ul>
-</li>
-</ul>
-
-                </div>
-            </div>
-        </div>
-        <div id="bg">
-        </div>
-        <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
-    </div>
-    <!-- 响应式布局，针对手机端内容显示 -->
-    <div class="nav-small">
-        <head>
-
-  <!-- 引入Bootstrap核心样式文件 -->
-  <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
-</head>
-
-<body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Angus&#39; s Blog&nbsp;&nbsp;|</a>
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://angus1996.github.io/">
+        <img src="https://angus1996.github.io//images/avatar.png?v=1585969127213" class="site-logo">
+        <h1 class="site-title">Angus&#39; s Blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
       </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/Angus1996" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="Secret" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="Secret" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="Secret" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="Secret" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        
+      
+    </div>
+    <div class="site-description">
+      我遇见你，是最美丽的意外
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://angus1996.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          
-          
-          <li>
-            <a href="/">
-              首页
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archives">
-              归档
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/tags">
-              标签
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/post/about">
-              关于
-            </a>
-          </li>
-          
-          
-          
-          <li><a href="https://angus1996.github.io//friends">友链</a></li>
 
-          
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-  <!-- 引入jQuery核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-  <!-- 引入BootStrap核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
-        <div style="margin-top:30px"></div>
-        <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">轻量级学习论文梳理</h2>
+            <div class="post-date">2018-10-14</div>
             
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2018-10-14</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 6 min read</div>
-                <div class="posttag">
-                    
-                    <a href="https://angus1996.github.io/tag/0FSONUuW9JW/" class="postlink">
-                        <i class="fa fa-tag"></i> 论文梳理
-                    </a>
-                    
-                    <a href="https://angus1996.github.io/tag/In2hWyXXkeE/" class="postlink">
-                        <i class="fa fa-tag"></i> 轻量
-                    </a>
-                    
-                </div>
-            </div>
-            
-            <div id="texttitle" style="text-align: center">
-                <h2>轻量级学习论文梳理</h2>
-            </div>
-            <div class="text ">
-                <h1 id="轻量级学习方法梳理">轻量级学习方法梳理</h1>
+            <div class="post-content" v-pre>
+              <h1 id="轻量级学习方法梳理">轻量级学习方法梳理</h1>
 <p>深度学习参数多，模型大，有许多研究来解决深度学习中的高效训练和推断。以下是文章的梳理：</p>
 <h2 id="浅层网络">浅层网络</h2>
 <p>1）Cybenko, G.: Approximation by superpositions of a sigmoidal function. Mathematics of</p>
@@ -727,209 +161,60 @@
 
             </div>
             
-            <div class="prev-post">
-                上一篇
-                <a href="https://angus1996.github.io/post/TFLite-使用mobilenet训练自己的数据集并部署到手机上/">
-                    TFLite 使用mobilenet训练自己的数据集并部署到手机上
-                </a>
-            </div>
+              <div class="tag-container">
+                
+                  <a href="https://angus1996.github.io/tag/0FSONUuW9JW/" class="tag">
+                    论文梳理
+                  </a>
+                
+                  <a href="https://angus1996.github.io/tag/In2hWyXXkeE/" class="tag">
+                    轻量
+                  </a>
+                
+              </div>
             
             
-            <div class="next-post">
-                下一篇
+              <div class="next-post">
+                <div class="next">下一篇</div>
                 <a href="https://angus1996.github.io/post/opencv二值图像膨胀、腐蚀、开与闭运算python实现/">
+                  <h3 class="post-title">
                     opencv二值图像膨胀、腐蚀、开与闭运算python实现
+                  </h3>
                 </a>
-            </div>
+              </div>
             
+
+            
+
+          </div>
+
         </div>
-    </div>
-</body>
-<script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
-            }
-        });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
-</script>
-        <div name="comment" style="background: white">
-            <div class="commentcontainer">
-                
-                <head>
-        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-        <script src="https://angus1996.github.io//media/js/jquery.min.js"></script>
-    </head>
-    <style>
-        @media screen and (min-width: 1300px) {
-            .v {
-                margin-top: 10%;
-            }
-    
-            .v .vwrap {
-                overflow: hidden;
-            }
-    
-            .v .vwrap {
-                padding: 0 0 44px;
-            }
-    
-            .v .veditor {
-                min-height: 7rem;
-                resize: none;
-            }
-    
-            .v .vwrap .vedit {
-                padding-top: 0
-            }
-    
-            .v .vwrap .vheader {
-                width: 80%;
-                bottom: 0;
-                position: absolute;
-                background: #f7f7f7;
-            }
-    
-            .v .vinput {
-                padding: 10px 15px;
-            }
-    
-            .v .vwrap .vheader .vinput {
-                border-bottom: 0px
-            }
-    
-            .v .vwrap .vedit .vctrl {
-                margin-top: -44px;
-                right: 0;
-                position: absolute;
-                margin-right: -3px;
-            }
-    
-            .v .vwrap .vcontrol {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                width: 20%;
-                padding-top: 0px;
-            }
-        }
-    
-        .v .vwrap .vcontrol .col.col-80 {
-            width: 100%;
-        }
-    
-        .v .vbtn.vsubmit {
-            border-radius: 0;
-            padding: 0;
-            color: #fff;
-            line-height: 44px;
-            width: 100%;
-            border: none;
-            background: #1abc9c;
-        }
-    
-        .v .vwrap .vedit .vctrl span.vpreview-btn,
-        .v .vwrap .vcontrol .col.col-20,
-        .v .vlist .vcard .vhead .vsys {
-            display: none;
-        }
-    
-        .v .vwrap .vmark .valert {
-            padding-top: 0px;
-        }
-    
-        .vtext{
-            padding: 0;
-        }
-    
-        @media screen and (max-width: 1300px) {
-            .v .vwrap .vmark .valert{
-                margin-top:60%;
-            }
-            .vwrap{
-                margin: 15px;
-                width: 100%;
-            }
-            .v .vwrap .vheader .vinput {
-                padding: 10px 5px;
-            }
-            .v .vwrap{
-                overflow: auto;
-            }
-            .v .veditor {
-                min-height: 30rem;
-                resize: none;
-            }
-    
-            .v .vinput {
-                padding: 10px 15px;
-                font-size: 20px;
-            }
-    
-            .v .vwrap .vedit .vctrl {
-                right: 0;
-            }
-    
-            .v .vempty {
-                padding: 1.25em;
-                text-align: center;
-                color: #999;
-                font-size: 25px;
-            }
-    
-        }
-    </style>
-    
-    <body>
-        <div id="vcomments1"></div>
-        <script>
-            new Valine({
-                el: '#vcomments1',
-                appId: '25nYhDRvpGfuHk2dCcNjr45O-gzGzoHsz',
-                appKey: 'lyj9VVm9HR9qcy2QqLCQ1HoH',
-                notify: true,
-                verify: false,
-                avatar: 'retro',
-                pageSize: 30,
-                placeholder: '既然来了，那就留个痕迹吧~',
-            })
-        </script>
-    </body>
-                <div class="clear"></div>
-                
-            </div>
-        </div>
+      </div>
     </div>
 
-</body>
-<script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
     hljs.initHighlightingOnLoad()
-</script>
-<script src="https://angus1996.github.io//media/js/post.js"></script>
+  </script>
 
-<script src="https://l2dwidget.js.org//lib/L2Dwidget.min.js"></script>
-<script src="https://angus1996.github.io//media/js/live2d.js"></script>
+
+
+
+
+  </body>
+</html>

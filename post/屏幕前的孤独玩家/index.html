@@ -1,626 +1,122 @@
-<head>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>屏幕前的孤独玩家 | Angus&#39; s Blog</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1585969127213">
+<link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
     <meta name="description" content="半夜醒来后再难以入睡，第一感觉就是拿起手机，不知道想干嘛。翻着手机空间，每个好友在我睡着期间又发生了什么。这是一个人对外部世界正常的好奇心。
 屏幕前的我，与屏幕前的你，因为移动互联网而得以联系。如果没有互联网呢，是否还会愿意费力去联系？
 人..." />
     <meta name="keywords" content="失眠，孤独" />
-    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/rainbow.min.css">
-              
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
-    <title>Angus' s Blog</title>
-</head>
+  </head>
+  <body>
+    <div id="app" class="main">
 
-<body>
-    <!-- 响应式布局，针对PC端内容显示 -->
-    <div id="content">
-        <div class="nav-large">
-            <div class="row">
-                <div class="side"><html>
-
-<head>
-    <link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
-    <meta name="description" content="念念不忘，必有回响" />
-    <title>Document</title>
-</head>
-<style>
-</style>
-
-<body>
-    <div id=side>
-        <div class="avatar-border">
-            <img src="https://angus1996.github.io//images/avatar.png?v=1585920579486" class="avatar">
-        </div>
-        <div class="sitename">Angus&#39; s Blog</div>
-        <span class="describtion" data-text='["念念不忘，必有回响"]'>&nbsp;</span>
-        
-        <div class="search">
-            <!-- <input type="text" class="search-input" placeholder="标题搜索(●'◡'●)" /> -->
-            <input type="text" class="search-input" placeholder="标题搜索 ⚆_⚆ つ♡">
-            <div class="search-results"></div>
-        </div>
-        
-    <div class="share-button">
-        <span>Contact</span>
-        
-        <a href="https://github.com/Angus1996" target="_blank"><i><img class="icon"
-                    src="https://angus1996.github.io//media/images/github.png" alt=""></i></a>
-        
-        
-        <a onclick="showqq()"><i><img class="icon" src="https://angus1996.github.io//media/images/QQ.png" alt=""></i></a>
-        
-        
-        
-        
-        <a href="angus960222" target="_blank"><i><img class="icon"
-                    src="https://angus1996.github.io//media/images/wechat.png" alt=""></i></a>
-        
-        
-    </div>
-    <div id="qq" style="display:none">884816034</div>
-    
-    
-    <div class="mchocie describtion">
-        <a href="/" class="menubutton">
-            首页
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/archives" class="menubutton">
-            归档
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/tags" class="menubutton">
-            标签
-        </a>
-    </div>
-    
-    
-    
-    <div class="mchocie describtion">
-        <a href="/post/about" class="menubutton">
-            关于
-        </a>
-    </div>
-    
-    
-    
-        <div class="mchocie describtion">
-            <a href="https://angus1996.github.io//friends" class="menubutton">友链</a>
-        </div>
-    
-    <hr>
-    <div id="footinfo">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | Theme: Fog</div>
-    <div id="sitegotimeDate">载入天数...</div>
-    <div id="sitegotimes">载入时分秒...</div>
-    <div id="cussitetime" style="display:none">02/22/1996</div>
-    </div>
-</body>
-
-</html>
-<script src="https://angus1996.github.io//media/js/wordshow.js"></script>
-<script>
-    //----------------------站点运行时间
-    var now = new Date();
-
-    function createtime() {
-        var sitegotime = document.getElementById("cussitetime").innerHTML + " 00:00:00";
-        var grt = new Date(sitegotime); //此处修改你的建站时间或者网站上线时间 
-        now.setTime(now.getTime() + 250);
-        days = (now - grt) / 1000 / 60 / 60 / 24;
-        dnum = Math.floor(days);
-        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
-        hnum = Math.floor(hours);
-        if (String(hnum).length == 1) {
-            hnum = "0" + hnum;
-        }
-        minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
-        mnum = Math.floor(minutes);
-        if (String(mnum).length == 1) {
-            mnum = "0" + mnum;
-        }
-        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
-        snum = Math.round(seconds);
-        if (String(snum).length == 1) {
-            snum = "0" + snum;
-        }
-        document.getElementById("sitegotimeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
-        document.getElementById("sitegotimes").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
-    }
-    setInterval("createtime()", 250);
-
-    //-------------------------------------------------搜索
-    // 获取搜索框、搜索按钮、清空搜索、结果输出对应的元素
-    var searchInput = document.querySelector('.search-input');
-    var searchResults = document.querySelector('.search-results');
-
-    // 申明保存文章的标题、链接、内容的数组变量
-    var searchValue = '',
-        arrItems = [],
-        arrLinks = [],
-        arrTitles = [],
-        arrResults = [],
-        indexItem = [],
-        itemLength = 0;
-    var tmpDiv = document.createElement('div');
-    tmpDiv.className = 'result-item';
-
-    // ajax 的兼容写法
-    var xhr = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            xml = xhr.responseXML;
-            arrItems = xml.getElementsByTagName('entry');
-            itemLength = arrItems.length;
-            console.log(arrItems);
-            // 遍历并保存所有文章对应的标题、链接、内容到对应的数组中
-            // 同时过滤掉 HTML 标签
-            for (i = 0; i < itemLength; i++) {
-                var link = arrItems[i].getElementsByTagName('link')[0];
-                arrLinks[i] = link.getAttribute("href");
-                arrTitles[i] = arrItems[i].getElementsByTagName('title')[0].
-                childNodes[0].nodeValue.replace(/<.*?>/g, '');
-            }
-        }
-    }
-
-    // 开始获取根目录下 feed.xml 文件内的数据
-    xhr.open('get', '/atom.xml', true);
-    xhr.send();
-
-
-
-    // 输入框内容变化后就开始匹配，可以不用点按钮
-    // 经测试，onkeydown, onchange 等方法效果不太理想，
-    // 存在输入延迟等问题，最后发现触发 input 事件最理想，
-    // 并且可以处理中文输入法拼写的变化
-    searchInput.oninput = function () {
-        setTimeout(searchConfirm, 0);
-    }
-    searchInput.onfocus = function () {
-        searchResults.style.display = 'block';
-    }
-
-    function searchConfirm() {
-        if (searchInput.value == '') {
-            searchResults.style.display = 'none';
-        } else if (searchInput.value.search(/^\s+$/) >= 0) {
-            // 检测输入值全是空白的情况
-            searchInit();
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '请输入有效内容...';
-            searchResults.appendChild(itemDiv);
-        } else {
-            // 合法输入值的情况
-            searchInit();
-            searchValue = searchInput.value;
-            // 在标题、内容中查找
-            searchMatching(arrTitles, searchValue);
-        }
-    }
-
-    // 每次搜索完成后的初始化
-    function searchInit() {
-        arrResults = [];
-        indexItem = [];
-        searchResults.innerHTML = '';
-        searchResults.style.display = 'block';
-    }
-
-    function searchMatching(arr1, input) {
-        // 忽略输入大小写
-        input = new RegExp(input, 'i');
-        // 在所有文章标题、内容中匹配查询值
-        for (i = 0; i < itemLength; i++) {
-            if (arr1[i].search(input) !== -1) {
-                var arr = arr1;
-                indexItem.push(i); // 保存匹配值的索引
-                var indexContent = arr[i].search(input);
-                // 此时 input 为 RegExp 格式 /input/i，转换为原 input 字符串长度
-                var l = input.toString().length - 3;
-                var step = 10;
-
-                // 将匹配到内容的地方进行黄色标记，并包括周围一定数量的文本
-                arrResults.push(arr[i].slice(indexContent - step, indexContent) +
-                    '<mark>' + arr[i].slice(indexContent, indexContent + l) + '</mark>' +
-                    arr[i].slice(indexContent + l, indexContent + l + step));
-            }
-        }
-
-        // 输出总共匹配到的数目
-        var totalDiv = tmpDiv.cloneNode(true);
-        totalDiv.innerHTML = '<b>总匹配：' + indexItem.length + ' 项<hr></b>';
-        searchResults.appendChild(totalDiv);
-
-        // 未匹配到内容的情况
-        if (indexItem.length == 0) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerText = '未匹配到内容...';
-            searchResults.appendChild(itemDiv);
-        }
-
-        // 将所有匹配内容进行组合
-        for (i = 0; i < arrResults.length; i++) {
-            var itemDiv = tmpDiv.cloneNode(true);
-            itemDiv.innerHTML = '<b>[' + arrTitles[indexItem[i]] +
-                ']</b><p>' + arrResults[i] + "</p><hr />";
-            itemDiv.setAttribute('onclick', 'changeHref(arrLinks[indexItem[' + i + ']])');
-            searchResults.appendChild(itemDiv);
-        }
-    }
-
-    function changeHref(href) {
-        location.href = href;
-    }
-
-    function showqq() {
-        var qq = document.getElementById("qq").innerHTML;
-        if (qq != '')
-            alert("博主的QQ联系方式为：" + qq);
-        else
-            alert("博主暂未设置QQ联系方式");
-    }
-</script></div>
-                <div id="tab1" class="tab">
-                    <div class="bars">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="close"></div>
-                </div>
-                <div id="main" class="col-xs-12 col-sm-7">
-                    <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
-            
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2017-02-26</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
-                <div class="posttag">
-                    
-                    <a href="https://angus1996.github.io/tag/ljQMpVwvjgh/" class="postlink">
-                        <i class="fa fa-tag"></i> 失眠，孤独
-                    </a>
-                    
-                </div>
-            </div>
-            
-            <div id="texttitle" style="text-align: center">
-                <h2>屏幕前的孤独玩家</h2>
-            </div>
-            <div class="text ">
-                <p>半夜醒来后再难以入睡，第一感觉就是拿起手机，不知道想干嘛。翻着手机空间，每个好友在我睡着期间又发生了什么。这是一个人对外部世界正常的好奇心。<br>
-屏幕前的我，与屏幕前的你，因为移动互联网而得以联系。如果没有互联网呢，是否还会愿意费力去联系？<br>
-人为什么要与他人联系？因为孤独感使然。我记得初中摘抄一个同学的读书笔记，里面有亚里士多德这么一句话“喜欢孤独的不是上帝就是野兽”。这句话描述了人性深处的是害怕孤独，讨厌孤独的。最近看了点圣经，创世纪里耶和华神在造了亚当后说“那人独居不好，我要为他造一个配偶帮助他”。男女关系就这样成了。亚当也不再孤独。中国神话里关于男女关系的起源有没有类似的我不知道。这句话值得深思，上帝说独居不好那就真的不好？上帝想到了找个配偶帮助他，难道上帝也不喜欢孤独？如果连上帝都不喜欢孤独，人又何德何能说自己喜欢孤独呢？<br>
-正是孤独感让我们在一起，成为屏幕前的玩家。可是人又有得寸进尺的习性，在正确的人身上是积极进取，在平庸的人身上便是一种恶习劣根。拥有了成百上千个网友又如何？想要找到一个人化解自己的孤独还不是那么的困难。于是出现了一个怪状:我们因为孤独选择了手机，却成了手机前的孤独玩家，孤独有时并找不到出路。<br>
-像一头被关起来的猛兽，肆意挣扎却难以逃脱。没有钥匙或者有错误钥匙的人，接近它却打不开它，反而成了一种挑衅。只待一个对的人拿着一把正确的钥匙。打开了囚笼，慢慢抚慰名为孤独的猛兽，最后放走了它，让它再也不用挣扎。可是人有千千万万，钥匙却只有一把！</p>
-
-            </div>
-            
-            <div class="prev-post">
-                上一篇
-                <a href="https://angus1996.github.io/post/夏朦的故事/">
-                    夏朦的故事
-                </a>
-            </div>
-            
-            
-        </div>
-    </div>
-</body>
-<script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
-            }
-        });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
-</script>
-                    <div name="comment" style="background: white">
-                        <div class="commentcontainer">
-                            
-                            <head>
-    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-    <script src="https://angus1996.github.io//media/js/jquery.min.js"></script>
-</head>
-<style>
-    @media screen and (min-width: 1300px) {
-        .v {
-            margin-top: 10%;
-        }
-
-        .v .vwrap {
-            overflow: hidden;
-        }
-
-        .v .vwrap {
-            padding: 0 0 44px;
-        }
-
-        .v .veditor {
-            min-height: 7rem;
-            resize: none;
-        }
-
-        .v .vwrap .vedit {
-            padding-top: 0
-        }
-
-        .v .vwrap .vheader {
-            width: 80%;
-            bottom: 0;
-            position: absolute;
-            background: #f7f7f7;
-        }
-
-        .v .vinput {
-            padding: 10px 15px;
-        }
-
-        .v .vwrap .vheader .vinput {
-            border-bottom: 0px
-        }
-
-        .v .vwrap .vedit .vctrl {
-            margin-top: -44px;
-            right: 0;
-            position: absolute;
-            margin-right: -3px;
-        }
-
-        .v .vwrap .vcontrol {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            width: 20%;
-            padding-top: 0px;
-        }
-    }
-
-    .v .vwrap .vcontrol .col.col-80 {
-        width: 100%;
-    }
-
-    .v .vbtn.vsubmit {
-        border-radius: 0;
-        padding: 0;
-        color: #fff;
-        line-height: 44px;
-        width: 100%;
-        border: none;
-        background: #1abc9c;
-    }
-
-    .v .vwrap .vedit .vctrl span.vpreview-btn,
-    .v .vwrap .vcontrol .col.col-20,
-    .v .vlist .vcard .vhead .vsys {
-        display: none;
-    }
-
-    .v .vwrap .vmark .valert {
-        padding-top: 0px;
-    }
-
-    .vtext{
-        padding: 0;
-    }
-
-    @media screen and (max-width: 1300px) {
-        .v .vwrap .vmark .valert{
-            margin-top:60%;
-        }
-        .vwrap{
-            margin: 15px;
-            width: 90%;
-        }
-        .v .vwrap .vheader .vinput {
-            padding: 10px 5px;
-        }
-        .v .vwrap{
-            overflow: auto;
-        }
-        .v .veditor {
-            min-height: 30rem;
-            resize: none;
-        }
-
-        .v .vinput {
-            padding: 10px 15px;
-            font-size: 20px;
-        }
-
-        .v .vwrap .vedit .vctrl {
-            right: 0;
-        }
-
-        .v .vempty {
-            padding: 1.25em;
-            text-align: center;
-            color: #999;
-            font-size: 25px;
-        }
-
-    }
-</style>
-
-<body>
-    <div id="vcomments"></div>
-    <script>
-        new Valine({
-            el: '#vcomments',
-            appId: '25nYhDRvpGfuHk2dCcNjr45O-gzGzoHsz',
-            appKey: 'lyj9VVm9HR9qcy2QqLCQ1HoH',
-            notify: true,
-            verify: false,
-            avatar: 'retro',
-            pageSize: 30,
-            placeholder: '既然来了，那就留个痕迹吧~',
-        })
-    </script>
-</body>
-                            <div class="clear"></div>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="toc-container">
-                    
-                </div>
-            </div>
-        </div>
-        <div id="bg">
-        </div>
-        <div id="bgurl" style="display:none">\media\images\custom-bgimage.jpg</div>
-    </div>
-    <!-- 响应式布局，针对手机端内容显示 -->
-    <div class="nav-small">
-        <head>
-
-  <!-- 引入Bootstrap核心样式文件 -->
-  <link rel="stylesheet" href="https://angus1996.github.io//media/css/bootstrap.min.css">
-</head>
-
-<body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Angus&#39; s Blog&nbsp;&nbsp;|</a>
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://angus1996.github.io/">
+        <img src="https://angus1996.github.io//images/avatar.png?v=1585969127213" class="site-logo">
+        <h1 class="site-title">Angus&#39; s Blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
       </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/Angus1996" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="Secret" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="Secret" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="Secret" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="Secret" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        
+      
+    </div>
+    <div class="site-description">
+      我遇见你，是最美丽的意外
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://angus1996.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          
-          
-          <li>
-            <a href="/">
-              首页
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archives">
-              归档
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/tags">
-              标签
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/post/about">
-              关于
-            </a>
-          </li>
-          
-          
-          
-          <li><a href="https://angus1996.github.io//friends">友链</a></li>
 
-          
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-  <!-- 引入jQuery核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-  <!-- 引入BootStrap核心js文件 -->
-  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
-        <div style="margin-top:30px"></div>
-        <link rel="stylesheet" href="https://angus1996.github.io//media/css/font-awesome.css">
-<style>
-
-</style>
-
-<body>
-    <div class="allcontent">
-        <div class="postshow">
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">屏幕前的孤独玩家</h2>
+            <div class="post-date">2017-02-26</div>
             
-            <div class="postdetailimg" style="width:100%;overflow: hidden;display: none">
-                <img src="\media\images\custom-postdefaultimage.jpg" class="postimage">
-            </div>
-            <div class="postinfo">
-                <div class="postdate"><i class="fa fa-calendar"></i>2017-02-26</div>
-                <div class="poststatus postdate"><i class="fa fa-clock-o"></i> 2 min read</div>
-                <div class="posttag">
-                    
-                    <a href="https://angus1996.github.io/tag/ljQMpVwvjgh/" class="postlink">
-                        <i class="fa fa-tag"></i> 失眠，孤独
-                    </a>
-                    
-                </div>
-            </div>
-            
-            <div id="texttitle" style="text-align: center">
-                <h2>屏幕前的孤独玩家</h2>
-            </div>
-            <div class="text ">
-                <p>半夜醒来后再难以入睡，第一感觉就是拿起手机，不知道想干嘛。翻着手机空间，每个好友在我睡着期间又发生了什么。这是一个人对外部世界正常的好奇心。<br>
+            <div class="post-content" v-pre>
+              <p>半夜醒来后再难以入睡，第一感觉就是拿起手机，不知道想干嘛。翻着手机空间，每个好友在我睡着期间又发生了什么。这是一个人对外部世界正常的好奇心。<br>
 屏幕前的我，与屏幕前的你，因为移动互联网而得以联系。如果没有互联网呢，是否还会愿意费力去联系？<br>
 人为什么要与他人联系？因为孤独感使然。我记得初中摘抄一个同学的读书笔记，里面有亚里士多德这么一句话“喜欢孤独的不是上帝就是野兽”。这句话描述了人性深处的是害怕孤独，讨厌孤独的。最近看了点圣经，创世纪里耶和华神在造了亚当后说“那人独居不好，我要为他造一个配偶帮助他”。男女关系就这样成了。亚当也不再孤独。中国神话里关于男女关系的起源有没有类似的我不知道。这句话值得深思，上帝说独居不好那就真的不好？上帝想到了找个配偶帮助他，难道上帝也不喜欢孤独？如果连上帝都不喜欢孤独，人又何德何能说自己喜欢孤独呢？<br>
 正是孤独感让我们在一起，成为屏幕前的玩家。可是人又有得寸进尺的习性，在正确的人身上是积极进取，在平庸的人身上便是一种恶习劣根。拥有了成百上千个网友又如何？想要找到一个人化解自己的孤独还不是那么的困难。于是出现了一个怪状:我们因为孤独选择了手机，却成了手机前的孤独玩家，孤独有时并找不到出路。<br>
@@ -628,202 +124,47 @@
 
             </div>
             
-            <div class="prev-post">
-                上一篇
-                <a href="https://angus1996.github.io/post/夏朦的故事/">
-                    夏朦的故事
-                </a>
-            </div>
+              <div class="tag-container">
+                
+                  <a href="https://angus1996.github.io/tag/ljQMpVwvjgh/" class="tag">
+                    失眠，孤独
+                  </a>
+                
+              </div>
             
             
+
+            
+
+          </div>
+
         </div>
-    </div>
-</body>
-<script>
-    var t_img; // 定时器
-    var isLoad = true; // 控制变量
-    isImgLoad(function () {
-        // 加载完成
-        $('.postdetailimg').css("display", "block");
-    });
-    // 判断图片加载的函数
-    function isImgLoad(callback) {
-        // 注意我的图片类名都是cover，因为我只需要处理cover。其它图片可以不管。
-        // 查找所有封面图，迭代处理
-        $('.postdetailimg').each(function () {
-            // 找到为0就将isLoad设为false，并退出each
-            if (this.height === 0) {
-                isLoad = false;
-                return false;
-            }
-        });
-        // 为true，没有发现为0的。加载完毕
-        if (isLoad) {
-            clearTimeout(t_img); // 清除定时器
-            // 回调函数
-            callback();
-            // 为false，因为找到了没有加载完成的图，将调用定时器递归
-        } else {
-            isLoad = true;
-            t_img = setTimeout(function () {
-                isImgLoad(callback); // 递归扫描
-            }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
-        }
-    }
-</script>
-        <div name="comment" style="background: white">
-            <div class="commentcontainer">
-                
-                <head>
-        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-        <script src="https://angus1996.github.io//media/js/jquery.min.js"></script>
-    </head>
-    <style>
-        @media screen and (min-width: 1300px) {
-            .v {
-                margin-top: 10%;
-            }
-    
-            .v .vwrap {
-                overflow: hidden;
-            }
-    
-            .v .vwrap {
-                padding: 0 0 44px;
-            }
-    
-            .v .veditor {
-                min-height: 7rem;
-                resize: none;
-            }
-    
-            .v .vwrap .vedit {
-                padding-top: 0
-            }
-    
-            .v .vwrap .vheader {
-                width: 80%;
-                bottom: 0;
-                position: absolute;
-                background: #f7f7f7;
-            }
-    
-            .v .vinput {
-                padding: 10px 15px;
-            }
-    
-            .v .vwrap .vheader .vinput {
-                border-bottom: 0px
-            }
-    
-            .v .vwrap .vedit .vctrl {
-                margin-top: -44px;
-                right: 0;
-                position: absolute;
-                margin-right: -3px;
-            }
-    
-            .v .vwrap .vcontrol {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                width: 20%;
-                padding-top: 0px;
-            }
-        }
-    
-        .v .vwrap .vcontrol .col.col-80 {
-            width: 100%;
-        }
-    
-        .v .vbtn.vsubmit {
-            border-radius: 0;
-            padding: 0;
-            color: #fff;
-            line-height: 44px;
-            width: 100%;
-            border: none;
-            background: #1abc9c;
-        }
-    
-        .v .vwrap .vedit .vctrl span.vpreview-btn,
-        .v .vwrap .vcontrol .col.col-20,
-        .v .vlist .vcard .vhead .vsys {
-            display: none;
-        }
-    
-        .v .vwrap .vmark .valert {
-            padding-top: 0px;
-        }
-    
-        .vtext{
-            padding: 0;
-        }
-    
-        @media screen and (max-width: 1300px) {
-            .v .vwrap .vmark .valert{
-                margin-top:60%;
-            }
-            .vwrap{
-                margin: 15px;
-                width: 100%;
-            }
-            .v .vwrap .vheader .vinput {
-                padding: 10px 5px;
-            }
-            .v .vwrap{
-                overflow: auto;
-            }
-            .v .veditor {
-                min-height: 30rem;
-                resize: none;
-            }
-    
-            .v .vinput {
-                padding: 10px 15px;
-                font-size: 20px;
-            }
-    
-            .v .vwrap .vedit .vctrl {
-                right: 0;
-            }
-    
-            .v .vempty {
-                padding: 1.25em;
-                text-align: center;
-                color: #999;
-                font-size: 25px;
-            }
-    
-        }
-    </style>
-    
-    <body>
-        <div id="vcomments1"></div>
-        <script>
-            new Valine({
-                el: '#vcomments1',
-                appId: '25nYhDRvpGfuHk2dCcNjr45O-gzGzoHsz',
-                appKey: 'lyj9VVm9HR9qcy2QqLCQ1HoH',
-                notify: true,
-                verify: false,
-                avatar: 'retro',
-                pageSize: 30,
-                placeholder: '既然来了，那就留个痕迹吧~',
-            })
-        </script>
-    </body>
-                <div class="clear"></div>
-                
-            </div>
-        </div>
+      </div>
     </div>
 
-</body>
-<script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
     hljs.initHighlightingOnLoad()
-</script>
-<script src="https://angus1996.github.io//media/js/post.js"></script>
+  </script>
 
-<script src="https://l2dwidget.js.org//lib/L2Dwidget.min.js"></script>
-<script src="https://angus1996.github.io//media/js/live2d.js"></script>
+
+
+
+
+  </body>
+</html>
