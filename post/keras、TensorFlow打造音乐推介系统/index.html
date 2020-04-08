@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1586158183312">
+<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1586315427916">
 <link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
 
 
@@ -37,7 +37,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://angus1996.github.io/">
-        <img src="https://angus1996.github.io//images/avatar.png?v=1586158183312" class="site-logo">
+        <img src="https://angus1996.github.io//images/avatar.png?v=1586315427916" class="site-logo">
         <h1 class="site-title">Angus&#39; s Blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -144,28 +144,28 @@
 <h2 id="得到音频的频谱图">得到音频的频谱图</h2>
 <p>一个音频文件包含的数据太多，所以在这部分的整个过程中的很大一部分本质上是试图将信息从音乐中浓缩、提取主要特征并消除所有的“噪音”。它本质上是一个降维的预处理，这第一阶段是将音频转换成图像格式。</p>
 <p>利用离散傅里叶变换将音频信号转换到频域上，处理收集的9000个MP3音频文件，每首歌保存为光谱图像。光谱图是一种表示声音的频谱随时间变化的可视化，图片上颜色的强度代表该频率的声音振幅。</p>
-<p>本文选择创建成单色光谱图，如下图所示：</p>
-<figure data-type="image" tabindex="1"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-3/2019-3-26-sample.png" alt="" loading="lazy"></figure>
+<p>本文选择创建成单色光谱图，如下图所示：<br>
+<img src="https://angus1996.github.io//post-images/1586314659091.png" alt="" loading="lazy"></p>
 <p>为了对这些数据训练一个模型，需要将所有的图像统一为相同的尺寸，所以将所有的光谱图分割为256×256大小。处理好的光谱图可以从以下链接中下载：</p>
 <p>链接: https://pan.baidu.com/s/1OcvTAWPSp7yRa2dy8G0Jew 提取码: 368f</p>
 <h2 id="神经网络训练">神经网络训练</h2>
-<p>神经网络的网络结构如下：</p>
-<figure data-type="image" tabindex="2"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-3/2019-3-26-model_before.png" alt="" loading="lazy"></figure>
+<p>神经网络的网络结构如下：<br>
+<img src="https://angus1996.github.io//post-images/1586314670664.png" alt="" loading="lazy"></p>
 <p>训练好的神经网络模型下载：</p>
 <p>链接: https://pan.baidu.com/s/14Y2V9pkbjWWXnd9AfvcBgQ 提取码: 35hh</p>
 <h2 id="神经网络表现">神经网络表现</h2>
-<p>准确度：</p>
-<figure data-type="image" tabindex="3"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-3/2019-3-26-elu%2Badam%2Baccuracy.jpg" alt="accuracy" loading="lazy"></figure>
-<p>损失函数：</p>
-<figure data-type="image" tabindex="4"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-3/2019-3-26-elu%2Badam%2Bloss.jpg" alt="loss" loading="lazy"></figure>
-<p>测试集上的混淆矩阵：</p>
-<figure data-type="image" tabindex="5"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-3/2019-3-26-Confusion_matrix.jpg" alt="ConfusionMatrxi" loading="lazy"></figure>
-<p>测试集的分类报告：</p>
-<figure data-type="image" tabindex="6"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-3/2019-3-26-%E6%8D%95%E8%8E%B7.PNG" alt="ClassificationReport" loading="lazy"></figure>
+<p>准确度：<br>
+<img src="https://angus1996.github.io//post-images/1586314683125.jpg" alt="" loading="lazy"></p>
+<p>损失函数：<br>
+<img src="https://angus1996.github.io//post-images/1586314695977.jpg" alt="" loading="lazy"></p>
+<p>测试集上的混淆矩阵：<br>
+<img src="https://angus1996.github.io//post-images/1586314704841.jpg" alt="" loading="lazy"></p>
+<p>测试集的分类报告：<br>
+<img src="https://angus1996.github.io//post-images/1586314723673.PNG" alt="" loading="lazy"></p>
 <h2 id="特征向量提取">特征向量提取</h2>
-<p>去掉训练好的神经网络的最后几层，取全连接层的128维输出作为特征向量。</p>
-<p>特征提取网络的结构如下：</p>
-<figure data-type="image" tabindex="7"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-3/2019-3-26-model_after.png" alt="" loading="lazy"></figure>
+<p>去掉训练好的神经网络的最后几层，取全连接层的128维输出作为特征向量。<br>
+特征提取网络的结构如下：<br>
+<img src="https://angus1996.github.io//post-images/1586314736310.png" alt="" loading="lazy"></p>
 <p>每个256*256的图像的提取的特征向量可以从以下链接获取：</p>
 <p>链接: https://pan.baidu.com/s/1WoI1ZPfWJ27dF21AwHcCbA 提取码: 7n83</p>
 <p>由于每个音乐长度不一，所以可以得到256*256的频谱图的数量也不一样，简单处理，直接将每一首音乐对应的特征向量加和求平均作为这一首音乐的特征向量。</p>

@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1586158183312">
+<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1586315427916">
 <link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
 
 
@@ -35,7 +35,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://angus1996.github.io/">
-        <img src="https://angus1996.github.io//images/avatar.png?v=1586158183312" class="site-logo">
+        <img src="https://angus1996.github.io//images/avatar.png?v=1586315427916" class="site-logo">
         <h1 class="site-title">Angus&#39; s Blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -126,7 +126,7 @@
             <h2 class="post-title">基于深度学习的图像修复</h2>
             <div class="post-date">2019-04-13</div>
             
-              <div class="feature-container" style="background-image: url('https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/cnn.jpg')">
+              <div class="feature-container" style="background-image: url('https://angus1996.github.io//post-images/基于深度学习的图像修复.png')">
               </div>
             
             <div class="post-content" v-pre>
@@ -134,35 +134,35 @@
 <p>2006 年是深度学习走进许多人眼中的一年。加拿大多伦多大学Geoffrey Hinton教授在《Science》上发表了一篇文章《Deep belief networks》[1] 。从此一股关于深度学习(Deep Learning, DL ) 在学术界和工业界被掀起。2012 年中旬，谷歌大脑项目引起了科学家们广泛关注。由斯坦福大学的机器学习教授吴恩达与大规模计算机系统领域的专家Jeff Dean 共同担任项目负责人，使用大规模并行计算平台进行算法部署和模型训练，构建了一个名为“深度神经网络”( DNN，Deep Neural Networks) 的模型。该模型在语音识别[2] 和图像识别[3] 等领域获得了巨大的成功。由此可见深度学习将给各个领域带来的新发展，在图像识别和语音识别领域使用深度神经网络架构的算法己经超过了原有业界最好的算法。深度学习在各个领域的突破开始让人考虑是否能给图像修复领域带来新的发展。将深度学习成功应用于图像修复的成功案例不断涌现。</p>
 <h2 id="基于cnn-的图像修复">基于CNN 的图像修复</h2>
 <h3 id="cnn简介">CNN简介</h3>
-<p>Hubel 等人在研究猫脑皮层神经元过程中发现独特的网络结构，并且实验证明该神经网络结构可以有效降低反馈神经网络的复杂度, 继而提出了卷积神经网络（Convolutional Neural Networks，CNN）[4] 。卷积神经网络是一种用于处理具有网络状拓扑结构数据的专用神经网络。从命名上看，该网络采用了卷积数学运算，并至少在其一个层中使用卷积代替一般的矩阵乘法。一种用于图像分类问题的卷积神经网络架构图如下图所示。</p>
-<figure data-type="image" tabindex="1"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/cnn.jpg" alt="" loading="lazy"></figure>
+<p>Hubel 等人在研究猫脑皮层神经元过程中发现独特的网络结构，并且实验证明该神经网络结构可以有效降低反馈神经网络的复杂度, 继而提出了卷积神经网络（Convolutional Neural Networks，CNN）[4] 。卷积神经网络是一种用于处理具有网络状拓扑结构数据的专用神经网络。从命名上看，该网络采用了卷积数学运算，并至少在其一个层中使用卷积代替一般的矩阵乘法。一种用于图像分类问题的卷积神经网络架构图如下图所示。<br>
+<img src="https://angus1996.github.io//post-images/1586314814985.jpg" alt="" loading="lazy"></p>
 <p>卷积神经网络主要由输入层、卷积层、池化层、全连接层和softmax 层构成。针对不同的任务网络结构设计也不尽相同。各层的主要功能和详细介绍如下所示：分别是输入层、卷积层、池化全连接层和SoftMax 层。<br>
 卷积神经网络以其局部权值共享的特殊结构在自然语言处理[5] 、医药发现[6] 甚至围棋人工智能程序[7] 中都有应用。卷积神经网络的布局非常接近于实际的生物的神经网络，参数共享减少了网络参数，另外一个优点则是多维输入向量的图像可以直接输入网络这一特点，使得特征提取自动化。</p>
 <h3 id="图像修复的应用">图像修复的应用</h3>
 <p>在CNN 的快速发展下，参考文献[8] 在2016 年就提出了一种基于CNN 的图像修复框架，如下图所示。<br>
-该算法需要使用两个网络，一个是内容生成网络，另一个是纹理生成网络。内容生成网络直接用于生成图像，推断缺失部分可能的内容。纹理生成网络用于增强内容网络的产出的纹理，具体则为将生成的补全图像和原始无缺失图像输入进纹理生成网络，在某一层feature_map 上计算损失，记为Loss NN。内容生成网络需要使用自己的数据进行训练，而纹理生成网络则使用已经训练好的VGG Net。</p>
-<figure data-type="image" tabindex="2"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/cnn_inpainting.png" alt="" loading="lazy"></figure>
+该算法需要使用两个网络，一个是内容生成网络，另一个是纹理生成网络。内容生成网络直接用于生成图像，推断缺失部分可能的内容。纹理生成网络用于增强内容网络的产出的纹理，具体则为将生成的补全图像和原始无缺失图像输入进纹理生成网络，在某一层feature_map 上计算损失，记为Loss NN。内容生成网络需要使用自己的数据进行训练，而纹理生成网络则使用已经训练好的VGG Net。<br>
+<img src="https://angus1996.github.io//post-images/1586314826225.png" alt="" loading="lazy"></p>
 <p>Nvidia 公司在ECCV2018 上发表了一篇名为“Image Inpainting for Irregular Holes Using Partial Convolutions”的论文[9] ，使用“Partial Convolutions”进行图像修复。该模型可以很好地处理任何形状、大小、位置或距离图像边界任何距离的空白。以上的基于深度学习的图像修复方法不够好，因为丢失像素的输出必然取决于输入的值，而这些输入必须提供给神经网络，以找出丢失的像素。这就导致图像中出现诸如颜色差异或模糊之类的失真。</p>
-<p>为了解决这个问题，NVIDIA 团队开发了一种方法，确保丢失像素的输出不依赖于为这些像素提供的输入的值。这种方法使用一个“部分卷积”层，根据其对相应的接受域（receptive field）的有效性，对每个输出进行重新归一化（renormalization）。这种重新归一化可以确保输出值与每个接受域中缺失像素的值无关。该模型也是第一个在不规则形状的孔洞上展示深度学习图像修复模型效果的模型。修复效果如下图所示。</p>
-<figure data-type="image" tabindex="3"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/6.png" alt="" loading="lazy"></figure>
-<p>CNN 除了在普通图像的图像修复上有所应用，在高光谱图像的修复上也有所应用。参考文献[10] 在CNN 的基础上，同时引入残差学习、扩张卷积和多通道滤波，得到HSI-DeNet 网络，实现了去除HSI 中的混合噪声：随机、结构条带、死线等。HSI-DeNet 的网络结构如下图所示。</p>
-<figure data-type="image" tabindex="4"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/2.png" alt="" loading="lazy"></figure>
-<figure data-type="image" tabindex="5"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/3.png" alt="" loading="lazy"></figure>
-<p>HSI-DeNet 网络的输入是三维的高光谱数据，经过网络训练后得到其噪声，然后使用残差学习策略，得到最终的干净图像。在网络中还使用到了扩张卷积和多通道滤波，使用扩张卷积可以在不增加参数的前提下，扩大感受野，从而能够利用更多的局部和非局部信息，多通道滤波则可以增强对光谱信息的表示能力。</p>
+<p>为了解决这个问题，NVIDIA 团队开发了一种方法，确保丢失像素的输出不依赖于为这些像素提供的输入的值。这种方法使用一个“部分卷积”层，根据其对相应的接受域（receptive field）的有效性，对每个输出进行重新归一化（renormalization）。这种重新归一化可以确保输出值与每个接受域中缺失像素的值无关。该模型也是第一个在不规则形状的孔洞上展示深度学习图像修复模型效果的模型。修复效果如下图所示。<br>
+<img src="https://angus1996.github.io//post-images/1586314836604.png" alt="" loading="lazy"></p>
+<p>CNN 除了在普通图像的图像修复上有所应用，在高光谱图像的修复上也有所应用。参考文献[10] 在CNN 的基础上，同时引入残差学习、扩张卷积和多通道滤波，得到HSI-DeNet 网络，实现了去除HSI 中的混合噪声：随机、结构条带、死线等。HSI-DeNet 的网络结构如下图所示。<br>
+<img src="https://angus1996.github.io//post-images/1586314846484.png" alt="" loading="lazy"><br>
+<img src="https://angus1996.github.io//post-images/1586314855150.png" alt="" loading="lazy"><br>
+HSI-DeNet 网络的输入是三维的高光谱数据，经过网络训练后得到其噪声，然后使用残差学习策略，得到最终的干净图像。在网络中还使用到了扩张卷积和多通道滤波，使用扩张卷积可以在不增加参数的前提下，扩大感受野，从而能够利用更多的局部和非局部信息，多通道滤波则可以增强对光谱信息的表示能力。</p>
 <h2 id="基于gan-的图像修复">基于GAN 的图像修复</h2>
 <h3 id="gan简介">GAN简介</h3>
 <p>生成式对抗网络（GAN, Generative Adversarial Networks）是一种深度学习模型，很巧妙地将机器学习中的生成模型和对抗模型结合起来，是近年来复杂分布上无监督学习中最具影响力也最有效的方法之一。Goodfellow 等人于2014 年提出并给出了相应训练方法和基本框架[11] 。基本框架中包含至少两个模块：生<br>
-成模型模块（Generator）和判别模型模块（Discriminator）。通过这两个模块之间的互相博弈，从而使得生成模型可以学习到真实数据的某种分布，从而产生非常好的输出结果。GAN 的基本框图如下图所示。</p>
-<figure data-type="image" tabindex="6"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/GAN.jpg" alt="" loading="lazy"></figure>
+成模型模块（Generator）和判别模型模块（Discriminator）。通过这两个模块之间的互相博弈，从而使得生成模型可以学习到真实数据的某种分布，从而产生非常好的输出结果。GAN 的基本框图如下图所示。<br>
+<img src="https://angus1996.github.io//post-images/1586314867781.jpg" alt="" loading="lazy"></p>
 <h3 id="图像修复的应用-2">图像修复的应用</h3>
-<p>Yeh R A 等人的“Semantic Image Inpainting with Deep Generative Models”[12]论文，利用图像修复所需的环境信息和知觉信息，基于利用DCGAN 进行图像修复。环境信息即根据缺失区域的周围像素点的信息来推断出缺失区域的像素信息；而知觉信息即修复后的图像看起来是否自然，如人脸图像修复后是否还是一张人脸图像。该论文图像修复的主要步骤如图2-7所示。</p>
-<figure data-type="image" tabindex="7"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/xiufuzhuyaobuzou.png" alt="" loading="lazy"></figure>
-<p>Pathak 等人的“Context Encoders: Feature Learning by Inpainting”[13] ，将GAN和自编码器相结合，Encoder-Decoder 阶段用于学习图像特征和生成图像待修补区域对应的预测图，GAN 部分用于判断预测图来自训练集和预测集的可能性，当生成的预测图与真实图像在图像内容上达到一致，并且GAN 的判别器无法判断预测图是否来自训练集或预测集时，就认为网络模型参数达到了最优状态。其中的Context Encoder 的结构示意图如图2-8所示。</p>
-<figure data-type="image" tabindex="8"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/5.png" alt="" loading="lazy"></figure>
-<p>Ishikawa H 等人的“Globally and locally consistent image completion”[14] 论文中改变了GAN 的结构，将鉴别器（Discriminator）的数量扩展到两个，两个鉴别器分别关注图像的全局以及局部区域。在生成网络中作者还引入了空洞卷积(Dilated Conv) 的方法来提高卷积神经网络的感受野。全局鉴别器和局部鉴别器分别判断全局图像与局部图像是否自然逼真。网络结构如图2-9所示。</p>
-<figure data-type="image" tabindex="9"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/4.png" alt="" loading="lazy"></figure>
-<p>与Ishikawa H 等人引入多个鉴别器的想法一样，Yijun Li 等人在论文“Generative Face Completion”[15] 中同样引入了多个鉴别器，不过除此之外, 还引入了一个Parsing network。Parsing network 主要用于进一步完善缺失区域的生成图像的真实性。具体网络结构如图2-10所示。</p>
-<figure data-type="image" tabindex="10"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2019-4/7.png" alt="" loading="lazy"></figure>
+<p>Yeh R A 等人的“Semantic Image Inpainting with Deep Generative Models”[12]论文，利用图像修复所需的环境信息和知觉信息，基于利用DCGAN 进行图像修复。环境信息即根据缺失区域的周围像素点的信息来推断出缺失区域的像素信息；而知觉信息即修复后的图像看起来是否自然，如人脸图像修复后是否还是一张人脸图像。该论文图像修复的主要步骤如图2-7所示。<br>
+<img src="https://angus1996.github.io//post-images/1586314883972.png" alt="" loading="lazy"></p>
+<p>Pathak 等人的“Context Encoders: Feature Learning by Inpainting”[13] ，将GAN和自编码器相结合，Encoder-Decoder 阶段用于学习图像特征和生成图像待修补区域对应的预测图，GAN 部分用于判断预测图来自训练集和预测集的可能性，当生成的预测图与真实图像在图像内容上达到一致，并且GAN 的判别器无法判断预测图是否来自训练集或预测集时，就认为网络模型参数达到了最优状态。其中的Context Encoder 的结构示意图如图2-8所示。<br>
+<img src="https://angus1996.github.io//post-images/1586314892737.png" alt="" loading="lazy"></p>
+<p>Ishikawa H 等人的“Globally and locally consistent image completion”[14] 论文中改变了GAN 的结构，将鉴别器（Discriminator）的数量扩展到两个，两个鉴别器分别关注图像的全局以及局部区域。在生成网络中作者还引入了空洞卷积(Dilated Conv) 的方法来提高卷积神经网络的感受野。全局鉴别器和局部鉴别器分别判断全局图像与局部图像是否自然逼真。网络结构如图2-9所示。<br>
+<img src="https://angus1996.github.io//post-images/1586314901512.png" alt="" loading="lazy"></p>
+<p>与Ishikawa H 等人引入多个鉴别器的想法一样，Yijun Li 等人在论文“Generative Face Completion”[15] 中同样引入了多个鉴别器，不过除此之外, 还引入了一个Parsing network。Parsing network 主要用于进一步完善缺失区域的生成图像的真实性。具体网络结构如图2-10所示。<br>
+<img src="https://angus1996.github.io//post-images/1586314911893.png" alt="" loading="lazy"></p>
 <h2 id="参考文献">参考文献</h2>
 <p>[1] HINTON G E, OSINDERO S, TEH Y-W. A fast learning algorithm for deep belief nets[J]. Neural computation, 2006, 18(7) : 1527 – 1554.<br>
 [2] YU D, SELTZER M L, LI J, et al. Feature learning in deep neural networks-studies on speech recognition tasks[J]. arXiv preprint arXiv:1301.3605, 2013.<br>

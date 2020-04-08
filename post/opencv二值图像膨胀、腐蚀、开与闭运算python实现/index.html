@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1586158183312">
+<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1586315427916">
 <link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
 
 
@@ -38,7 +38,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://angus1996.github.io/">
-        <img src="https://angus1996.github.io//images/avatar.png?v=1586158183312" class="site-logo">
+        <img src="https://angus1996.github.io//images/avatar.png?v=1586315427916" class="site-logo">
         <h1 class="site-title">Angus&#39; s Blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -134,8 +134,8 @@
             
             <div class="post-content" v-pre>
               <h1 id="输入的原图">输入的原图</h1>
-<p>采用windows10自带的画图工具画了一张简单的三角形、四边形和圆形的图。</p>
-<figure data-type="image" tabindex="1"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2018-10/2018-10-6-001.jpg" alt="原图" loading="lazy"></figure>
+<p>采用windows10自带的画图工具画了一张简单的三角形、四边形和圆形的图。<br>
+<img src="https://angus1996.github.io//post-images/1586314189994.jpg" alt="原图" loading="lazy"></p>
 <h1 id="图像的腐蚀">图像的腐蚀</h1>
 <p>卷积核沿着图像滑动，如果与卷积核对应的原图像的所有像素值都是1，那么中心元素就保持原来的像素值，否则就变为零。  根据卷积核的大小靠近前景的所有像素都会被腐蚀掉（变为0），所以前景物体会变小，整幅图像的白色区域会减少。这对于去除白噪声很有用，也可以用来断开两个连在一块的物体等。</p>
 <pre><code class="language-python">import cv2
@@ -151,8 +151,8 @@ cv2.waitKey()
 <p>第一个参数img：img指需要腐蚀的图</p>
 <p>第二个参数kernel：kernel指腐蚀操作的内核，默认是一个简单的3X3矩阵，我们也可以利用getStructuringElement（）函数指明它的形状</p>
 <p>第三个参数iterations：iterations指的是腐蚀次数，省略是默认为1</p>
-<p>腐蚀后的图像如下图所示：</p>
-<figure data-type="image" tabindex="2"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2018-10/2018-10-6-002.jpg" alt="腐蚀后的图像" loading="lazy"></figure>
+<p>腐蚀后的图像如下图所示：<br>
+<img src="https://angus1996.github.io//post-images/1586314207559.jpg" alt="腐蚀后的图像" loading="lazy"></p>
 <h1 id="图像的膨胀">图像的膨胀</h1>
 <p>与腐蚀相反，与卷积核对应的原图像的像素值中只要有一个是1，中心元素的像素值就是1。所以这个操作会增加图像中的白色区域（前景）。一般在去噪声时先用腐蚀再用膨胀。因为腐蚀在去掉白噪声的同时，也会使前景对象变小。所以我们再对他进行膨胀。这时噪声已经被去除了，不会再回来了，但是前景还在并会增加。膨胀也可以用来连接两个分开的物体。</p>
 <pre><code class="language-python">dilation = cv2.dilate(img,kernel,iterations = 1)
@@ -161,20 +161,20 @@ cv2.waitKey()
 <p>第一个参数img：img指需要膨胀的图</p>
 <p>第二个参数kernel：kernel指膨胀操作的内核，默认是一个简单的3X3矩阵，我们也可以利用getStructuringElement（）函数指明它的形状</p>
 <p>第三个参数iterations：iterations指的是膨胀次数，省略是默认为1</p>
-<p>膨胀后的图像如下图所示（此处的内核是3*3）：</p>
-<figure data-type="image" tabindex="3"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2018-10/2018-10-6-003.jpg" alt="膨胀后的图像" loading="lazy"></figure>
+<p>膨胀后的图像如下图所示（此处的内核是3*3）：<br>
+<img src="https://angus1996.github.io//post-images/1586314249566.jpg" alt="膨胀后的图像" loading="lazy"></p>
 <h1 id="图像的开运算">图像的开运算</h1>
 <p>先进性腐蚀再进行膨胀就叫做开运算。就像我们上面介绍的那样，它被用来去除噪声。这里我们用到的函数是cv2.morphologyEx()</p>
 <pre><code class="language-python">opening = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
 </code></pre>
-<p>开运算后的图像如下图所示：</p>
-<figure data-type="image" tabindex="4"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2018-10/2018-10-6-004.jpg" alt="开运算后的图像" loading="lazy"></figure>
+<p>开运算后的图像如下图所示：<br>
+<img src="https://angus1996.github.io//post-images/1586314274913.jpg" alt="开运算后的图像" loading="lazy"></p>
 <h1 id="图像的闭运算">图像的闭运算</h1>
 <p>先膨胀再腐蚀。它经常被用来填充前景物体中的小洞，或者前景物体上的小黑点。</p>
 <pre><code class="language-python">closing = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
 </code></pre>
-<p>闭运算后的图像如图所示：</p>
-<figure data-type="image" tabindex="5"><img src="https://blog-1252745092.cos.ap-guangzhou.myqcloud.com/2018-10/2018-10-6-005.jpg" alt="闭运算后的图像" loading="lazy"></figure>
+<p>闭运算后的图像如图所示：<br>
+<img src="https://angus1996.github.io//post-images/1586314288608.jpg" alt="闭运算后的图像" loading="lazy"></p>
 
             </div>
             
