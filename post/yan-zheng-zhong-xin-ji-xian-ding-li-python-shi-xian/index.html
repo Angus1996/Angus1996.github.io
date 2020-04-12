@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>验证中心极限定理（python实现） | Angus&#39; s Blog</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1586693946444">
+<link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="中心极限定理
+从一个非正态总体中取出一个样本，且样本很大（比如大于30），则样本均值的分布近似服从正态分布。
+换句话说，每次取出的样本的样本均值是一个随机变量，重复多组实验，观察得到这个随机变量近似服从正态分布。
+实验
+import num..." />
+    <meta name="keywords" content="数据分析,python" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://angus1996.github.io/">
+        <img src="https://angus1996.github.io//images/avatar.png?v=1586693946444" class="site-logo">
+        <h1 class="site-title">Angus&#39; s Blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/Angus1996" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="Secret" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="Secret" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="Secret" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="Secret" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        
+      
+    </div>
+    <div class="site-description">
+      <html>
+<body>
+<p>
+我遇见你，是最美丽的意外<br /><br />总有一天，我的谜底会揭开
+</p>
+</body>
+</html>
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://angus1996.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">验证中心极限定理（python实现）</h2>
+            <div class="post-date">2020-04-12</div>
+            
+              <div class="feature-container" style="background-image: url('https://angus1996.github.io//post-images/yan-zheng-zhong-xin-ji-xian-ding-li-python-shi-xian.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="中心极限定理">中心极限定理</h2>
+<p>从一个非正态总体中取出一个样本，且样本很大（比如大于30），则样本均值的分布近似服从正态分布。<br>
+换句话说，每次取出的样本的样本均值是一个随机变量，重复多组实验，观察得到这个随机变量近似服从正态分布。</p>
+<h2 id="实验">实验</h2>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# 模拟投掷硬币，0为正面，1为反面，总体服从二项分布
+sample_mean=[]
+for i in range(100000):  # 进行100000组实验，每组抛掷50次
+    sample=[]    #每组一个列表
+    for j in range(50):        #模拟抛50次
+        sample.append(np.random.randint(0,2))
+    sample = np.array(sample) #转化为array数组，便于处理
+    sample_mean.append(sample.mean())
+sample_mean_np = np.array(sample_mean)
+print(sample_mean_np)
+</code></pre>
+<pre><code>[0.6  0.44 0.62 ... 0.54 0.5  0.6 ]
+</code></pre>
+<pre><code class="language-python"># 验证每组实验抛硬币的均值服从正态分布
+plt.figure(figsize=(20,10),dpi=80)
+d =0.001 
+num_bins = int((max(sample_mean_np)-min(sample_mean_np))/d)
+plt.hist(sample_mean_np,num_bins) #绘制频率分布图
+</code></pre>
+<p><img src="https://angus1996.github.io//post-images/1586693872464.png" alt="" loading="lazy"><br>
+观察上图，有明显的近似于均值为0.5的正态分布。</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://angus1996.github.io/tag/shu-ju-fen-xi/" class="tag">
+                    数据分析
+                  </a>
+                
+                  <a href="https://angus1996.github.io/tag/B8lhT7J_Yh/" class="tag">
+                    python
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://angus1996.github.io/post/lesslesssuan-fa-4th-editiongreatergreater-xue-xi-bi-ji/">
+                  <h3 class="post-title">
+                    《算法 4th edition》学习笔记
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '55a2d4ff64d03a69ea0c',
+        clientSecret: '41edb35ca1813906c364b894b378537819096956',
+        repo: 'blogtalk',
+        owner: 'Angus1996',
+        admin: ['Angus1996'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://angus1996.github.io/</id>
     <title>Angus&apos; s Blog</title>
-    <updated>2020-04-09T02:20:07.245Z</updated>
+    <updated>2020-04-12T12:19:30.204Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://angus1996.github.io/"/>
     <link rel="self" href="https://angus1996.github.io/atom.xml"/>
@@ -16,6 +16,13 @@
     <logo>https://angus1996.github.io/images/avatar.png</logo>
     <icon>https://angus1996.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Angus&apos; s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[验证中心极限定理（python实现）]]></title>
+        <id>https://angus1996.github.io/post/yan-zheng-zhong-xin-ji-xian-ding-li-python-shi-xian/</id>
+        <link href="https://angus1996.github.io/post/yan-zheng-zhong-xin-ji-xian-ding-li-python-shi-xian/">
+        </link>
+        <updated>2020-04-12T12:12:17.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[《算法 4th edition》学习笔记]]></title>
         <id>https://angus1996.github.io/post/lesslesssuan-fa-4th-editiongreatergreater-xue-xi-bi-ji/</id>
@@ -78,12 +85,5 @@
         <link href="https://angus1996.github.io/post/Visio-20162019中直线交叉如何取消跨线/">
         </link>
         <updated>2019-10-14T13:24:06.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[aria2 介绍与使用]]></title>
-        <id>https://angus1996.github.io/post/aria2-介绍与使用/</id>
-        <link href="https://angus1996.github.io/post/aria2-介绍与使用/">
-        </link>
-        <updated>2019-08-09T11:38:32.000Z</updated>
     </entry>
 </feed>
