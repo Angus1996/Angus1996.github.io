@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://angus1996.github.io/</id>
     <title>Angus&apos; s Blog</title>
-    <updated>2020-04-18T02:45:40.713Z</updated>
+    <updated>2020-05-09T13:58:52.060Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://angus1996.github.io/"/>
     <link rel="self" href="https://angus1996.github.io/atom.xml"/>
@@ -16,6 +16,13 @@
     <logo>https://angus1996.github.io/images/avatar.png</logo>
     <icon>https://angus1996.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Angus&apos; s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[2020年春招实习上岸]]></title>
+        <id>https://angus1996.github.io/post/2020-nian-chun-zhao-shi-xi-shang-an/</id>
+        <link href="https://angus1996.github.io/post/2020-nian-chun-zhao-shi-xi-shang-an/">
+        </link>
+        <updated>2020-05-09T12:21:36.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[小城的春天]]></title>
         <id>https://angus1996.github.io/post/xiao-cheng-de-chun-tian/</id>
@@ -86,12 +93,5 @@
         <link href="https://angus1996.github.io/post/efficient-pytorch库使用/">
         </link>
         <updated>2019-12-26T14:26:58.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[pretrained_models库使用]]></title>
-        <id>https://angus1996.github.io/post/pretrained-models库使用/</id>
-        <link href="https://angus1996.github.io/post/pretrained-models库使用/">
-        </link>
-        <updated>2019-12-26T14:26:32.000Z</updated>
     </entry>
 </feed>
