@@ -1,60 +1,107 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-	<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,minimal-ui" />
-    <title>aria2 介绍与使用 | Angus&#39; s Blog</title>
-<link rel='stylesheet' id='puma-css'  href='https://angus1996.github.io//styles/main.css' type='text/css' media='screen' />
-<link rel='stylesheet' id='puma-css'  href='https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css' media='screen' />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/jquery.js'></script>
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/jquery-migrate.min.js'></script>
-        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
-         <script >hljs.initHighlightingOnLoad();</script>
-         
-</head>
-<body class="single single-post postid-3788 single-format-standard">
-	<!--加入跟随滑动的顶部-->
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="https://angus1996.github.io/" title="Angus&#39; s Blog">Angus&#39; s Blog</a>
-			</h1>
-		</div>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>aria2 介绍与使用 | Angus&#39; s Blog</title>
+<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1590312302521">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="aria2 介绍与使用 | Angus&#39; s Blog - Atom Feed" href="https://angus1996.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
-		<a class="primary-nav-trigger" href="javascript:void(0)">
-			<span class="menu-icon"></span>
-		</a>
-		
-	</header>
-		<div class="site-navigation-wrapper">
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<ul class="primary-nav">
-                    
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="首页" href="/">首页</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="归档" href="/archives">归档</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="标签" href="/tags">标签</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="关于" href="/post/about">关于</a></li>
-                
-	
-			</ul>
-		</nav>			
-	</div>
-	<!--跟随滑动的顶部结束-->
-	<div class="surface-content">    <main class="main-content">
-        <section class="section-body">
-                            <header class="section-header u-textAlignCenter">
-                    <h2 class="grap--h2">aria2 介绍与使用</h2>
-                    <div class="block-postMetaWrap">
-                        <time>2019-08-09</time>
-                    </div>
-                </header>
-                <div class="grap">
-					  <p class="with-img"><img width="1139" height="759" src="https://angus1996.github.io//post-images/aria2-介绍与使用.jpg" class="attachment-full size-full wp-post-image" alt="aria2 介绍与使用" /></p>
-					<h1 id="aria2-介绍与使用">aria2 介绍与使用</h1>
+
+
+    <meta name="description" content="aria2 介绍与使用
+之前一直使用迅雷极速版，即使跳出了提示升级到迅雷X，还是关掉了弹窗提示。可是今天使用的时候，直接强制给我升级了，升级窗口只能最小化，不能关掉。感觉迅雷相当的流氓，以后都不想用迅雷了。以前用过一些基于aria2 的软件..." />
+    <meta name="keywords" content="aria2" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://angus1996.github.io/">
+  <img class="avatar" src="https://angus1996.github.io//images/avatar.png?v=1590312302521" alt="">
+  </a>
+  <h1 class="site-title">
+    Angus&#39; s Blog
+  </h1>
+  <p class="site-description">
+    <html>
+<body>
+<p>
+我遇见你，是最美丽的意外<br /><br />总有一天，我的谜底会揭开
+</p>
+</body>
+</html>
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              aria2 介绍与使用
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-08-09
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://angus1996.github.io/tag/vscuqxVs_o/" class="post-tag">
+                  # aria2
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://angus1996.github.io//post-images/aria2-介绍与使用.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="aria2-介绍与使用">aria2 介绍与使用</h1>
 <p>之前一直使用迅雷极速版，即使跳出了提示升级到迅雷X，还是关掉了弹窗提示。可是今天使用的时候，直接强制给我升级了，升级窗口只能最小化，不能关掉。感觉迅雷相当的流氓，以后都不想用迅雷了。以前用过一些基于<strong>aria2</strong> 的软件，比如Motrix，现在想直接用<strong>aria2</strong>。</p>
 <h2 id="简介">简介</h2>
 <p><strong>aria2</strong>是一个轻量级的多进程和多源地址的命令行工具，支持HTTP/HTTPS，FTP，SFTP，BitTorrent和Metalink。</p>
@@ -99,12 +146,32 @@
 </li>
 </ol>
 
-                </div>
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#aria2-%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8">aria2 介绍与使用</a>
+<ul>
+<li><a href="#%E7%AE%80%E4%BB%8B">简介</a></li>
+<li><a href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B">简单使用示例</a></li>
+</ul>
+</li>
+</ul>
 
-                <div class="post--keywords" itemprop="keywords">
-					 <a href="https://angus1996.github.io/tag/vscuqxVs_o/" class="post--keyword" data-title="aria2" data-type="post_tag" data-term-id="39">aria2</a>           </div>
+              </div>
+            </div>
+          </article>
+        </div>
 
-
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://angus1996.github.io/post/基于pygame的打字速度练习游戏/">
+              <h3 class="post-title">
+                基于pygame的打字速度练习游戏
+              </h3>
+            </a>
+          </div>
+        
 
         
           
@@ -132,49 +199,57 @@
           
 
           
-                      </section>
-    </main>
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://angus1996.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
 </div>
-	<footer class="site-footer u-textAlignCenter">
-    	<div class="footer-branding">
-            <a href="https://angus1996.github.io/" title="Angus&#39; s Blog">Angus&#39; s Blog</a>
-									
-			         </div>
-		 <hr />
-		 <div class="social-links">
-		                       
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-				</div>
-        <div class="footer-copy">
-                Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-        </div>
 
-    </footer>
-	<div class="back-to-top u-hide" onclick="backToTop();"><i class="iconfont icon-xiangshang"></i></div>
+      </div>
+    </div>
 
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/main.js'></script>
-</body>
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
 </html>

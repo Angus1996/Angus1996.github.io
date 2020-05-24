@@ -1,60 +1,111 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-	<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,minimal-ui" />
-    <title>CCF BDCI 2019 多人种人脸识别比赛总结 | Angus&#39; s Blog</title>
-<link rel='stylesheet' id='puma-css'  href='https://angus1996.github.io//styles/main.css' type='text/css' media='screen' />
-<link rel='stylesheet' id='puma-css'  href='https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css' media='screen' />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/jquery.js'></script>
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/jquery-migrate.min.js'></script>
-        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
-         <script >hljs.initHighlightingOnLoad();</script>
-         
-</head>
-<body class="single single-post postid-3788 single-format-standard">
-	<!--加入跟随滑动的顶部-->
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="https://angus1996.github.io/" title="Angus&#39; s Blog">Angus&#39; s Blog</a>
-			</h1>
-		</div>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CCF BDCI 2019 多人种人脸识别比赛总结 | Angus&#39; s Blog</title>
+<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1590312302521">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="CCF BDCI 2019 多人种人脸识别比赛总结 | Angus&#39; s Blog - Atom Feed" href="https://angus1996.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
-		<a class="primary-nav-trigger" href="javascript:void(0)">
-			<span class="menu-icon"></span>
-		</a>
-		
-	</header>
-		<div class="site-navigation-wrapper">
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<ul class="primary-nav">
-                    
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="首页" href="/">首页</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="归档" href="/archives">归档</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="标签" href="/tags">标签</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="关于" href="/post/about">关于</a></li>
-                
-	
-			</ul>
-		</nav>			
-	</div>
-	<!--跟随滑动的顶部结束-->
-	<div class="surface-content">    <main class="main-content">
-        <section class="section-body">
-                            <header class="section-header u-textAlignCenter">
-                    <h2 class="grap--h2">CCF BDCI 2019 多人种人脸识别比赛总结</h2>
-                    <div class="block-postMetaWrap">
-                        <time>2019-12-31</time>
-                    </div>
-                </header>
-                <div class="grap">
-					  <p class="with-img"><img width="1139" height="759" src="https://wid.s3.cn-north-1.amazonaws.com.cn/uploads/images/2019-08-19/%E8%9A%82%E8%9A%81%E9%87%91%E6%9C%8D-392897.jpg" class="attachment-full size-full wp-post-image" alt="CCF BDCI 2019 多人种人脸识别比赛总结" /></p>
-					<h2 id="背景介绍">✨ 背景介绍</h2>
+
+
+    <meta name="description" content="✨ 背景介绍
+CCF大数据与计算智能大赛（CCF Big Data &amp; Computing Intelligence Contest，简称CCF BDCI）是由中国计算机学会大数据专家委员会于2013年创办的国际化智能算法、创新应用..." />
+    <meta name="keywords" content="比赛,人脸识别" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://angus1996.github.io/">
+  <img class="avatar" src="https://angus1996.github.io//images/avatar.png?v=1590312302521" alt="">
+  </a>
+  <h1 class="site-title">
+    Angus&#39; s Blog
+  </h1>
+  <p class="site-description">
+    <html>
+<body>
+<p>
+我遇见你，是最美丽的意外<br /><br />总有一天，我的谜底会揭开
+</p>
+</body>
+</html>
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              CCF BDCI 2019 多人种人脸识别比赛总结
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-12-31
+              </span>
+              <span>
+                9 min read
+              </span>
+              
+                <a href="https://angus1996.github.io/tag/4OevjtmyFd/" class="post-tag">
+                  # 比赛
+                </a>
+              
+                <a href="https://angus1996.github.io/tag/wbuTLtHbP6/" class="post-tag">
+                  # 人脸识别
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://wid.s3.cn-north-1.amazonaws.com.cn/uploads/images/2019-08-19/%E8%9A%82%E8%9A%81%E9%87%91%E6%9C%8D-392897.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="背景介绍">✨ 背景介绍</h2>
 <p>CCF大数据与计算智能大赛（CCF Big Data &amp; Computing Intelligence Contest，简称<strong>CCF BDCI</strong>）是由中国计算机学会大数据专家委员会于2013年创办的国际化智能算法、创新应用和大数据系统大型挑战赛事，是全球大数据与人工智能领域最具影响力的活动之一。2019 CCF大数据与计算智能大赛由教育部高等学校计算机类专业教学指导委员会、国家自然科学基金委员会信息科学部及郑州市人民政府指导，中国计算机学会主办，郑州市郑东新区管理委员会、教育部易班发展中心、CCF大数据专家委员会、大洋洲计算机研究与教育协会、数联众创承办。</p>
 <p><strong>人脸识别</strong>已经在生活中快速的普及开来， 但是人脸识别技术在实际应用中遇到的一个广为人知的问题是它在不同人种的性能有差异。 如何快速的提升<strong>人脸识别系统在不同人种的性能</strong>， 是一个实用的人脸识别算法应该考虑的问题。</p>
 <p>😄<strong>赛题任务</strong>：本次比赛目标是提高人脸识别模型在不同人种上面的性能。以人脸1：1 比对为场景， 参赛队需要同时优化人脸识别模型在不同人种上的性能，提高在低误识率情况下不同人种的通过率。</p>
@@ -237,12 +288,35 @@ sub.close()
 <p>论文中所使用的迁移学习，在多人种人脸识别这一块确实是表现出色，论文中比较对象也包括了此次比赛被广泛使用的Insightface模型。</p>
 <p>或许迁移学习可能就是解决这个赛题的最佳方法，这篇论文的方法值得参考，只是还貌似没有开源代码和训练好的模型。</p>
 
-                </div>
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E8%83%8C%E6%99%AF%E4%BB%8B%E7%BB%8D">✨ 背景介绍</a></li>
+<li><a href="#%EF%B8%8F-our-method">⭐️ Our method</a></li>
+<li><a href="#%EF%B8%8F%E5%85%B7%E4%BD%93%E7%9A%84%E4%BB%A3%E7%A0%81">⚡️具体的代码：</a></li>
+<li><a href="#%E5%90%8D%E6%AC%A1">🏆 名次</a></li>
+<li><a href="#%E5%8F%AF%E8%83%BD%E6%9C%89%E7%94%A8%E7%9A%84%E6%80%9D%E8%B7%AF">🎆 可能有用的思路</a></li>
+</ul>
+</li>
+</ul>
 
-                <div class="post--keywords" itemprop="keywords">
-					 <a href="https://angus1996.github.io/tag/4OevjtmyFd/" class="post--keyword" data-title="比赛" data-type="post_tag" data-term-id="39">比赛</a>  <a href="https://angus1996.github.io/tag/wbuTLtHbP6/" class="post--keyword" data-title="人脸识别" data-type="post_tag" data-term-id="39">人脸识别</a>           </div>
+              </div>
+            </div>
+          </article>
+        </div>
 
-
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://angus1996.github.io/post/LabelSmoothing介绍/">
+              <h3 class="post-title">
+                LabelSmoothing介绍
+              </h3>
+            </a>
+          </div>
+        
 
         
           
@@ -270,49 +344,57 @@ sub.close()
           
 
           
-                      </section>
-    </main>
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://angus1996.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
 </div>
-	<footer class="site-footer u-textAlignCenter">
-    	<div class="footer-branding">
-            <a href="https://angus1996.github.io/" title="Angus&#39; s Blog">Angus&#39; s Blog</a>
-									
-			         </div>
-		 <hr />
-		 <div class="social-links">
-		                       
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-				</div>
-        <div class="footer-copy">
-                Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-        </div>
 
-    </footer>
-	<div class="back-to-top u-hide" onclick="backToTop();"><i class="iconfont icon-xiangshang"></i></div>
+      </div>
+    </div>
 
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/main.js'></script>
-</body>
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
 </html>

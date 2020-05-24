@@ -1,60 +1,115 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-	<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,minimal-ui" />
-    <title>让代码在服务器后台运行 | Angus&#39; s Blog</title>
-<link rel='stylesheet' id='puma-css'  href='https://angus1996.github.io//styles/main.css' type='text/css' media='screen' />
-<link rel='stylesheet' id='puma-css'  href='https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css' media='screen' />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/jquery.js'></script>
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/jquery-migrate.min.js'></script>
-        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
-         <script >hljs.initHighlightingOnLoad();</script>
-         
-</head>
-<body class="single single-post postid-3788 single-format-standard">
-	<!--加入跟随滑动的顶部-->
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="https://angus1996.github.io/" title="Angus&#39; s Blog">Angus&#39; s Blog</a>
-			</h1>
-		</div>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>让代码在服务器后台运行 | Angus&#39; s Blog</title>
+<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1590312302521">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="让代码在服务器后台运行 | Angus&#39; s Blog - Atom Feed" href="https://angus1996.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
-		<a class="primary-nav-trigger" href="javascript:void(0)">
-			<span class="menu-icon"></span>
-		</a>
-		
-	</header>
-		<div class="site-navigation-wrapper">
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<ul class="primary-nav">
-                    
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="首页" href="/">首页</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="归档" href="/archives">归档</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="标签" href="/tags">标签</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="关于" href="/post/about">关于</a></li>
-                
-	
-			</ul>
-		</nav>			
-	</div>
-	<!--跟随滑动的顶部结束-->
-	<div class="surface-content">    <main class="main-content">
-        <section class="section-body">
-                            <header class="section-header u-textAlignCenter">
-                    <h2 class="grap--h2">让代码在服务器后台运行</h2>
-                    <div class="block-postMetaWrap">
-                        <time>2019-05-27</time>
-                    </div>
-                </header>
-                <div class="grap">
-					  <p class="with-img"><img width="1139" height="759" src="https://angus1996.github.io//post-images/让代码在服务器后台运行.jpg" class="attachment-full size-full wp-post-image" alt="让代码在服务器后台运行" /></p>
-					<h1 id="让代码在服务器后台运行">让代码在服务器后台运行</h1>
+
+
+    <meta name="description" content="让代码在服务器后台运行
+之前使用服务器进行深度学习训练的时候，如果中途断网，就与服务器失去了连接，跑了一半的代码也就会停止下来。同时在ssh连接会话中，如果不新建一个连接会话，就无法再做其他事情了。这些问题让人头疼，让人思考将代码放到服务器..." />
+    <meta name="keywords" content="screen,服务器,后台" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://angus1996.github.io/">
+  <img class="avatar" src="https://angus1996.github.io//images/avatar.png?v=1590312302521" alt="">
+  </a>
+  <h1 class="site-title">
+    Angus&#39; s Blog
+  </h1>
+  <p class="site-description">
+    <html>
+<body>
+<p>
+我遇见你，是最美丽的意外<br /><br />总有一天，我的谜底会揭开
+</p>
+</body>
+</html>
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              让代码在服务器后台运行
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-05-27
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://angus1996.github.io/tag/aBFG10PqmhT/" class="post-tag">
+                  # screen
+                </a>
+              
+                <a href="https://angus1996.github.io/tag/1z1DrHIU6Hz/" class="post-tag">
+                  # 服务器
+                </a>
+              
+                <a href="https://angus1996.github.io/tag/w6PFQUOZXRt/" class="post-tag">
+                  # 后台
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://angus1996.github.io//post-images/让代码在服务器后台运行.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="让代码在服务器后台运行">让代码在服务器后台运行</h1>
 <p>之前使用服务器进行深度学习训练的时候，如果中途断网，就与服务器失去了连接，跑了一半的代码也就会停止下来。同时在ssh连接会话中，如果不新建一个连接会话，就无法再做其他事情了。这些问题让人头疼，让人思考将代码放到服务器后台运行。</p>
 <h2 id="1-nohup">1. nohup</h2>
 <p>最直接简单的做法是:</p>
@@ -90,12 +145,32 @@
 </code></pre>
 <p>总结一下，screen可以实现代码在后台运行时的可视化，同时，能在开一个会话连接时创建多个窗口处理不同的任务。用起来也很方便。</p>
 
-                </div>
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E8%AE%A9%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C">让代码在服务器后台运行</a>
+<ul>
+<li><a href="#1-nohup">1. nohup</a></li>
+<li><a href="#2-screen">2. screen</a></li>
+</ul>
+</li>
+</ul>
 
-                <div class="post--keywords" itemprop="keywords">
-					 <a href="https://angus1996.github.io/tag/aBFG10PqmhT/" class="post--keyword" data-title="screen" data-type="post_tag" data-term-id="39">screen</a>  <a href="https://angus1996.github.io/tag/1z1DrHIU6Hz/" class="post--keyword" data-title="服务器" data-type="post_tag" data-term-id="39">服务器</a>  <a href="https://angus1996.github.io/tag/w6PFQUOZXRt/" class="post--keyword" data-title="后台" data-type="post_tag" data-term-id="39">后台</a>           </div>
+              </div>
+            </div>
+          </article>
+        </div>
 
-
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://angus1996.github.io/post/命令行释放GPU显存/">
+              <h3 class="post-title">
+                命令行释放GPU显存
+              </h3>
+            </a>
+          </div>
+        
 
         
           
@@ -123,49 +198,57 @@
           
 
           
-                      </section>
-    </main>
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://angus1996.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
 </div>
-	<footer class="site-footer u-textAlignCenter">
-    	<div class="footer-branding">
-            <a href="https://angus1996.github.io/" title="Angus&#39; s Blog">Angus&#39; s Blog</a>
-									
-			         </div>
-		 <hr />
-		 <div class="social-links">
-		                       
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-				</div>
-        <div class="footer-copy">
-                Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-        </div>
 
-    </footer>
-	<div class="back-to-top u-hide" onclick="backToTop();"><i class="iconfont icon-xiangshang"></i></div>
+      </div>
+    </div>
 
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/main.js'></script>
-</body>
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
 </html>

@@ -1,60 +1,111 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-	<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,minimal-ui" />
-    <title>FFmpeg的使用 | Angus&#39; s Blog</title>
-<link rel='stylesheet' id='puma-css'  href='https://angus1996.github.io//styles/main.css' type='text/css' media='screen' />
-<link rel='stylesheet' id='puma-css'  href='https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css' media='screen' />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/jquery.js'></script>
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/jquery-migrate.min.js'></script>
-        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
-         <script >hljs.initHighlightingOnLoad();</script>
-         
-</head>
-<body class="single single-post postid-3788 single-format-standard">
-	<!--加入跟随滑动的顶部-->
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="https://angus1996.github.io/" title="Angus&#39; s Blog">Angus&#39; s Blog</a>
-			</h1>
-		</div>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FFmpeg的使用 | Angus&#39; s Blog</title>
+<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1590312302521">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="FFmpeg的使用 | Angus&#39; s Blog - Atom Feed" href="https://angus1996.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
-		<a class="primary-nav-trigger" href="javascript:void(0)">
-			<span class="menu-icon"></span>
-		</a>
-		
-	</header>
-		<div class="site-navigation-wrapper">
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<ul class="primary-nav">
-                    
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="首页" href="/">首页</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="归档" href="/archives">归档</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="标签" href="/tags">标签</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="关于" href="/post/about">关于</a></li>
-                
-	
-			</ul>
-		</nav>			
-	</div>
-	<!--跟随滑动的顶部结束-->
-	<div class="surface-content">    <main class="main-content">
-        <section class="section-body">
-                            <header class="section-header u-textAlignCenter">
-                    <h2 class="grap--h2">FFmpeg的使用</h2>
-                    <div class="block-postMetaWrap">
-                        <time>2018-10-18</time>
-                    </div>
-                </header>
-                <div class="grap">
-					  <p class="with-img"><img width="1139" height="759" src="https://angus1996.github.io//post-images/FFmpeg的使用.jpg" class="attachment-full size-full wp-post-image" alt="FFmpeg的使用" /></p>
-					<h1 id="ffmpeg的使用">FFmpeg的使用</h1>
+
+
+    <meta name="description" content="FFmpeg的使用
+最近做视频抽帧处理的时候，利用opencv处理视频，原视频只有8M左右，抽帧处理后保存的视频竟然有56M！！！不可思议，输出视频的数据速率和总比特率有很大提升。然而，这并不是我想要的提升。在Opencv保存视频的参数中，..." />
+    <meta name="keywords" content="视频处理,FFmpeg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://angus1996.github.io/">
+  <img class="avatar" src="https://angus1996.github.io//images/avatar.png?v=1590312302521" alt="">
+  </a>
+  <h1 class="site-title">
+    Angus&#39; s Blog
+  </h1>
+  <p class="site-description">
+    <html>
+<body>
+<p>
+我遇见你，是最美丽的意外<br /><br />总有一天，我的谜底会揭开
+</p>
+</body>
+</html>
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              FFmpeg的使用
+            </h2>
+            <div class="post-info">
+              <span>
+                2018-10-18
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+                <a href="https://angus1996.github.io/tag/xH5Z1L4GY-u/" class="post-tag">
+                  # 视频处理
+                </a>
+              
+                <a href="https://angus1996.github.io/tag/N_WaZJewUlg/" class="post-tag">
+                  # FFmpeg
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://angus1996.github.io//post-images/FFmpeg的使用.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="ffmpeg的使用">FFmpeg的使用</h1>
 <p>最近做视频抽帧处理的时候，利用opencv处理视频，原视频只有8M左右，抽帧处理后保存的视频竟然有56M！！！不可思议，输出视频的数据速率和总比特率有很大提升。然而，这并不是我想要的提升。在Opencv保存视频的参数中，没能找到设置码率的参数。最后求助于<strong>FFmpeg</strong></p>
 <h2 id="什么是ffmpeg">什么是FFmpeg?</h2>
 <p>FFmpeg是一个自由软件，可以运行音频和视频多种格式的录影、转换、流功能，包含了libavcodec ─这是一个用于多个项目中音频和视频的解码器库，以及libavformat——一个音频与视频格式转换库。</p>
@@ -111,12 +162,50 @@
 <li><a href="http://ffmpeg.org/documentation.html">FFmpeg官方文档</a></li>
 </ol>
 
-                </div>
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#ffmpeg%E7%9A%84%E4%BD%BF%E7%94%A8">FFmpeg的使用</a>
+<ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AFffmpeg">什么是FFmpeg?</a>
+<ul>
+<li><a href="#ffmpeg%E7%9A%84%E7%BB%84%E6%88%90">FFmpeg的组成</a></li>
+<li><a href="#%E8%B0%81%E5%9C%A8%E4%BD%BF%E7%94%A8">谁在使用？</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85">如何安装？</a></li>
+<li><a href="#%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8">怎么使用？</a>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7">使用命令行工具</a>
+<ul>
+<li><a href="#ffmpegexe">ffmpeg.exe</a></li>
+<li><a href="#ffplayexe">ffplay.exe</a></li>
+<li><a href="#ffprobeexe">ffprobe.exe</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BD%BF%E7%94%A8ffmpeg%E5%BA%93%E8%BF%9B%E8%A1%8C%E5%BC%80%E5%8F%91">使用ffmpeg库进行开发</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ul>
+</li>
+</ul>
 
-                <div class="post--keywords" itemprop="keywords">
-					 <a href="https://angus1996.github.io/tag/xH5Z1L4GY-u/" class="post--keyword" data-title="视频处理" data-type="post_tag" data-term-id="39">视频处理</a>  <a href="https://angus1996.github.io/tag/N_WaZJewUlg/" class="post--keyword" data-title="FFmpeg" data-type="post_tag" data-term-id="39">FFmpeg</a>           </div>
+              </div>
+            </div>
+          </article>
+        </div>
 
-
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://angus1996.github.io/post/TFLite-使用mobilenet训练自己的数据集并部署到手机上/">
+              <h3 class="post-title">
+                TFLite 使用mobilenet训练自己的数据集并部署到手机上
+              </h3>
+            </a>
+          </div>
+        
 
         
           
@@ -144,49 +233,57 @@
           
 
           
-                      </section>
-    </main>
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://angus1996.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
 </div>
-	<footer class="site-footer u-textAlignCenter">
-    	<div class="footer-branding">
-            <a href="https://angus1996.github.io/" title="Angus&#39; s Blog">Angus&#39; s Blog</a>
-									
-			         </div>
-		 <hr />
-		 <div class="social-links">
-		                       
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-				</div>
-        <div class="footer-copy">
-                Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-        </div>
 
-    </footer>
-	<div class="back-to-top u-hide" onclick="backToTop();"><i class="iconfont icon-xiangshang"></i></div>
+      </div>
+    </div>
 
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/main.js'></script>
-</body>
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
 </html>

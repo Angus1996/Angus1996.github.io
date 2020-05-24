@@ -1,60 +1,118 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-	<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,minimal-ui" />
-    <title>爬虫基本原理 | Angus&#39; s Blog</title>
-<link rel='stylesheet' id='puma-css'  href='https://angus1996.github.io//styles/main.css' type='text/css' media='screen' />
-<link rel='stylesheet' id='puma-css'  href='https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css' media='screen' />
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/jquery.js'></script>
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/jquery-migrate.min.js'></script>
-        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
-         <script >hljs.initHighlightingOnLoad();</script>
-         
-</head>
-<body class="single single-post postid-3788 single-format-standard">
-	<!--加入跟随滑动的顶部-->
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="https://angus1996.github.io/" title="Angus&#39; s Blog">Angus&#39; s Blog</a>
-			</h1>
-		</div>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>爬虫基本原理 | Angus&#39; s Blog</title>
+<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico?v=1590312302521">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="爬虫基本原理 | Angus&#39; s Blog - Atom Feed" href="https://angus1996.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
-		<a class="primary-nav-trigger" href="javascript:void(0)">
-			<span class="menu-icon"></span>
-		</a>
-		
-	</header>
-		<div class="site-navigation-wrapper">
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<ul class="primary-nav">
-                    
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="首页" href="/">首页</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="归档" href="/archives">归档</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="标签" href="/tags">标签</a></li>
-                
-				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="关于" href="/post/about">关于</a></li>
-                
-	
-			</ul>
-		</nav>			
-	</div>
-	<!--跟随滑动的顶部结束-->
-	<div class="surface-content">    <main class="main-content">
-        <section class="section-body">
-                            <header class="section-header u-textAlignCenter">
-                    <h2 class="grap--h2">爬虫基本原理</h2>
-                    <div class="block-postMetaWrap">
-                        <time>2018-01-23</time>
-                    </div>
-                </header>
-                <div class="grap">
-					  <p class="with-img"><img width="1139" height="759" src="https://angus1996.github.io//post-images/爬虫基本原理.jpg" class="attachment-full size-full wp-post-image" alt="爬虫基本原理" /></p>
-					<h1 id="爬虫基本流程">爬虫基本流程</h1>
+
+
+    <meta name="description" content="爬虫基本流程
+发起请求
+通过HTTP库向目标站点发起请求，即发送一个Request，请求可以包含额外的headers等信息，等待服务器响应。
+获取响应内容
+如果服务器能正常响应，会得到一个Response，Response的内容便是所要获取..." />
+    <meta name="keywords" content="python,爬虫,原理" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://angus1996.github.io/">
+  <img class="avatar" src="https://angus1996.github.io//images/avatar.png?v=1590312302521" alt="">
+  </a>
+  <h1 class="site-title">
+    Angus&#39; s Blog
+  </h1>
+  <p class="site-description">
+    <html>
+<body>
+<p>
+我遇见你，是最美丽的意外<br /><br />总有一天，我的谜底会揭开
+</p>
+</body>
+</html>
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              爬虫基本原理
+            </h2>
+            <div class="post-info">
+              <span>
+                2018-01-23
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://angus1996.github.io/tag/B8lhT7J_Yh/" class="post-tag">
+                  # python
+                </a>
+              
+                <a href="https://angus1996.github.io/tag/YqmxhVxcXHs/" class="post-tag">
+                  # 爬虫
+                </a>
+              
+                <a href="https://angus1996.github.io/tag/k4VaYjBKyx1/" class="post-tag">
+                  # 原理
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://angus1996.github.io//post-images/爬虫基本原理.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="爬虫基本流程">爬虫基本流程</h1>
 <h2 id="发起请求">发起请求</h2>
 <p>通过HTTP库向目标站点发起请求，即发送一个Request，请求可以包含额外的headers等信息，等待服务器响应。</p>
 <h2 id="获取响应内容">获取响应内容</h2>
@@ -147,12 +205,77 @@ print(driver.page_source)
 </li>
 </ul>
 
-                </div>
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E7%88%AC%E8%99%AB%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B">爬虫基本流程</a>
+<ul>
+<li><a href="#%E5%8F%91%E8%B5%B7%E8%AF%B7%E6%B1%82">发起请求</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9">获取响应内容</a></li>
+<li><a href="#%E8%A7%A3%E6%9E%90%E5%86%85%E5%AE%B9">解析内容</a></li>
+<li><a href="#%E4%BF%9D%E5%AD%98%E6%95%B0%E6%8D%AE">保存数据</a></li>
+</ul>
+</li>
+<li><a href="#request%E4%B8%8Eresponse">Request与Response</a>
+<ul>
+<li><a href="#request">Request</a>
+<ul>
+<li><a href="#%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F">请求方式</a></li>
+<li><a href="#%E8%AF%B7%E6%B1%82url">请求URL</a></li>
+<li><a href="#%E8%AF%B7%E6%B1%82%E5%A4%B4">请求头</a></li>
+<li><a href="#%E8%AF%B7%E6%B1%82%E4%BD%93">请求体</a></li>
+</ul>
+</li>
+<li><a href="#response">Response</a>
+<ul>
+<li><a href="#%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81">响应状态</a></li>
+<li><a href="#%E5%93%8D%E5%BA%94%E5%A4%B4">响应头</a></li>
+<li><a href="#%E5%93%8D%E5%BA%94%E4%BD%93">响应体</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E8%83%BD%E6%8A%93%E6%80%8E%E6%A0%B7%E7%9A%84%E6%95%B0%E6%8D%AE">能抓怎样的数据</a>
+<ul>
+<li><a href="#%E7%BD%91%E9%A1%B5%E6%96%87%E6%9C%AC">网页文本</a></li>
+<li><a href="#%E5%9B%BE%E7%89%87">图片</a></li>
+<li><a href="#%E8%A7%86%E9%A2%91">视频</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96">其他</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%8E%E4%B9%88%E6%A0%B7%E8%A7%A3%E6%9E%90">怎么样解析？</a>
+<ul>
+<li><a href="#%E7%9B%B4%E6%8E%A5%E5%A4%84%E7%90%86">直接处理</a></li>
+<li><a href="#json%E8%A7%A3%E6%9E%90">Json解析</a></li>
+<li><a href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a></li>
+<li><a href="#beautifulsoup">BeautifulSoup</a></li>
+<li><a href="#pyquery">PyQuery</a></li>
+<li><a href="#xpath">Xpath</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E6%8A%93%E5%88%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9C%8B%E5%88%B0%E7%9A%84%E4%B8%8D%E4%B8%80%E6%A0%B7">为什么我抓到的数据和浏览器看到的不一样？</a>
+<ul>
+<li><a href="#%E6%80%8E%E6%A0%B7%E8%A7%A3%E5%86%B3js%E6%B8%B2%E6%9F%93%E7%9A%84%E9%97%AE%E9%A2%98">怎样解决JS渲染的问题？</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%8E%E4%B9%88%E6%A0%B7%E4%BF%9D%E5%AD%98%E6%95%B0%E6%8D%AE">怎么样保存数据</a></li>
+</ul>
 
-                <div class="post--keywords" itemprop="keywords">
-					 <a href="https://angus1996.github.io/tag/B8lhT7J_Yh/" class="post--keyword" data-title="python" data-type="post_tag" data-term-id="39">python</a>  <a href="https://angus1996.github.io/tag/YqmxhVxcXHs/" class="post--keyword" data-title="爬虫" data-type="post_tag" data-term-id="39">爬虫</a>  <a href="https://angus1996.github.io/tag/k4VaYjBKyx1/" class="post--keyword" data-title="原理" data-type="post_tag" data-term-id="39">原理</a>           </div>
+              </div>
+            </div>
+          </article>
+        </div>
 
-
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://angus1996.github.io/post/想你/">
+              <h3 class="post-title">
+                想你
+              </h3>
+            </a>
+          </div>
+        
 
         
           
@@ -180,49 +303,57 @@ print(driver.page_source)
           
 
           
-                      </section>
-    </main>
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://angus1996.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
 </div>
-	<footer class="site-footer u-textAlignCenter">
-    	<div class="footer-branding">
-            <a href="https://angus1996.github.io/" title="Angus&#39; s Blog">Angus&#39; s Blog</a>
-									
-			         </div>
-		 <hr />
-		 <div class="social-links">
-		                       
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-                            
-                           
-				</div>
-        <div class="footer-copy">
-                Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-        </div>
 
-    </footer>
-	<div class="back-to-top u-hide" onclick="backToTop();"><i class="iconfont icon-xiangshang"></i></div>
+      </div>
+    </div>
 
-<script type='text/javascript' src='https://angus1996.github.io//media/scripts/main.js'></script>
-</body>
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
 </html>
