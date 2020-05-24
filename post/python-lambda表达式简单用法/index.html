@@ -1,483 +1,60 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<title>Angus&#39; s Blog</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<meta name="description" content="&lt;html&gt;
-&lt;body&gt;
-&lt;p&gt;
-我遇见你，是最美丽的意外&lt;br /&gt;&lt;br /&gt;总有一天，我的谜底会揭开
-&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;"/>
-<meta name="keywords" content="&lt;html&gt;
-&lt;body&gt;
-&lt;p&gt;
-我遇见你，是最美丽的意外&lt;br /&gt;&lt;br /&gt;总有一天，我的谜底会揭开
-&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;"/>
-
-<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="https://angus1996.github.io//favicon.ico">
-
-<link rel="stylesheet" href="https://angus1996.github.io//styles/main.css">
-
-<!-- Modernizr JS -->
-<script src="https://angus1996.github.io//media/scripts/modernizr-2.6.2.min.js"></script>
-<!-- FOR IE9 below -->
-<!--[if lt IE 9]>
-<scripts src="https://angus1996.github.io//media/scripts/respond.min.js"></scripts>
-<![endif]-->
-
-<!-- Comment -->
-
-    
-        <link href="https://cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css" rel="stylesheet">
-    
-
-    
-
-
-
-<!-- katex -->
-<!--<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet">-->
-
-<link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
-
-
-
+<html lang="zh-CN">
+	<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,minimal-ui" />
+    <title>python lambda表达式简单用法 | Angus&#39; s Blog</title>
+<link rel='stylesheet' id='puma-css'  href='https://angus1996.github.io//styles/main.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='puma-css'  href='https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css' media='screen' />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://angus1996.github.io//media/scripts/jquery.js'></script>
+<script type='text/javascript' src='https://angus1996.github.io//media/scripts/jquery-migrate.min.js'></script>
+        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+         <script >hljs.initHighlightingOnLoad();</script>
+         
 </head>
-<body>
-    <div id="fh5co-offcanvas">
-    <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
-        <span><i class="icon-cross3"></i> <span>Close</span></span>
-    </a>
-    <div class="fh5co-bio">
-        <figure>
-            <img src="https://angus1996.github.io//images/avatar.png" alt="Angus&#39; s Blog"
-                 class="img-responsive">
-        </figure>
-        <a href="https://angus1996.github.io//post/about/"><h3 class="heading">ABOUT ME</h3></a>
-        <h2>Angus&#39; s Blog</h2>
-        <p>&lt;html&gt;
-&lt;body&gt;
-&lt;p&gt;
-我遇见你，是最美丽的意外&lt;br /&gt;&lt;br /&gt;总有一天，我的谜底会揭开
-&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</p>
-        <ul class="fh5co-social">
-            
-                <li>
+<body class="single single-post postid-3788 single-format-standard">
+	<!--加入跟随滑动的顶部-->
+	<header id="masthead" class="site-header" role="banner">
+		<div class="site-branding">
+			<h1 class="site-title">
+				<a href="https://angus1996.github.io/" title="Angus&#39; s Blog">Angus&#39; s Blog</a>
+			</h1>
+		</div>
+
+		<a class="primary-nav-trigger" href="javascript:void(0)">
+			<span class="menu-icon"></span>
+		</a>
+		
+	</header>
+		<div class="site-navigation-wrapper">
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<ul class="primary-nav">
                     
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-                <li>
-                    
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="fh5co-menu">
-
-        <!-- 标签 -->
-        <div class="fh5co-box">
-            <a href="https://angus1996.github.io//tags/"><h3 class="heading">👉标签</h3></a>
-            <ul>
-                
-                    <li><a href="https://angus1996.github.io/tag/c/">C++</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/shi-xi/">实习</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/chen-si/">沉思</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/shu-zi-shui-yin/">数字水印</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/xin-xi-an-quan/">信息安全</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/cao-zuo-xi-tong/">操作系统</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/shu-ju-fen-xi/">数据分析</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/B8lhT7J_Yh/">python</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/suan-fa/">算法</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/4OevjtmyFd/">比赛</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/wbuTLtHbP6/">人脸识别</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/TJiWVX0r_/">LabelSmoothing</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/XnJcjhtI7m/">deep learning</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/aWo8gkCofz/">pytorch</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/tmM4-p96jM/">markdown</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/aLk79Mz-jR/">emoji</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/d4mSo9PG-G/">opencv</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/PJTPnIYBnj/">visio</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/vscuqxVs_o/">aria2</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/Gh4vEowe3-/">pygame</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/OsOnwBIJBp/">Microsoft Visual C++</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/tEgUi49e4T/">dicom</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/R_9OsWQY_8/">CT</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/w40EhK4O6-6/">灰度变换</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/m8xPQ9OU6a6/">battery</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/eElvD6MQmmw/">Android</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/WOMQ5W8a9rS/">miniprogram</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/aBFG10PqmhT/">screen</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/1z1DrHIU6Hz/">服务器</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/w6PFQUOZXRt/">后台</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/aZhV3Qg6k78/">gpu</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/rAdX1fZdS4t/">download</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/2gbHiwjolpF/">m3u8</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/ZrSlMiVgM2A/">Dijkstra</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/R2K9ZfsbdEE/">pip</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/XAKexus0mbe/">requirements</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/tSvtOGdCCsm/">ubuntu</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/b8PArTh4CDb/">boot repair</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/5a3RiXesygL/">nvidia driver</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/mASXckHwpvr/">神经网络</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/ixIQZJ0Oyyc/">RTMP、RTSP</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/wieuF4Wewbb/">深度学习</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/QXdDXUsMD1s/">图像修复</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/d1bfJl2VzqW/">引导</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/Iv5DERvJgwR/">bug</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/aSANJ4jTuEW/">qt</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/2dLI9fM1rnZ/">thread</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/NBrskoeod1_/">keras</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/roR1Stde5I3/">ffmpeg</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/lPSteBm4D3P/">视频</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/NB_7-6IjEys/">推荐系统</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/IgkaozMXTum/">HyperLPR</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/Ef11hLOQE-6/">Car-Platte</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/DxmEPkN_6e9/">sox</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/uAGVwHXpJIK/">生成器，数据集</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/LC5t9waioDP/">-2进制，进制转换</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/LT-DzwR-iaS/">DICOM</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/_TpjmVMLGF6/">pydicom</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/e2Z44U_Un4k/">dataset</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/-80361cH9Eb/">sign language</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/kOJd9f8BAMx/">android</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/Kb50eHDoRk7/">RecyclerView</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/xH5Z1L4GY-u/">视频处理</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/c9WB18gjE/">Gridea</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/USuvO8nb8ep/">MTCNN</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/VD-OY5x5Znx/">face detection</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/MToqAjDwpc5/">Haar Cascade</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/qdubor43crD/">Hexo</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/fdnlgHKwehv/">域名</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/8epqkNZIeRv/">wine</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/20L5f24c8Vm/">Ubuntu</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/b_YvA5DlWQx/">QQ</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/uyRGppMzaqb/">虚拟环境</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/C8DH6YOjwYE/">pid</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/ZayBFPCZBbP/">OpenCV</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/BXysmlnp3Wk/">姿态估计</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/dSkbSjFtvOM/">pose estimation</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/WJnAGTGtf_8/">图卷积网络</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/IHUndpvtPMW/">GCN</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/89R4HXla-6n/">文字转图片</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/imRfNekFfBl/">美赛</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/VBe9S60OUaK/">数学建模</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/KZgLHUtEdZN/">经验分享</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/CB4dwoDmq1d/">Mnist</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/N_WaZJewUlg/">FFmpeg</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/SkCASVHvGti/">TFLite</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/SXhfPbVFot-/">ios</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/0FSONUuW9JW/">论文梳理</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/In2hWyXXkeE/">轻量</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/UEpMSY4fllD/">图像处理</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/HiS07et3qpX/">Xposed</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/X40UMG4vPt3/">VirtualXposed</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/yEakQqovaZ9/">边缘检测</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/yz1YORTQayS/">excel</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/nWCm9yF-frw/">Python</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/FbQUpHIllqy/">路径</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/V2A-m1WRkYk/">目录</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/_9oUaXMJhVi/">pyqt5</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/c3aYjvsStVA/">术语</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/_rhv_R84TYd/">Think Python</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/vkr4pQBl1eA/">psutil</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/ur9AYv1QeaE/">内存查看</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/5fnFPbqsrpk/">matlab</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/NEkdUwvvrgx/">计时</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/IBjuIVtH2jW/">HUST</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/WnkYK7r4PAm/">音乐会</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/jD2yvSpbF21/">尺寸单位</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/PDHU35NYasJ/">tensorflow</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/uj0r0odRiZo/">毕业设计</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/zuH9oUrnehe/">人脸图像</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/uW1Vwqz8D9w/">更新源</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/pq62I_BUowR/">tuple</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/dcZfVPmgXIC/">ebook</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/srpwyktlIwG/">pillow</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/PKDXgptPown/">镜像</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/IgDQ401pmMd/">Adobe</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/6R2ETeNuer2/">pdf</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/AhC3WM7cz6I/">英文文档阅读</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/bhd3ZrOB69W/">机器学习</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/r9wto5nv5ji/">machine learning</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/Tc9Vk4Bcp5t/">交叉熵</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/PZKcgrXVASp/">Tensorflow</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/7Q1z8zsRgv1/">Linux</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/eV9vla2xSBn/">lock</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/nyjH3tsP7Nu/">思维导图</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/WcCXjJMRNKa/">lambda</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/S7XgzUy4itB/">基础</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/YqmxhVxcXHs/">爬虫</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/k4VaYjBKyx1/">原理</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/_VkhAnOZjL1/">诗歌</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/pV6NGWA8rFJ/">回忆</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/CUqkZI9-5nx/">爱情</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/we-cw3vYnzN/">Problem</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/KsukaXf936S/">学习方式</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/kJ_-kfhbVrT/">增量学习</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/q_gJtArZwsf/">HEXO</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/wMEYejZHvkH/">ionic</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/vPP5JJAzbXb/">app开发</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/89H6h71AWgX/">笑容</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/ad1YKEMHqQE/">生活</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/49vG651Lo/">失眠</a></li>
-                
-                    <li><a href="https://angus1996.github.io/tag/gybN-iiBRO/">孤独</a></li>
-                
-            </ul>
-        </div>
-    </div>
-</div>
-
-<header id="fh5co-header">
-    <div class="container-fluid">
-        <div class="row">
-            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-            <ul class="fh5co-social">
-                
-                    <li>
-                        <a href="/"
-                        
-                        >
-                            首页
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives"
-                        
-                        >
-                            归档
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags"
-                        
-                        >
-                            标签
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/post/about"
-                        
-                        >
-                            关于
-                        </a>
-                    </li>
-                
-            </ul>
-            <div class="col-lg-12 col-md-12 text-center">
-                <h1 id="fh5co-logo">
-                    <a href="https://angus1996.github.io/">Angus&#39; s Blog </a>
-                </h1>
-            </div>
-        </div>
-    </div>
-</header>
-
-
-    <!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
-    <!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
-
-    <!-- 等gridea出自定义页面功能再优化一下 -->
-    
-        <div class="container-fluid">
-    <div class="row fh5co-post-entry single-entry">
-        <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
-            <figure class="animate-box">
-                
-                    <img src="https://angus1996.github.io//post-images/python-lambda表达式简单用法.jpg" alt="python lambda表达式简单用法" class="img-responsive">
-                
-            </figure>
-            <span class="fh5co-meta animate-box">
-                
-                    <div class="tag-container">
-                        
-                            <a href="https://angus1996.github.io/tag/B8lhT7J_Yh/" class="tag">python, </a>
-                        
-                            <a href="https://angus1996.github.io/tag/WcCXjJMRNKa/" class="tag">lambda, </a>
-                        
-                            <a href="https://angus1996.github.io/tag/S7XgzUy4itB/" class="tag">基础, </a>
-                        
+				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="首页" href="/">首页</a></li>
+                
+				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="归档" href="/archives">归档</a></li>
+                
+				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="标签" href="/tags">标签</a></li>
+                
+				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="关于" href="/post/about">关于</a></li>
+                
+	
+			</ul>
+		</nav>			
+	</div>
+	<!--跟随滑动的顶部结束-->
+	<div class="surface-content">    <main class="main-content">
+        <section class="section-body">
+                            <header class="section-header u-textAlignCenter">
+                    <h2 class="grap--h2">python lambda表达式简单用法</h2>
+                    <div class="block-postMetaWrap">
+                        <time>2018-01-24</time>
                     </div>
-                
-            </span>
-            <h2 class="fh5co-article-title animate-box">python lambda表达式简单用法</h2>
-            <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
-                <li>2018-01-24</li>
-                <li>329字</li>
-                <li>2 min read</li>
-            </ol>
-
-            <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
-                <div class="row">
-                    <div class="col-md-12 animate-box post-content">
-                        <p> <h1 id="lambda简介">lambda简介</h1>
+                </header>
+                <div class="grap">
+					  <p class="with-img"><img width="1139" height="759" src="https://angus1996.github.io//post-images/python-lambda表达式简单用法.jpg" class="attachment-full size-full wp-post-image" alt="python lambda表达式简单用法" /></p>
+					<h1 id="lambda简介">lambda简介</h1>
 <p>条件运算时，对于简单的if else 语句，可以使用三元运算来表示，即：</p>
 <pre><code class="language-python"># 普通条件语句
 if 1==1:
@@ -532,144 +109,83 @@ result = reduce(lambda arg1, arg2: arg1 + arg2, li)
 # reduce的第二个参数，要循环的序列
 # reduce的第三个参数，初始值
 </code></pre>
- </p>
-                    </div>
+
                 </div>
 
-                <div class="row">
-                    <div class="col-md-12 animate-box">
-                        
-                            <div class="next-post">
-                                <div class="next">下一篇</div>
-                                <a href="https://angus1996.github.io/post/爬虫基本原理/">
-                                    <h3 class="post-title">
-                                        爬虫基本原理
-                                    </h3>
-                                </a>
-                            </div>
-                        
-                    </div>
-                </div>
+                <div class="post--keywords" itemprop="keywords">
+					 <a href="https://angus1996.github.io/tag/B8lhT7J_Yh/" class="post--keyword" data-title="python" data-type="post_tag" data-term-id="39">python</a>  <a href="https://angus1996.github.io/tag/WcCXjJMRNKa/" class="post--keyword" data-title="lambda" data-type="post_tag" data-term-id="39">lambda</a>  <a href="https://angus1996.github.io/tag/S7XgzUy4itB/" class="post--keyword" data-title="基础" data-type="post_tag" data-term-id="39">基础</a>           </div>
 
-                <div class="row">
-    <div class="col-md-12 animate-box">
+
+
         
-            
-                <div id="gitalk-container"></div>
-            
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-            
-        
-    </div>
-</div>
+<div id="gitalk-container"></div>
 
-            </div>
+<script>
 
-        </article>
-    </div>
-</div>
+  var gitalk = new Gitalk({
+    clientID: '55a2d4ff64d03a69ea0c',
+    clientSecret: '41edb35ca1813906c364b894b378537819096956',
+    repo: 'blogtalk',
+    owner: 'Angus1996',
+    admin: ['Angus1996'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
 
-    
+  gitalk.render('gitalk-container')
 
-    <!-- 返回顶部 -->
-    <div class="back-to-top">
-    
-        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
-            <i class="fa fa-map"></i>
-        </a>
-        <br>
-    
-    <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
-</div>
-
-<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
-    <ul class="markdownIt-TOC">
-<li><a href="#lambda%E7%AE%80%E4%BB%8B">lambda简介</a></li>
-<li><a href="#%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E4%B8%8Elambda">内置函数与lambda</a>
-<ul>
-<li><a href="#%E4%B8%80-map">一、map</a></li>
-<li><a href="#%E4%BA%8C-filter">二、filter</a></li>
-<li><a href="#%E4%B8%89-reduce">三、reduce</a></li>
-</ul>
-</li>
-</ul>
-
-</div>
-
-
-    
-<footer id="fh5co-footer">
-  <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a></p>
-</footer>
-
-
-    <!-- jQuery -->
-<script src="https://angus1996.github.io//media/scripts/jquery.min.js"></script>
-<!-- img lazy load -->
-<script src="https://angus1996.github.io//media/scripts/jquery.lazyload.min.js"></script>
-<!-- jQuery Easing -->
-<script src="https://angus1996.github.io//media/scripts/jquery.easing.1.3.js"></script>
-<!-- Bootstrap -->
-<script src="https://angus1996.github.io//media/scripts/bootstrap.min.js"></script>
-<!-- Waypoints -->
-<script src="https://angus1996.github.io//media/scripts/jquery.waypoints.min.js"></script>
-<!-- Main JS -->
-<script src="https://angus1996.github.io//media/scripts/main.js"></script>
-<!-- Md5 Min JS -->
-<script src="https://angus1996.github.io//media/scripts/md5.min.js"></script>
-<!-- katex -->
-<!--<script src="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.js"></script>-->
-<!-- highlight -->
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
-
-
-<script type="application/javascript">
-    // 代码高亮
-    hljs.initHighlightingOnLoad();
-
-    // img 懒加载
-    $(function () {
-        $("img.lazy").lazyload({
-            effect: "fadeIn",  // 懒加载动画
-            threshold: 180  // 在图片距离屏幕180px时提前载入
-        });
-        // tooltip
-        $('[data-toggle="tooltip"]').tooltip();
-
-        // 目录
-        $('#tool-toc').click(function () {
-            $('.post-toc').toggle();
-        });
-    });
-
-    
 </script>
 
+          
 
+          
+                      </section>
+    </main>
+</div>
+	<footer class="site-footer u-textAlignCenter">
+    	<div class="footer-branding">
+            <a href="https://angus1996.github.io/" title="Angus&#39; s Blog">Angus&#39; s Blog</a>
+									
+			         </div>
+		 <hr />
+		 <div class="social-links">
+		                       
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+				</div>
+        <div class="footer-copy">
+                Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+        </div>
 
-    
-        <script src="https://cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
-        <script>
+    </footer>
+	<div class="back-to-top u-hide" onclick="backToTop();"><i class="iconfont icon-xiangshang"></i></div>
 
-            var gitalk = new Gitalk({
-                clientID: '55a2d4ff64d03a69ea0c',
-                clientSecret: '41edb35ca1813906c364b894b378537819096956',
-                repo: 'blogtalk',
-                owner: 'Angus1996',
-                admin: ['Angus1996'],
-                id: md5(location.pathname),      // Ensure uniqueness and length less than 50
-                distractionFreeMode: false  // Facebook-like distraction free mode
-            })
-
-            gitalk.render('gitalk-container')
-
-        </script>
-    
-
-    
-
-
-
-
+<script type='text/javascript' src='https://angus1996.github.io//media/scripts/main.js'></script>
 </body>
 </html>
