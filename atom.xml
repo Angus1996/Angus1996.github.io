@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://angus1996.github.io/</id>
     <title>Angus&apos; s Blog</title>
-    <updated>2020-05-25T07:13:50.373Z</updated>
+    <updated>2020-07-04T05:42:16.531Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://angus1996.github.io/"/>
     <link rel="self" href="https://angus1996.github.io/atom.xml"/>
@@ -17,6 +17,13 @@
     <logo>https://angus1996.github.io/images/avatar.png</logo>
     <icon>https://angus1996.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Angus&apos; s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[第一次的独自旅行]]></title>
+        <id>https://angus1996.github.io/post/di-yi-ci-de-du-zi-lu-xing/</id>
+        <link href="https://angus1996.github.io/post/di-yi-ci-de-du-zi-lu-xing/">
+        </link>
+        <updated>2020-07-04T03:06:32.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[C++程序设计教程（第3版）（通用版）--钱能]]></title>
         <id>https://angus1996.github.io/post/ccheng-xu-she-ji-jiao-cheng-di-3-ban-tong-yong-ban-qian-neng/</id>
@@ -87,12 +94,5 @@
         <link href="https://angus1996.github.io/post/LabelSmoothing介绍/">
         </link>
         <updated>2019-12-26T14:27:35.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[pytorch自定义Transform]]></title>
-        <id>https://angus1996.github.io/post/pytorch自定义Transform/</id>
-        <link href="https://angus1996.github.io/post/pytorch自定义Transform/">
-        </link>
-        <updated>2019-12-26T14:27:15.000Z</updated>
     </entry>
 </feed>
