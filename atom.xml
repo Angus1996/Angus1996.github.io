@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://angus1996.github.io/</id>
     <title>Angus&apos; s Blog</title>
-    <updated>2020-07-04T05:45:29.346Z</updated>
+    <updated>2020-10-24T02:36:27.071Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://angus1996.github.io/"/>
     <link rel="self" href="https://angus1996.github.io/atom.xml"/>
@@ -17,6 +17,17 @@
     <logo>https://angus1996.github.io/images/avatar.png</logo>
     <icon>https://angus1996.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Angus&apos; s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[一作论文被Neurocomputing接收！]]></title>
+        <id>https://angus1996.github.io/post/yi-zuo-lun-wen-bei-neurocomputing-jie-shou/</id>
+        <link href="https://angus1996.github.io/post/yi-zuo-lun-wen-bei-neurocomputing-jie-shou/">
+        </link>
+        <updated>2020-10-24T02:18:13.000Z</updated>
+        <summary type="html"><![CDATA[<p>📣📣一作论文被Neurocomputing接收。使用图卷积神经网络对安卓函数调用图进行学习、特征提取，在众多分类器都取得了超过99%的准确性和召回率💪💪。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>📣📣一作论文被Neurocomputing接收。使用图卷积神经网络对安卓函数调用图进行学习、特征提取，在众多分类器都取得了超过99%的准确性和召回率💪💪。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[第一次的独自旅行]]></title>
         <id>https://angus1996.github.io/post/di-yi-ci-de-du-zi-lu-xing/</id>
@@ -87,12 +98,5 @@
         <link href="https://angus1996.github.io/post/ccf-bdci-2019-duo-ren-chong-ren-lian-shi-bie-bi-sai-zong-jie/">
         </link>
         <updated>2019-12-31T11:25:23.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[LabelSmoothing介绍]]></title>
-        <id>https://angus1996.github.io/post/LabelSmoothing介绍/</id>
-        <link href="https://angus1996.github.io/post/LabelSmoothing介绍/">
-        </link>
-        <updated>2019-12-26T14:27:35.000Z</updated>
     </entry>
 </feed>
