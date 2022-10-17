@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Angus1996.github.io</id>
+    <title>风中呓语</title>
+    <updated>2022-10-17T14:30:25.849Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Angus1996.github.io"/>
+    <link rel="self" href="https://Angus1996.github.io/atom.xml"/>
+    <subtitle>&lt;html&gt;
+&lt;body&gt;
+&lt;p&gt;
+    95后博主，在线随心更博，记录点滴&lt;br /&gt;
+    To you : 我遇见你，是最美丽的意外
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</subtitle>
+    <logo>https://Angus1996.github.io/images/avatar.png</logo>
+    <icon>https://Angus1996.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2022, 风中呓语</rights>
+    <entry>
+        <title type="html"><![CDATA[人际关系的构成]]></title>
+        <id>https://Angus1996.github.io/post/du-lesslessqin-mi-guan-xi-greatergreater-di-yi-zhang-ren-ji-guan-xi-de-gou-cheng/</id>
+        <link href="https://Angus1996.github.io/post/du-lesslessqin-mi-guan-xi-greatergreater-di-yi-zhang-ren-ji-guan-xi-de-gou-cheng/">
+        </link>
+        <updated>2022-08-06T02:21:08.000Z</updated>
+        <summary type="html"><![CDATA[<p>亲密关系第一章，人际关系的构成。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>亲密关系第一章，人际关系的构成。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[左连接也有笛卡尔积]]></title>
+        <id>https://Angus1996.github.io/post/zuo-lian-jie-ye-you-di-qia-er-ji/</id>
+        <link href="https://Angus1996.github.io/post/zuo-lian-jie-ye-you-di-qia-er-ji/">
+        </link>
+        <updated>2021-12-12T08:42:23.000Z</updated>
+        <summary type="html"><![CDATA[<p>总结一下数据分析中常用的联表查询方式。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>总结一下数据分析中常用的联表查询方式。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[毕业近况]]></title>
+        <id>https://Angus1996.github.io/post/bi-ye-jin-kuang/</id>
+        <link href="https://Angus1996.github.io/post/bi-ye-jin-kuang/">
+        </link>
+        <updated>2021-10-29T12:38:32.000Z</updated>
+        <summary type="html"><![CDATA[<p>更新一波博客，聊聊近况。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>更新一波博客，聊聊近况。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[《统计数据会说谎》读后感]]></title>
+        <id>https://Angus1996.github.io/post/lesslesstong-ji-shu-ju-hui-shuo-huang-greatergreater-du-hou-gan/</id>
+        <link href="https://Angus1996.github.io/post/lesslesstong-ji-shu-ju-hui-shuo-huang-greatergreater-du-hou-gan/">
+        </link>
+        <updated>2021-04-13T04:25:55.000Z</updated>
+        <summary type="html"><![CDATA[<p>很久没有更新博客了，一直在忙研究生的毕业设计和毕业论文。毕业论文上传盲审之后，每天放松之余花了一点时间阅读这本早就在书立中的《统计数据会说谎》。这本书共分为十章。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>很久没有更新博客了，一直在忙研究生的毕业设计和毕业论文。毕业论文上传盲审之后，每天放松之余花了一点时间阅读这本早就在书立中的《统计数据会说谎》。这本书共分为十章。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[一作论文被Neurocomputing接收！]]></title>
+        <id>https://Angus1996.github.io/post/yi-zuo-lun-wen-bei-neurocomputing-jie-shou/</id>
+        <link href="https://Angus1996.github.io/post/yi-zuo-lun-wen-bei-neurocomputing-jie-shou/">
+        </link>
+        <updated>2020-10-24T02:18:13.000Z</updated>
+        <summary type="html"><![CDATA[<p>📣📣一作论文被Neurocomputing接收。使用图卷积神经网络对安卓函数调用图进行学习、特征提取，在众多分类器都取得了超过99%的准确性和召回率💪💪。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>📣📣一作论文被Neurocomputing接收。使用图卷积神经网络对安卓函数调用图进行学习、特征提取，在众多分类器都取得了超过99%的准确性和召回率💪💪。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[第一次的独自旅行]]></title>
+        <id>https://Angus1996.github.io/post/di-yi-ci-de-du-zi-lu-xing/</id>
+        <link href="https://Angus1996.github.io/post/di-yi-ci-de-du-zi-lu-xing/">
+        </link>
+        <updated>2020-07-04T03:06:32.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C++程序设计教程（第3版）（通用版）--钱能]]></title>
+        <id>https://Angus1996.github.io/post/ccheng-xu-she-ji-jiao-cheng-di-3-ban-tong-yong-ban-qian-neng/</id>
+        <link href="https://Angus1996.github.io/post/ccheng-xu-she-ji-jiao-cheng-di-3-ban-tong-yong-ban-qian-neng/">
+        </link>
+        <updated>2020-05-24T09:01:56.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2020年春招实习上岸]]></title>
+        <id>https://Angus1996.github.io/post/2020-nian-chun-zhao-shi-xi-shang-an/</id>
+        <link href="https://Angus1996.github.io/post/2020-nian-chun-zhao-shi-xi-shang-an/">
+        </link>
+        <updated>2020-05-09T12:21:36.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[小城的春天]]></title>
+        <id>https://Angus1996.github.io/post/xiao-cheng-de-chun-tian/</id>
+        <link href="https://Angus1996.github.io/post/xiao-cheng-de-chun-tian/">
+        </link>
+        <updated>2020-04-18T01:50:03.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[多媒体信息安全技术简介]]></title>
+        <id>https://Angus1996.github.io/post/duo-mei-ti-xin-xi-an-quan-ji-zhu-jian-jie/</id>
+        <link href="https://Angus1996.github.io/post/duo-mei-ti-xin-xi-an-quan-ji-zhu-jian-jie/">
+        </link>
+        <updated>2020-04-17T08:43:40.000Z</updated>
+        <summary type="html"><![CDATA[<p>多媒体信息安全概述，信息保护策略、加密技术、信息隐藏技术的简单介绍。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>多媒体信息安全概述，信息保护策略、加密技术、信息隐藏技术的简单介绍。</p>
+]]></content>
+    </entry>
+</feed>
